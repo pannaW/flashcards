@@ -1,0 +1,11 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %} Add flashcard {% endblock %}
+
+{% block body %}
+<h1> Add flashcard </h1>
+    {{ form_start(form, {method: 'post', action : url('flashcard_add')}) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Add" class="btn btn-success" />
+    {{ form_end(form) }}
+{% endblock %}

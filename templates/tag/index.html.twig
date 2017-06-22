@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+    {% block title %}
+        Your tags
+    {% endblock %}
+
+
+    {% block body %}
+        <h1> Your tags </h1>
+
+        {% if tag|length %}
+            {% for row in tag %}
+                <li><a href="#">
+                        {{ row.id }}, {{ row.name }}
+                    </a></li>
+            {% endfor %}
+
+        {% else %}
+            <div>
+                No tags found
+            </div>
+        {% endif %}
+
+    {% endblock %}
+

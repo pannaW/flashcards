@@ -1,0 +1,17 @@
+{% form_theme form with ['bootstrap_3_horizontal_layout.html.twig', 'form/form_errors.html.twig'] %}
+
+{% extends 'layout.html.twig' %}
+
+{% block title %} Tag {{ tag.id }} {% endblock %}
+
+{% block body %}
+    <h1> Tag {{ tag.id }} </h1>
+    {{ form_start(form, { method: 'post', action: url('tag_delete', {'id': tag.id}) }) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Usuń" class="btn btn-success" />
+    {{ form_end(form) }}
+    <a href="{{ url('tag_index') }}" title="Powrót" class="btn btn-default">
+        <span class="fa fa-mail-reply" aria-hidden="true"></span>
+        Powrót
+    </a>
+{% endblock %}

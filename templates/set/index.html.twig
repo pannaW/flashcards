@@ -1,0 +1,25 @@
+{% extends 'layout.html.twig' %}
+
+    {% block title %}
+        Your collection
+    {% endblock %}
+
+
+    {% block body %}
+        <h1> Your Collection </h1>
+
+        {% if set|length %}
+            {% for row in set %}
+                <li><a href="#">
+                    {{ row.id }}, {{ row.name }}
+                    </a></li>
+            {% endfor %}
+
+        {% else %}
+            <div>
+                No sets found
+            </div>
+        {% endif %}
+
+    {% endblock %}
+

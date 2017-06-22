@@ -1,0 +1,16 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Delete set {% endblock %}
+
+{% block content %}
+    <h1> Delete set {{ set.id }} </h1>
+    {{ form_start(form, { method: 'post', action: url('set_delete', {'id': set.id}) }) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Delete" class="btn btn-success" />
+    {{ form_end(form) }}
+    <a href="{{ url('set_index') }}" title="Back" class="btn btn-default">
+        <span class="fa fa-mail-reply" aria-hidden="true"></span>
+        Back
+    </a>
+{% endblock %}
+

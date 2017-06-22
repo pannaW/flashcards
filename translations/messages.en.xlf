@@ -1,0 +1,25 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="title.bookmarks_list">
+                <source>title.bookmarks_list</source>
+                <target>Bookmarks List</target>
+            </trans-unit>
+
+            <trans-unit id="title.bookmark_view">
+                            <source>title.bookmark_view</source>
+                            <target>Bookmark no. #%id%</target>
+                        </trans-unit>
+
+            <trans-unit id="label.back_to_list">
+                            <source>label.back_to_list</source>
+                            <target> Back </target>
+                        </trans-unit>
+            <trans-unit id="message.element_successfully_added">
+                             <source> message.element_successfully_added </source>
+                             <target> Element successfully added </target>
+                         </trans-unit>
+        </body>
+    </file>
+</xliff>

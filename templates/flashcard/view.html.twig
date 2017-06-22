@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    Flashcard {{ id }}
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Flashcard {{ id }}
+    </h1>
+    {% if flashcard|length %}
+        <div>
+        {{ flashcard.word }} => {{ flashcard.definition }}
+    {% else %}
+        <div>
+            No flashcards found
+        </div>
+    {% endif %}
+    <br>
+    <a href="{{ url('flashcard_index') }}" title="Powrót">
+        Powrót</a>
+
+{% endblock %}

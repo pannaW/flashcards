@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    Zestaw {{set.id}}
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Zestaw {{set.id}}
+    </h1>
+    {% if set|length %}
+        <div>
+        {{ set.id }}, {{ set.name }}
+    {% else %}
+        <div>
+            Nie znaleziono zestawu
+        </div>
+    {% endif %}
+    <br>
+    <a href="{{ url('set_index') }}" title="Powrót">
+        Powrót </a>
+
+{% endblock %}

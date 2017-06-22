@@ -1,0 +1,16 @@
+body {
+    background-color: #afd9ee;
+}
+h1 {
+    color: #2a2730;
+}
+
+a{
+    text-decoration: none;
+    color: #767676;
+}
+
+a:hover{
+    color: #666666;
+}
+

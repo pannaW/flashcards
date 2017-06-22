@@ -1,0 +1,32 @@
+<?xml version="1.0"?>
+<xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
+    <file source-language="en" target-language="pl" datatype="plaintext" original="file.ext">
+        <body>
+            <trans-unit id="action.save">
+                                <source> action.save </source>
+                                <target> Zapisz </target>
+            </trans-unit>
+
+            <trans-unit id="label.name">
+                                <source> label.name </source>
+                                <target> Nazwa </target>
+            </trans-unit>
+
+            <trans-unit id="label.public">
+                                <source> label.public </source>
+                                <target> Publiczny </target>
+            </trans-unit>
+
+            <trans-unit id="message.element_successfully_added">
+                                <source> message.element_successfully_added </source>
+                                <target> Sukces! Dodano element. </target>
+            </trans-unit>
+
+            <trans-unit id="message.element_successfully_deleted">
+                                            <source> message.element_successfully_delete </source>
+                                            <target> Usunięto element. </target>
+                        </trans-unit>
+
+        </body>
+    </file>
+</xliff>

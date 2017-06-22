@@ -1,0 +1,51 @@
+{% block login %}
+    <!-- Login Modal -->
+    <div class="modal fade" id="login-modal" tabindex="-1" role="dialog" aria-labelledby="Modal" style="display: none;" >
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h1><b> Log in </b></h1>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="text" name="user" placeholder="Username"><br>
+                        <input type="password" name="password" placeholder="Password"><br>
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Log in">
+                    </form>
+                </div>
+                <div class="login-help">
+                    <p> Not a member yet? <a href="#"> Register </a> </p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Login Modal End-->
+{% endblock %}
+
+{% block signup %}
+<!-- Sign up Modal -->
+    <div class="modal fade" id="signup-modal" tabindex="-1" role="dialog" aria-labelledby="Modal" style="display: none;" >
+        <div class="modal-dialog">
+            <div class="loginmodal-container">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                    <h1><b> Sign up </b></h1>
+                    <small> Join us today for a rapid learning effects increase</small>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <input type="text" name="user" placeholder="Username"><br>
+                        <input type="email" name="mail" placeholder="Email"><br>
+                        <input type="password" name="password" placeholder="Password"><br>
+                        <input type="submit" name="login" class="login loginmodal-submit" value="Sign up!">
+                    </form>
+                </div>
+                <div class="login-help">
+                    <p> By signing up you agree to our <br> Terms & Conditions</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Sign up Modal End-->
+{% endblock %}

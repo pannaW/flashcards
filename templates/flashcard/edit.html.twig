@@ -1,0 +1,13 @@
+{% form_theme form with ['bootstrap_3_horizontal_layout.html.twig', 'form/form_errors.html.twig'] %}
+
+{% extends 'layout.html.twig' %}
+
+{% block title %} Flashcard {{ flashcard.id }} {% endblock %}
+
+{% block body %}
+    <h1>Flashcard {{ flashcard.id }}</h1>
+    {{ form_start(form, { method: 'post', action: url('flashcard_edit', {'id': flashcard.id}) }) }}
+    {{ form_widget(form) }}
+    <input type="submit" value="Zapisz" class="btn btn-success" />
+    {{ form_end(form) }}
+{% endblock %}

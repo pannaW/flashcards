@@ -1,0 +1,23 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}
+    Tag {{ id }}
+{% endblock %}
+
+{% block body %}
+    <h1>
+        Tag {{ id }}
+    </h1>
+    {% if tag|length %}
+        <div>
+        {{ tag.id }}, {{ tag.name }}
+    {% else %}
+        <div>
+            No tags found
+        </div>
+    {% endif %}
+    <br>
+    <a href="{{ url('tag_index') }}" title="Powrót">
+        Powrót</a>
+
+{% endblock %}

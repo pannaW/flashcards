@@ -1,0 +1,245 @@
+body {
+    font-family: 'Lato', sans-serif;
+}
+
+/*NAVIGATION*/
+
+.navbar-custom {
+    background-color: #FFFFFF;
+    border-color: #e5e9f2;
+}
+
+.navbar-header .navbar-brand-custom {
+    font-weight: 900;
+    font-size: 40px;
+    color: #FFE500;
+}
+
+#navbar > .navbar-nav {
+    color: #47525E;
+}
+
+#navbar ul {
+    margin: 0px 10px 0px;
+    padding: 0px 20px 0px;
+}
+
+.navbar-right li {
+    color: #47525E;
+    font-size: large;
+}
+
+#navbar ul li button {
+   background-color:  #FFE500;
+    border: 0px;
+    color: #ffffff;
+    font-size: medium;
+}
+
+.navbar-custom .navbar-nav>.active>a, .navbar-custom .navbar-nav>.active>a:focus, .navbar-custom .navbar-nav>.active>a:hover {
+    background-color: #E5E9F2;
+    color: #47525E;
+}
+
+.navbar-custom .navbar-nav>li>a {
+    color: #47525E;
+}
+
+/*HEADER*/
+
+.jumbotron {
+    height: 600px;
+    width:100%;
+    margin-top: 50px;
+    margin-bottom: 0px;
+    background-image: url("../images/desk.jpg");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.jumbotron > div {
+    padding-right:5%;
+}
+
+#page-heading {
+    float: right;
+    margin-top: 10%;
+}
+
+#page-heading > h1 {
+    color: #47525E;
+    font-weight: bolder;
+    font-size: 70px;
+    text-align: left;
+    line-height: 80%;
+}
+
+#page-heading > p {
+    margin-bottom: 50px;
+    font-weight: lighter;
+    font-size: 40px;
+    color: #CFB724;
+    text-align: center;
+    line-height: 80%;
+
+}
+
+#page-heading > div > .btn {
+    padding: 20px;
+    background-color: #8190A5;
+    color: #FFFFFF;
+    font-size: medium;
+}
+
+@media(max-width:768px) {
+
+    .jumbotron {
+        padding: 30px;
+        height: 450px;
+    }
+
+    #page-heading > div > .btn {
+        display: inline-block;
+        margin: 0 auto;
+        width:100%;
+        padding:15px;
+        text-align:center;
+        min-width:115px;
+    }
+}
+
+/* LOGIN MODAL */
+
+.modal-dialog {
+    height: 80% !important;
+    padding-top:10%;
+    margin:0 auto;
+    align-content: center;
+}
+
+.modal-body {
+    height: 80%;
+    overflow: auto;
+}
+
+.loginmodal-container {
+    padding: 2% 5% 15% 5%;
+    max-width: 400px;
+    max-height: 500px;
+    overflow:visible;
+    background-color: #F7F7F7;
+    border-radius: 2px;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.4);
+    text-align: center;
+    color:#8190A5;
+    border: transparent 0px;
+    margin:0 auto;
+}
+
+.loginmodal-container input{
+    margin:10px;
+    padding:8px;
+    border-radius: 6px;
+    border:solid rgba(129,144,165,0.3) 1px;
+}
+
+.loginmodal-container input[type="submit"] {
+    background-color:#47525E;
+    color:white;
+    width:70%;
+    font-weight: lighter;
+}
+
+
+.modal-header {
+    border-bottom: 0px;
+    padding-bottom: 0px;
+}
+
+.modal-header h1 {
+    color:#47525E;
+    font-weight:bolder;
+
+}
+
+.login-help {
+    font-size: small;
+}
+
+
+/* SIGN UP MODAL */
+
+ #signup-modal .modal-dialog {
+    padding-top: 5%;
+}
+
+#signup-modal .modal-header h1 {
+    color: #CFB724;
+}
+
+#signup-modal input[type="submit"]{
+    width:60%;
+    background-color: #FFE500;
+    color:#ffffff;
+    font-weight: 500;
+    border:0px;
+}
+
+/* START */
+#start {
+    padding:80px 0 80px;
+    text-align: center;
+}
+
+#start h2 , #start h4 {
+    margin:20px 0 20px;
+    font-weight: bold;
+}
+
+#start p {
+    padding-bottom: 50px;
+}
+
+#start i {
+    height:120px;
+    width: 120px;
+    font-size:60px;
+    padding:25px 20px;
+    -webkit-border-radius:50%;
+    -moz-border-radius:50%;
+    border-radius:50%;
+    color:#ffffff;
+    background-color: #8190A5;
+    margin-bottom: 10px;
+}
+
+#start h2 > p {
+    padding-top:0px;
+    margin-top: 0px;
+    margin-bottom:20px;
+}
+
+#start h2 {
+    color: #47525E;
+    font-family: 'Lato black', sans-serif;
+    font-size: 35px;
+    margin-bottom: 5px;
+    padding-bottom: 5px;
+}
+
+/*FOOTER*/
+#footer{
+    padding:80px 40px 5px 40px;
+    background-color: #CFB724;
+    color:white;
+}
+#footer h4 {
+    font-weight: bold;
+}
+#copyright {
+    text-align: center;
+    margin-top:100px;
+    margin-bottom: 0px;
+    font-weight: lighter;
+}
