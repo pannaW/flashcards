@@ -1,0 +1,22 @@
+{% extends '/landingpage/navigation.html.twig' %}
+
+{% block navlist %}
+
+    <li class="active"> <a href="#menu-toggle" id="menu-toggle"> Panel <span class="sr-only"> (current) </span> </a> </li>
+{% endblock %}
+
+{% block rightnavlist %}
+    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+
+        <li><a href="#" title="{{ 'user.label'|trans }}"> User </a></li>
+        <li><a href="{{ url('auth_logout') }}" title="{{ 'auth.logout.label'|trans }}"> Log out
+            </a></li>
+    {% else %}
+        <li>
+            <a href="{{ url('auth_login') }}" title="{{ 'auth.login.label'|trans }}"> Log in</a>
+        </li>
+        <li>
+            <a href="{{ url('register')}}" class="btn btn-default navbar-btn">Sign up </a>
+        </li>
+    {% endif %}
+{% endblock %}

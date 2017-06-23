@@ -1,23 +1,30 @@
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
 {% block title %}
     Zestaw {{set.id}}
 {% endblock %}
 
-{% block body %}
-    <h1>
-        Zestaw {{set.id}}
-    </h1>
-    {% if set|length %}
-        <div>
-        {{ set.id }}, {{ set.name }}
-    {% else %}
-        <div>
-            Nie znaleziono zestawu
-        </div>
-    {% endif %}
-    <br>
-    <a href="{{ url('set_index') }}" title="Powrót">
-        Powrót </a>
+{% block board %}
 
+    {% block header %}
+        <h1>
+            Zestaw {{set.id}}
+        </h1>
+    {% endblock %}
+
+    {% block article %}
+        {% if set|length %}
+            <div>
+            {{ set.id }}, {{ set.name }}
+            <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i></a>
+            <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i></a>
+        {% else %}
+            <div>
+                Nie znaleziono zestawu
+            </div>
+        {% endif %}
+        <br>
+        <a href="{{ url('set_index') }}" title="Powrót">
+            Powrót </a>
+        {% endblock %}
 {% endblock %}

@@ -40,3 +40,5 @@ $app->mount('/set', new SetController());
 $app->mount('/tag', new \Controller\TagController());
 $app->mount('/flashcard', new \Controller\FlashcardController());
 $app->mount('/user', new \Controller\UserController());
+$app->mount('/auth', new \Controller\AuthController());
+$app->mount('/registration', new \Controller\RegisterController());

@@ -11,7 +11,6 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\Request;
 use Form\FlashcardType;
 use Repository\FlashcardRepository;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 
 /**

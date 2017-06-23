@@ -1,9 +1,13 @@
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
 {% block title %}Delete set {% endblock %}
 
-{% block content %}
-    <h1> Delete set {{ set.id }} </h1>
+{% block board %}
+    {% block header %}
+        <h1> Delete set {{ set.id }} </h1>
+    {% endblock %}
+
+    {% block article %}
     {{ form_start(form, { method: 'post', action: url('set_delete', {'id': set.id}) }) }}
     {{ form_widget(form) }}
     <input type="submit" value="Delete" class="btn btn-success" />
@@ -12,5 +16,6 @@
         <span class="fa fa-mail-reply" aria-hidden="true"></span>
         Back
     </a>
+    {% endblock %}
 {% endblock %}
 

@@ -1,25 +1,33 @@
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
     {% block title %}
         Your collection
     {% endblock %}
 
 
-    {% block body %}
-        <h1> Your Collection </h1>
-
-        {% if set|length %}
-            {% for row in set %}
-                <li><a href="#">
-                    {{ row.id }}, {{ row.name }}
-                    </a></li>
-            {% endfor %}
-
-        {% else %}
-            <div>
-                No sets found
+    {% block board %}
+        {% block header %}
+            <div id="header">
+            <h1> Your Collections </h1>
+            <small>  3 collections | 14 tags </small>
             </div>
-        {% endif %}
+        {% endblock %}
 
+        {% block article %}
+            <article>
+            {% if set|length %}
+                {% for row in set %}
+                    <li><a href="{{ url('set_view', {'id': row.id }) }}">
+                        {{ row.id }}, {{ row.name }}
+                        </a></li>
+                {% endfor %}
+
+            {% else %}
+                <div>
+                    No sets found
+                </div>
+            {% endif %}
+            </article>
+        {% endblock %}
     {% endblock %}
 

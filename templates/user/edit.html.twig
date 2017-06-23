@@ -1,0 +1,17 @@
+{% extends 'panel.html.twig' %}
+
+{% block title %}
+    Edit profile details {{ id }}
+{% endblock %}
+
+{% block board %}
+    {% block header %}
+        <h1> Edit user {{ id }} </h1>
+    {% endblock %}
+    {% block article %}
+        {{ form_start(form, { method: 'post', action: url('user_edit', {'id': id}) }) }}
+        {{ form_widget(form) }}
+        <input type="submit" value=" Save " class="btn btn-success" />
+        {{ form_end(form) }}
+    {% endblock %}
+{% endblock %}

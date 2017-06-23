@@ -1,23 +1,30 @@
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
 {% block title %}
     Tag {{ id }}
 {% endblock %}
 
-{% block body %}
-    <h1>
-        Tag {{ id }}
-    </h1>
-    {% if tag|length %}
-        <div>
-        {{ tag.id }}, {{ tag.name }}
-    {% else %}
-        <div>
-            No tags found
-        </div>
-    {% endif %}
-    <br>
-    <a href="{{ url('tag_index') }}" title="Powrót">
-        Powrót</a>
+{% block board %}
+    {% block header %}
+        <h1>
+            Tag {{ id }}
+        </h1>
+    {% endblock %}
+
+    {% block article %}
+        {% if tag|length %}
+            <div>
+            {{ tag.id }}, {{ tag.name }}
+            <a href="{{ url('tag_edit', {'id': id }) }}"><i class="fa fa-edit"></i></a>
+            <a href="{{ url('tag_delete', {'id': id }) }}"><i class="fa fa-remove"></i></a>
+        {% else %}
+            <div>
+                No tags found
+            </div>
+        {% endif %}
+        <br>
+        <a href="{{ url('tag_index') }}" title="Powrót">
+            Powrót</a>
+    {% endblock %}
 
 {% endblock %}

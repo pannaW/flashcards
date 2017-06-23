@@ -5,7 +5,6 @@
 
 namespace Controller;
 
-use PhpCollection\Set;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;

@@ -1,0 +1,20 @@
+{% extends 'panel.html.twig' %}
+
+{% block title %}Delete user {% endblock %}
+
+{% block board %}
+    {% block header %}
+             <h1> Delete user {{ user.id }} </h1>
+    {% endblock %}
+    {% block article %}
+        {{ form_start(form, { method: 'post', action: url('user_delete', {'id': user.id}) }) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Delete" class="btn btn-success" />
+        {{ form_end(form) }}
+        <a href="user_index" title="Back" class="btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>
+            Back
+        </a>
+    {% endblock %}
+{% endblock %}
+

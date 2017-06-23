@@ -1,25 +1,30 @@
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
     {% block title %}
         Your tags
     {% endblock %}
 
 
-    {% block body %}
-        <h1> Your tags </h1>
+    {% block board %}
 
-        {% if tag|length %}
-            {% for row in tag %}
-                <li><a href="#">
-                        {{ row.id }}, {{ row.name }}
-                    </a></li>
-            {% endfor %}
+        {% block header %}
+            <h1> Your tags </h1>
+        {% endblock %}
 
-        {% else %}
-            <div>
-                No tags found
-            </div>
-        {% endif %}
+        {% block article %}
+            {% if tag|length %}
+                {% for row in tag %}
+                    <li><a href="{{ url('tag_view', {'id': row.id }) }}">
+                            {{ row.id }}, {{ row.name }}
+                        </a></li>
+                {% endfor %}
+
+            {% else %}
+                <div>
+                    No tags found
+                </div>
+            {% endif %}
+        {% endblock %}
 
     {% endblock %}
 

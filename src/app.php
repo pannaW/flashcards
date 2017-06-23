@@ -72,11 +72,51 @@ $app->register(
     new SecurityServiceProvider(),
     [
         'security.firewalls' => [
-            'unsecured' => [
-                'anonymous' => true,
+            'dev' => [
+                'pattern' => '^/(_(profiler|wdt)|css|images|js)/',
+                'security' => false,
             ],
+            'main' => [
+                'pattern' => '^.*$',
+                'form' => [
+                    'login_path' => 'auth_login',
+                    'check_path' => 'auth_login_check',
+                    'default_target_path' => 'set_index',
+                    'username_parameter' => 'login_type[login]',
+                    'password_parameter' => 'login_type[password]',
+                ],
+                'anonymous' => true,
+                'logout' => [
+                    'logout_path' => 'auth_logout',
+                    'target_url' => 'set_index',
+                ],
+                'users' => function () use ($app) {
+                    return new Provider\UserProvider($app['db']);
+                },
+            ],
+        ],
+        'security.access_rules' => [
+            ['^/auth.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
+            ['^/registration.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
+            ['^/.+$', 'ROLE_USER'],
+            ['^/admin.+$', 'ROLE_ADMIN'],
+
+        ],
+        'security.role_hierarchy' => [
+            'ROLE_ADMIN' => ['ROLE_USER'],
         ],
     ]
 );
+
+//$app->register(
+//    new SecurityServiceProvider(),
+//    [
+//        'security.firewalls' => [
+//            'unsecured' => [
+//                'anonymous' => true,
+//            ],
+//        ],
+//    ]
+//);
 
 return $app;

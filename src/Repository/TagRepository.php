@@ -67,7 +67,7 @@ class TagRepository
     {
         $queryBuilder = $this->queryAll();
         $queryBuilder->where('t.id IN (:ids)')
-            ->setParameter(':ids', $ids, \Doctrine\DBAL\Connection::PARAM_INT_ARRAY);
+            ->setParameter(':ids', $ids, Connection::PARAM_INT_ARRAY);
 
         return $queryBuilder->execute()->fetchAll();
     }

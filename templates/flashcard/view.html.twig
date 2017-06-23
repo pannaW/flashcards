@@ -1,23 +1,28 @@
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
 {% block title %}
     Flashcard {{ id }}
 {% endblock %}
 
-{% block body %}
-    <h1>
-        Flashcard {{ id }}
-    </h1>
-    {% if flashcard|length %}
-        <div>
-        {{ flashcard.word }} => {{ flashcard.definition }}
-    {% else %}
-        <div>
-            No flashcards found
-        </div>
-    {% endif %}
-    <br>
-    <a href="{{ url('flashcard_index') }}" title="Powrót">
-        Powrót</a>
-
+{% block board %}
+    {% block header %}
+        <h1>
+            Flashcard {{ id }}
+        </h1>
+    {% endblock %}
+    {% block article %}
+        {% if flashcard|length %}
+            <div>
+            {{ flashcard.word }} => {{ flashcard.definition }}
+            <a href="{{ url('set_edit', {'id': id }) }}"><i class="fa fa-edit"></i></a>
+            <a href="{{ url('set_delete', {'id': id }) }}"><i class="fa fa-remove"></i></a>
+        {% else %}
+            <div>
+                No flashcards found
+            </div>
+        {% endif %}
+        <br>
+        <a href="{{ url('flashcard_index') }}" title="Powrót">
+            Powrót</a>
+    {% endblock %}
 {% endblock %}

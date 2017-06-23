@@ -1,25 +1,28 @@
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
     {% block title %}
         Your flashcards
     {% endblock %}
 
 
-    {% block body %}
-        <h1> Your flashcards </h1>
+    {% block board %}
+        {% block header %}
+            <h1> Your flashcards </h1>
+        {% endblock %}
 
-        {% if flashcard|length %}
-            {% for row in flashcard %}
-                <li><a href="#">
-                        {{ row.id }}, {{ row.word }} => {{ row.definition }}
-                    </a></li>
-            {% endfor %}
+        {% block article %}
+            {% if flashcard|length %}
+                {% for row in flashcard %}
+                    <li><a href="{{ url('flashcard_view', {'id': row.id }) }}">
+                            {{ row.id }}, {{ row.word }} => {{ row.definition }}
+                        </a></li>
+                {% endfor %}
 
-        {% else %}
-            <div>
-                No flashcards found
-            </div>
-        {% endif %}
-
+            {% else %}
+                <div>
+                    No flashcards found
+                </div>
+            {% endif %}
+        {% endblock %}
     {% endblock %}
 

@@ -2,396 +2,47 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b0c976c-a66a-491b-af04-c65f873edb7f" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/desk.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/01/9f/a99f01" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/02/0e/010e02" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/02/78/707802" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/02/b9/c5b902" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/05/9b/489b05" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/05/fa/affa05" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/06/cb/6bcb06" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/08/40/cb4008" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/09/65/a66509" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/09/a2/41a209" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/0a/c3/3ec30a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/0d/65/3e650d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/0d/ea/b4ea0d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/0e/fb/8afb0e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/11/eb/01eb11" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/12/63/c66312" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/12/98/349812" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/15/3d/c83d15" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/17/46/be4617" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/18/7c/2f7c18" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/19/31/f33119" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/19/55/435519" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/19/e8/dbe819" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/19/ff/4aff19" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/1a/5e/395e1a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/1a/af/76af1a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/1b/37/f7371b" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/1c/63/27631c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/1d/1d/d21d1d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/1d/95/52951d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/1e/25/ff251e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/1f/c4/cdc41f" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/1f/f8/9af81f" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/21/8b/b38b21" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/22/ab/13ab22" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/22/f8/38f822" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/23/c2/b8c223" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/26/89/278926" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/27/7e/1b7e27" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/27/9e/109e27" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/28/c1/36c128" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/29/d4/bad429" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/2a/c0/66c02a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/2e/7c/157c2e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/2e/a4/3ea42e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/30/45/4a4530" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/30/5c/995c30" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/32/47/7c4732" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/32/64/9a6432" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/33/59/935933" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/34/59/985934" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/35/ef/e5ef35" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/35/f9/a3f935" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/36/16/161636" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/36/1f/d61f36" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/38/21/782138" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/38/21/f02138" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/38/2b/f92b38" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/39/9e/c49e39" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/3a/e4/f9e43a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/3a/ed/a7ed3a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/3b/bf/a6bf3b" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/3c/3b/673b3c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/3d/87/9c873d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/3d/b4/2cb43d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/3e/ec/65ec3e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/3f/69/e0693f" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/3f/b8/deb83f" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/40/9d/7b9d40" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/41/bd/28bd41" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/42/38/c93842" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/47/6c/706c47" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/48/6c/076c48" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/48/79/727948" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/4a/2c/ea2c4a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/4b/3f/de3f4b" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/4b/48/62484b" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/4c/d1/e9d14c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/4d/21/09214d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/4d/7a/207a4d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/4d/b0/9cb04d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/4e/30/7f304e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/4f/39/cc394f" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/4f/92/ff924f" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/50/70/657050" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/51/5f/2a5f51" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/52/61/506152" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/54/4e/0f4e54" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/54/ae/f6ae54" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/55/57/8d5755" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/5a/3f/b83f5a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/5b/2d/702d5b" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/5c/4c/594c5c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/5d/bd/9bbd5d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/5d/f8/9df85d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/5e/41/19415e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/5f/e6/c4e65f" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/61/34/693461" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/61/f8/aaf861" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/62/2d/f22d62" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/63/00/ea0063" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/63/7b/af7b63" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/64/57/415764" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/64/bc/16bc64" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/64/dd/22dd64" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/68/59/7f5968" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/68/98/069868" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/68/ed/eced68" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/68/ff/29ff68" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/6a/3d/c03d6a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/6c/b7/12b76c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/6d/c7/5bc76d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/6e/31/a4316e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/6e/fb/cdfb6e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/6f/68/d8686f" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/70/c5/e6c570" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/71/ed/63ed71" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/72/72/547272" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/73/c9/33c973" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/73/e0/11e073" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/73/ed/77ed73" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/75/30/a63075" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/75/7d/757d75" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/75/9e/079e75" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/76/2c/3e2c76" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/77/a9/3ca977" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/77/ba/d9ba77" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/78/eb/3eeb78" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/79/42/a24279" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/7a/54/6d547a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/7e/62/43627e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/7e/d9/0ed97e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/80/c8/5bc880" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/80/cf/1acf80" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/81/9d/ce9d81" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/82/25/522582" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/82/b8/53b882" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/86/02/650286" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/86/26/232686" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/88/64/786488" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/89/71/b97189" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/89/98/689889" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/8a/82/b7828a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/8b/52/2b528b" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/8c/2a/762a8c" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/8d/2e/412e8d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/8d/5f/335f8d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/8d/fb/fffb8d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/8e/61/fd618e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/8e/cd/91cd8e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/91/d1/f9d191" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/92/0a/330a92" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/92/8c/7a8c92" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/92/a4/f3a492" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/92/c4/95c492" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/93/34/693493" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/93/92/d69293" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/95/01/e00195" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/95/38/003895" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/96/e6/9ae696" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/97/8c/518c97" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/98/e0/bee098" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/9a/1e/081e9a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/9a/bc/a5bc9a" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/9d/36/60369d" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/9e/00/35009e" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/9f/33/1b339f" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/a0/cb/96cba0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/a2/ab/f7aba2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/a3/70/6970a3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/a4/51/5551a4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/a5/68/ab68a5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/a5/c3/f4c3a5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/a5/ca/79caa5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/a5/e2/23e2a5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/a6/97/a897a6" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/a9/c3/9dc3a9" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ab/b8/07b8ab" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ac/47/9c47ac" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ad/31/d331ad" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ae/59/3959ae" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ae/b1/52b1ae" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/af/ea/32eaaf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b0/3f/023fb0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b1/1f/8e1fb1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b1/64/d264b1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b1/66/0a66b1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b2/0d/a50db2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b2/b6/17b6b2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b4/01/d401b4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b5/29/5029b5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b7/38/f938b7" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b8/3b/373bb8" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/b9/87/8487b9" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ba/bf/c2bfba" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/bc/25/6d25bc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/bc/f8/a1f8bc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/bd/21/9421bd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/c0/f7/dff7c0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/c1/10/6110c1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/c1/1f/311fc1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/c1/df/4ddfc1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/c4/cb/3acbc4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/c7/57/fd57c7" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/c8/8c/4f8cc8" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/c8/de/c2dec8" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/c9/ea/78eac9" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ca/5a/035aca" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/cc/ba/2fbacc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/cd/18/b918cd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/cd/8c/2c8ccd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/cd/9b/749bcd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ce/54/4354ce" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ce/83/0683ce" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/cf/26/3326cf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/cf/9f/6b9fcf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/d0/14/bc14d0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/d0/d4/f3d4d0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/d2/01/0f01d2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/d2/4e/144ed2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/d5/72/e172d5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/d5/8c/b98cd5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/d5/d2/bbd2d5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/d6/cc/9eccd6" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/d8/aa/abaad8" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/da/7d/2e7dda" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/db/a8/6ca8db" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/dc/7a/597adc" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/dd/f7/1af7dd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/de/48/3348de" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/de/e1/ffe1de" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/df/d9/c9d9df" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/e0/6a/3d6ae0" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/e2/f6/6bf6e2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/e4/fa/b4fae4" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/e5/e9/e0e9e5" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/e7/d6/1dd6e7" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/e8/53/2b53e8" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/e9/03/fb03e9" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/e9/74/2a74e9" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/e9/a7/a1a7e9" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ea/32/d932ea" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ea/a6/d7a6ea" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/eb/33/a933eb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/eb/5d/505deb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/eb/61/9961eb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/eb/85/c385eb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/eb/a3/08a3eb" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ec/95/cf95ec" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ed/91/c791ed" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ee/57/2457ee" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ef/46/5346ef" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ef/c5/f6c5ef" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/f1/51/8351f1" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/f3/66/f766f3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/f3/f5/cdf5f3" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/f7/71/4d71f7" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/fd/13/6313fd" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/fe/51/aa51fe" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/fe/9b/679bfe" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/fe/b1/c4b1fe" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/ff/00/ba00ff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/fonts/FontAwesome.otf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.eot" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.ttf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.woff" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.woff2" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/images/desk.jpg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/fiszki.iml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/LICENSE" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/README.rst" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/bin/console" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.json" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.lock" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/dev.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/config/prod.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/design/Kolory" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/local.sql" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/phpunit.xml.dist" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/FlashcardController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/SetController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/TagController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/FlashcardType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/SetType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/SetsDataTransformer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/TagType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/TagsDataTransformer.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/UserType.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Repository/FlashcardRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Repository/SetRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Repository/TagRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Validator/Constraints/UniqueFlashcard.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Validator/Constraints/UniqueFlashcardValidator.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Validator/Constraints/UniqueSet.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Validator/Constraints/UniqueSetValidator.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Validator/Constraints/UniqueTag.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Validator/Constraints/UniqueTagValidator.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/app.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/console.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/controllers.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/default/_flash_messages.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/default/_paginator.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/default/_single_alert_message.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/errors/404.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/errors/4xx.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/errors/500.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/errors/5xx.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/errors/default.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/flashcard/add.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/flashcard/delete.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/flashcard/edit.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/flashcard/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/flashcard/view.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/form/form_errors.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/landingpage/about.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/landingpage/footer.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/landingpage/header.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/landingpage/usermodals.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/layout.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/navigation.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/set/add.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/set/delete.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/set/edit.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/set/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/set/view.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/tag/add.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/tag/delete.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/tag/edit.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/tag/index.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/tag/view.html.twig" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/tests/controllersTest.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/translations/messages.en.xlf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/translations/messages.pl.xlf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/translations/validators.en.xlf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/translations/validators.pl.xlf" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/cache/profiler/index.csv" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/var/logs/.gitignore" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/bootstrap.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/main.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/styles.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/HELP-US-OUT.txt" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/css/font-awesome.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/fonts/fontawesome-webfont.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/animated.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/bordered-pulled.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/core.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/fixed-width.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/font-awesome.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/icons.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/larger.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/list.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/mixins.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/path.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/rotated-flipped.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/screen-reader.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/stacked.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/less/variables.less" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_animated.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_bordered-pulled.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_core.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_fixed-width.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_icons.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_larger.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_list.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_mixins.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_path.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_rotated-flipped.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_screen-reader.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_stacked.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/_variables.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/font-awesome-4.7.0/scss/font-awesome.scss" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/fonts/glyphicons-halflings-regular.svg" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/index.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/index_dev.php" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/bootstrap.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/bootstrap.min.js" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/js/scripts.js" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Controller/AuthController.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/LoginType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Form/UserDataType.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/Provider/UserProvider.php" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/auth/login.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/base.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/panel.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/panel/footer.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/panel/navigation.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/panel/sidebar.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/user/delete.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/user/edit.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/templates/user/index.html.twig" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/web/css/panel.css" />
+      <change type="DELETED" beforePath="$PROJECT_DIR$/src/Form/UserType.php" afterPath="" />
+      <change type="MOVED" beforePath="$PROJECT_DIR$/templates/navigation.html.twig" afterPath="$PROJECT_DIR$/templates/landingpage/navigation.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/FlashcardController.php" afterPath="$PROJECT_DIR$/src/Controller/FlashcardController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/SetController.php" afterPath="$PROJECT_DIR$/src/Controller/SetController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Controller/UserController.php" afterPath="$PROJECT_DIR$/src/Controller/UserController.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/FlashcardType.php" afterPath="$PROJECT_DIR$/src/Form/FlashcardType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Form/SetType.php" afterPath="$PROJECT_DIR$/src/Form/SetType.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/TagRepository.php" afterPath="$PROJECT_DIR$/src/Repository/TagRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/UserRepository.php" afterPath="$PROJECT_DIR$/src/Repository/UserRepository.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.php" afterPath="$PROJECT_DIR$/src/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/controllers.php" afterPath="$PROJECT_DIR$/src/controllers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/default/_single_alert_message.html.twig" afterPath="$PROJECT_DIR$/templates/default/_single_alert_message.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/flashcard/delete.html.twig" afterPath="$PROJECT_DIR$/templates/flashcard/delete.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/flashcard/index.html.twig" afterPath="$PROJECT_DIR$/templates/flashcard/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/flashcard/view.html.twig" afterPath="$PROJECT_DIR$/templates/flashcard/view.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/layout.html.twig" afterPath="$PROJECT_DIR$/templates/layout.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/set/delete.html.twig" afterPath="$PROJECT_DIR$/templates/set/delete.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/set/edit.html.twig" afterPath="$PROJECT_DIR$/templates/set/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/set/index.html.twig" afterPath="$PROJECT_DIR$/templates/set/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/set/view.html.twig" afterPath="$PROJECT_DIR$/templates/set/view.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tag/delete.html.twig" afterPath="$PROJECT_DIR$/templates/tag/delete.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tag/edit.html.twig" afterPath="$PROJECT_DIR$/templates/tag/edit.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tag/index.html.twig" afterPath="$PROJECT_DIR$/templates/tag/index.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/templates/tag/view.html.twig" afterPath="$PROJECT_DIR$/templates/tag/view.html.twig" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/var/cache/profiler/index.csv" afterPath="$PROJECT_DIR$/var/cache/profiler/index.csv" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/web/css/styles.css" afterPath="$PROJECT_DIR$/web/css/styles.css" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -400,24 +51,33 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_TABLE_DETAILS" value="true" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+  </component>
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="UserController.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+    <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
+      <file leaf-file-name="SetController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SetController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="507">
-              <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+            <state relative-caret-position="91">
+              <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserType.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
+      <file leaf-file-name="panel.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/web/css/panel.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="0">
-              <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+            <state relative-caret-position="192">
+              <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
               <folding />
             </state>
           </provider>
@@ -425,8 +85,75 @@
       </file>
     </leaf>
   </component>
+  <component name="FindInProjectRecents">
+    <findStrings>
+      <find>set</find>
+      <find>tagRepository</find>
+      <find>flashcardRepository</find>
+      <find>tagRe</find>
+      <find>dump</find>
+      <find>findById</find>
+      <find>add</find>
+      <find>edi</find>
+      <find>join</find>
+      <find>getUserbylogin</find>
+      <find>menu-toggle</find>
+      <find>{% include 'panel/footer.html.twig' %}</find>
+    </findStrings>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="CHANGED_PATHS">
+      <list>
+        <option value="$PROJECT_DIR$/src/Provider/UserProvider.php" />
+        <option value="$PROJECT_DIR$/src/Form/LoginType.php" />
+        <option value="$PROJECT_DIR$/src/Repository/TagRepository.php" />
+        <option value="$PROJECT_DIR$/src/Repository/SetRepository.php" />
+        <option value="$PROJECT_DIR$/templates/user/index.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/RegisterType.php" />
+        <option value="$PROJECT_DIR$/src/Form/UserDataType.php" />
+        <option value="$PROJECT_DIR$/src/Repository/UserRepository.php" />
+        <option value="$PROJECT_DIR$/src/Controller/AdminController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/UserController.php" />
+        <option value="$PROJECT_DIR$/src/controllers.php" />
+        <option value="$PROJECT_DIR$/templates/landingpage/usermodals.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/AuthController.php" />
+        <option value="$PROJECT_DIR$/templates/auth/login.html.twig" />
+        <option value="$PROJECT_DIR$/templates/home.twig" />
+        <option value="$PROJECT_DIR$/templates/layout.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/styles.css" />
+        <option value="$PROJECT_DIR$/templates/landingpage/navigation.html.twig" />
+        <option value="$PROJECT_DIR$/templates/panel/dashboard.html.twig" />
+        <option value="$PROJECT_DIR$/templates/panel/footer.html.twig" />
+        <option value="$PROJECT_DIR$/templates/panel/sidebar.html.twig" />
+        <option value="$PROJECT_DIR$/templates/panel/navigation.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/SetType.php" />
+        <option value="$PROJECT_DIR$/templates/set/delete.html.twig" />
+        <option value="$PROJECT_DIR$/templates/tag/delete.html.twig" />
+        <option value="$PROJECT_DIR$/templates/tag/edit.html.twig" />
+        <option value="$PROJECT_DIR$/templates/user/delete.html.twig" />
+        <option value="$PROJECT_DIR$/templates/user/edit.html.twig" />
+        <option value="$PROJECT_DIR$/templates/flashcard/delete.html.twig" />
+        <option value="$PROJECT_DIR$/src/Form/FlashcardType.php" />
+        <option value="$PROJECT_DIR$/src/app.php" />
+        <option value="$PROJECT_DIR$/src/Controller/FlashcardController.php" />
+        <option value="$PROJECT_DIR$/src/Controller/RegisterController.php" />
+        <option value="$PROJECT_DIR$/templates/base.html.twig" />
+        <option value="$PROJECT_DIR$/templates/set/edit.html.twig" />
+        <option value="$PROJECT_DIR$/templates/panel.html.twig" />
+        <option value="$PROJECT_DIR$/templates/default/_single_alert_message.html.twig" />
+        <option value="$PROJECT_DIR$/src/Controller/SetController.php" />
+        <option value="$PROJECT_DIR$/templates/set/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/set/view.html.twig" />
+        <option value="$PROJECT_DIR$/templates/tag/view.html.twig" />
+        <option value="$PROJECT_DIR$/templates/tag/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/flashcard/index.html.twig" />
+        <option value="$PROJECT_DIR$/templates/flashcard/view.html.twig" />
+        <option value="$PROJECT_DIR$/web/css/panel.css" />
+      </list>
+    </option>
   </component>
   <component name="JsBuildToolGruntFileManager" detection-done="true" sorting="DEFINITION_ORDER" />
   <component name="JsBuildToolPackageJson" detection-done="true" sorting="DEFINITION_ORDER" />
@@ -456,7 +183,6 @@
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="Scratches" />
       <pane id="ProjectPane">
         <subPane>
@@ -480,7 +206,179 @@
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="web" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="css" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="tag" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="set" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="form" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="flashcard" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="default" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="templates" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="auth" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repository" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -522,11 +420,19 @@
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../app" />
+    <property name="SearchEverywhereHistoryKey" value="&#9;FILE&#9;file:///home/wix/my_app/fiszki/src/app.php" />
+  </component>
+  <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/templates/auth" />
+      <recent name="$PROJECT_DIR$/templates/landingpage" />
+    </key>
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -540,6 +446,75 @@
       </list>
     </option>
   </component>
+  <component name="RunManager">
+    <configuration default="true" type="CodeceptionConfigurationType" factoryName="Codeception">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerJest" factoryName="Jest">
+      <node-interpreter value="project" />
+      <working-dir value="" />
+      <envs />
+      <scope-kind value="ALL" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerProtractor" factoryName="Protractor">
+      <config-file value="" />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavascriptDebugType" factoryName="JavaScript Debug">
+      <method />
+    </configuration>
+    <configuration default="true" type="NodeJSConfigurationType" factoryName="Node.js" path-to-node="project" working-dir="">
+      <method />
+    </configuration>
+    <configuration default="true" type="PHPUnitRunConfigurationType" factoryName="PHPUnit">
+      <TestRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpBehatConfigurationType" factoryName="Behat">
+      <BehatRunner />
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpLocalRunConfigurationType" factoryName="PHP Console">
+      <method />
+    </configuration>
+    <configuration default="true" type="PhpSpecConfigurationType" factoryName="PHPSpec">
+      <PhpTestRunnerSettings />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.gulp" factoryName="Gulp.js">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <gulpfile />
+      <tasks />
+      <arguments />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="js.build_tools.npm" factoryName="npm">
+      <command value="run" />
+      <scripts />
+      <node-interpreter value="project" />
+      <envs />
+      <method />
+    </configuration>
+    <configuration default="true" type="mocha-javascript-test-runner" factoryName="Mocha">
+      <node-interpreter>project</node-interpreter>
+      <node-options />
+      <working-directory />
+      <pass-parent-env>true</pass-parent-env>
+      <envs />
+      <ui />
+      <extra-mocha-options />
+      <test-kind>DIRECTORY</test-kind>
+      <test-directory />
+      <recursive>false</recursive>
+      <method />
+    </configuration>
+  </component>
   <component name="ShelveChangesManager" show_recycled="false">
     <option name="remove_strategy" value="false" />
   </component>
@@ -550,34 +525,55 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1498147412612</updated>
-      <workItem from="1498147413809" duration="429000" />
+      <workItem from="1498147413809" duration="5577000" />
+      <workItem from="1498204254570" duration="18239000" />
+      <workItem from="1498230043615" duration="28687000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="429000" />
+    <option name="totallyTimeSpent" value="52503000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="743" extended-state="6" />
     <layout>
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25984848" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
-      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20933977" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.33011273" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12238325" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
     </layout>
+    <layout-to-restore>
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.20933977" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="9" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.12238325" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.25984848" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32954547" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32850242" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+    </layout-to-restore>
   </component>
   <component name="TypeScriptGeneratedFilesManager">
     <option name="processedProjectFiles" value="true" />
@@ -586,11 +582,80 @@
     <option name="myLimit" value="2678400000" />
   </component>
   <component name="XDebuggerManager">
-    <breakpoint-manager />
+    <breakpoint-manager>
+      <option name="time" value="1" />
+    </breakpoint-manager>
     <watches-manager />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/Form/UserType.php">
+    <entry file="file://$PROJECT_DIR$/src/Provider/UserProvider.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="442">
+          <caret line="90" column="70" lean-forward="false" selection-start-line="90" selection-start-column="70" selection-end-line="90" selection-end-column="70" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="18" lean-forward="false" selection-start-line="10" selection-start-column="18" selection-end-line="10" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/RegisterType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="122">
+          <caret line="174" column="5" lean-forward="true" selection-start-line="174" selection-start-column="5" selection-end-line="174" selection-end-column="5" />
+          <folding>
+            <element signature="e#6#29#0#PHP" expanded="false" />
+            <element signature="e#47#87#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/UserDataType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="26" column="5" lean-forward="false" selection-start-line="26" selection-start-column="5" selection-end-line="26" selection-end-column="5" />
+          <folding>
+            <element signature="e#6#29#0#PHP" expanded="false" />
+            <element signature="e#47#87#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/UserRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2576">
+          <caret line="165" column="5" lean-forward="false" selection-start-line="165" selection-start-column="5" selection-end-line="165" selection-end-column="5" />
+          <folding>
+            <element signature="e#57#86#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AdminController.php" />
+    <entry file="file://$PROJECT_DIR$/src/controllers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="363">
+          <caret line="37" column="0" lean-forward="false" selection-start-line="37" selection-start-column="0" selection-end-line="37" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="29" column="50" lean-forward="false" selection-start-line="29" selection-start-column="50" selection-end-line="29" selection-end-column="50" />
+          <folding>
+            <element signature="e#6#32#0#PHP" expanded="false" />
+            <element signature="e#57#79#0#PHP" expanded="false" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/landingpage/header.html.twig">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="0">
           <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
@@ -598,10 +663,348 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/UserController.php">
+    <entry file="file://$PROJECT_DIR$/templates/landingpage/usermodals.html.twig">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="507">
-          <caret line="104" column="0" lean-forward="true" selection-start-line="104" selection-start-column="0" selection-end-line="104" selection-end-column="0" />
+        <state relative-caret-position="144">
+          <caret line="9" column="40" lean-forward="true" selection-start-line="9" selection-start-column="40" selection-end-line="9" selection-end-column="40" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/index.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="0" lean-forward="false" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/auth/login.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="368">
+          <caret line="23" column="14" lean-forward="false" selection-start-line="23" selection-start-column="14" selection-end-line="23" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/panel/dashboard.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="12" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/landingpage/footer.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="128">
+          <caret line="8" column="53" lean-forward="false" selection-start-line="8" selection-start-column="53" selection-end-line="8" selection-end-column="53" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/panel/footer.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="112">
+          <caret line="7" column="34" lean-forward="false" selection-start-line="7" selection-start-column="34" selection-end-line="7" selection-end-column="34" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/landingpage/navigation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="296">
+          <caret line="22" column="52" lean-forward="true" selection-start-line="22" selection-start-column="52" selection-end-line="22" selection-end-column="52" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/panel/navigation.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="336">
+          <caret line="21" column="14" lean-forward="true" selection-start-line="21" selection-start-column="14" selection-end-line="21" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/panel/sidebar.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="16" lean-forward="false" selection-start-line="2" selection-start-column="12" selection-end-line="5" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/SetType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="450">
+          <caret line="77" column="14" lean-forward="true" selection-start-line="77" selection-start-column="14" selection-end-line="77" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/SetRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="396">
+          <caret line="140" column="9" lean-forward="false" selection-start-line="140" selection-start-column="9" selection-end-line="140" selection-end-column="9" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/LoginType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="563">
+          <caret line="72" column="36" lean-forward="false" selection-start-line="72" selection-start-column="36" selection-end-line="72" selection-end-column="36" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user/delete.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="18" lean-forward="false" selection-start-line="17" selection-start-column="18" selection-end-line="17" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/user/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="4" lean-forward="false" selection-start-line="15" selection-start-column="4" selection-end-line="15" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tag/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="14" lean-forward="true" selection-start-line="16" selection-start-column="14" selection-end-line="16" selection-end-column="14" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/set/delete.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="4" lean-forward="false" selection-start-line="18" selection-start-column="4" selection-end-line="18" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/delete.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="176">
+          <caret line="11" column="6" lean-forward="true" selection-start-line="11" selection-start-column="6" selection-end-line="11" selection-end-column="6" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/FlashcardType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="355">
+          <caret line="105" column="31" lean-forward="false" selection-start-line="105" selection-start-column="31" selection-end-line="105" selection-end-column="31" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/layout.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="173">
+          <caret line="12" column="56" lean-forward="true" selection-start-line="12" selection-start-column="56" selection-end-line="12" selection-end-column="56" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/styles.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="378">
+          <caret line="235" column="16" lean-forward="true" selection-start-line="235" selection-start-column="16" selection-end-line="235" selection-end-column="16" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="0" lean-forward="false" selection-start-line="5" selection-start-column="0" selection-end-line="5" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tag/delete.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="18" lean-forward="false" selection-start-line="19" selection-start-column="18" selection-end-line="19" selection-end-column="18" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/RegisterController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="208">
+          <caret line="13" column="0" lean-forward="false" selection-start-line="13" selection-start-column="0" selection-end-line="13" selection-end-column="0" />
+          <folding>
+            <element signature="e#6#38#0#PHP" expanded="true" />
+            <element signature="e#63#85#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Form/TagType.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="0" lean-forward="false" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/TagRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="16">
+          <caret line="1" column="3" lean-forward="false" selection-start-line="1" selection-start-column="0" selection-end-line="1" selection-end-column="3" />
+          <folding>
+            <element signature="e#6#31#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/_single_alert_message.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="160">
+          <caret line="10" column="87" lean-forward="false" selection-start-line="10" selection-start-column="87" selection-end-line="10" selection-end-column="87" />
+          <folding>
+            <element signature="e#294#339#0#HTML" expanded="true" />
+            <element signature="e#415#432#0#HTML" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/default/_flash_messages.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="0">
+          <caret line="0" column="50" lean-forward="false" selection-start-line="0" selection-start-column="50" selection-end-line="0" selection-end-column="50" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/set/edit.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="80">
+          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="3" selection-end-line="5" selection-end-column="22" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/base.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="320">
+          <caret line="20" column="7" lean-forward="false" selection-start-line="20" selection-start-column="7" selection-end-line="20" selection-end-column="7" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/app.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1456">
+          <caret line="102" column="0" lean-forward="false" selection-start-line="102" selection-start-column="0" selection-end-line="102" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/AuthController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="332">
+          <caret line="52" column="10" lean-forward="false" selection-start-line="52" selection-start-column="10" selection-end-line="52" selection-end-column="10" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/FlashcardController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-228">
+          <caret line="11" column="23" lean-forward="true" selection-start-line="11" selection-start-column="23" selection-end-line="11" selection-end-column="23" />
+          <folding>
+            <element signature="e#6#37#0#PHP" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tag/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="256">
+          <caret line="16" column="63" lean-forward="false" selection-start-line="16" selection-start-column="63" selection-end-line="16" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/tag/view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="49" lean-forward="false" selection-start-line="18" selection-start-column="49" selection-end-line="18" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="272">
+          <caret line="17" column="49" lean-forward="false" selection-start-line="17" selection-start-column="49" selection-end-line="17" selection-end-column="49" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/flashcard/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="240">
+          <caret line="15" column="63" lean-forward="false" selection-start-line="15" selection-start-column="63" selection-end-line="15" selection-end-column="63" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/set/view.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="288">
+          <caret line="18" column="12" lean-forward="false" selection-start-line="18" selection-start-column="12" selection-end-line="19" selection-end-column="95" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/set/index.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="304">
+          <caret line="19" column="71" lean-forward="false" selection-start-line="19" selection-start-column="33" selection-end-line="19" selection-end-column="71" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/templates/panel.html.twig">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="28" lean-forward="true" selection-start-line="12" selection-start-column="28" selection-end-line="12" selection-end-column="28" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="91">
+          <caret line="59" column="0" lean-forward="false" selection-start-line="59" selection-start-column="0" selection-end-line="59" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/web/css/panel.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="192">
+          <caret line="12" column="0" lean-forward="false" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
           <folding />
         </state>
       </provider>

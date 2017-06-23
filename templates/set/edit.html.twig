@@ -1,11 +1,16 @@
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
 {% block title %} Edit set {{ set.id }}{% endblock %}
 
-{% block content %}
-    <h1> Edit set {{ set.id }}</h1>
-    {{ form_start(form, { method: 'post', action: url('set_edit', {'id': set.id}) }) }}
-    {{ form_widget(form) }}
-    <input type="submit" value=" Save " class="btn btn-success" />
-    {{ form_end(form) }}
+{% block body %}
+    {% block header %}
+        <h1> Edit set {{ set.id }}</h1>
+    {% endblock %}
+
+    {% block article %}
+        {{ form_start(form, { method: 'post', action: url('set_edit', {'id': set.id}) }) }}
+        {{ form_widget(form) }}
+        <input type="submit" value=" Save " class="btn btn-success" />
+        {{ form_end(form) }}
+    {% endblock %}
 {% endblock %}

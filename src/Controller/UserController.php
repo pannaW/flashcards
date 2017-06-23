@@ -5,13 +5,14 @@
 
 namespace Controller;
 
+use Form\UserDataType;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\Request;
-use Form\UserType;
+use Form\RegisterType;
 use Repository\UserRepository;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
+use Repository\SetRepository;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 
 /**
@@ -63,49 +64,9 @@ class UserController implements ControllerProviderInterface
         );
     }
 
-
     /**
      * @param Application $app
-     * @param Request     $request
-     * @return mixed
-     */
-    public function addAction(Application $app, Request $request)
-    {
-        $user = [];
-        $form = $app['form.factory']
-            ->createBuilder(UserType::class, $user)
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $userRepository = new userRepository($app['db']);
-            $userRepository->save($form->getData());
-
-            $app['session']->getFlashBag()->add(
-                'messages',
-                [
-                    'type' => 'success',
-                    'message' => 'message.element_successfully_added',
-                ]
-            );
-
-            return $app->redirect($app['url_generator']->generate('user_index'), 301);
-        }
-
-        return $app['twig']->render(
-            'user/add.html.twig',
-            [
-                'user' => $user,
-                'form' => $form->createView(),
-            ]
-        );
-
-    }
-
-    /**
-     * @param Application $app
-     * @param id          $id
+     * @param             $id
      * @return mixed
      */
     public function viewAction(Application $app, $id)
@@ -124,16 +85,16 @@ class UserController implements ControllerProviderInterface
 
     /**
      * @param Application $app
-     * @param id          $id
+     * @param             $id
      * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function editAction(Application $app, $id, Request $request)
     {
         $userRepository = new UserRepository($app['db']);
-        $user = $userRepository->findOneById($id);
+        $userData = $userRepository->findUserDataByUserId($id);
 
-        if (!$user) {
+        if (!$userData) {
             $app['session']->getFlashBag()->add(
                 'messages',
                 [
@@ -146,18 +107,18 @@ class UserController implements ControllerProviderInterface
         }
 
         $form = $app['form.factory']
-            ->createBuilder(UserType::class, $user)
+            ->createBuilder(UserDataType::class, $userData)
             ->getForm();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
-            $userRepository->save($form->getData());
+            $userRepository->editUserData($form->getData());
             $app['session']->getFlashBag()->add(
                 'messages',
                 [
                     'type' => 'success',
-                    'message' => 'message.element_successfully_added',
+                    'message' => 'message.element_successfully_edited',
                 ]
             );
 
@@ -167,7 +128,7 @@ class UserController implements ControllerProviderInterface
         return $app['twig']->render(
             'user/edit.html.twig',
             [
-                'user' => $user,
+                'id' => $id,
                 'form' => $form->createView(),
             ]
         );

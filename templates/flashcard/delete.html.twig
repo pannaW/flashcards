@@ -1,17 +1,21 @@
 {% form_theme form with ['bootstrap_3_horizontal_layout.html.twig', 'form/form_errors.html.twig'] %}
 
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
 {% block title %} Flashcard {{ flashcard.id }} {% endblock %}
 
-{% block body %}
-    <h1> Flashcard {{ flashcard.id }} </h1>
-    {{ form_start(form, { method: 'post', action: url('flashcard_delete', {'id': flashcard.id}) }) }}
-    {{ form_widget(form) }}
-    <input type="submit" value="Usuń" class="btn btn-success" />
-    {{ form_end(form) }}
-    <a href="{{ url('flashcard_index') }}" title="Powrót" class="btn btn-default">
-        <span class="fa fa-mail-reply" aria-hidden="true"></span>
-        Powrót
-    </a>
+{% block board %}
+    {% block header %}
+        <h1> Flashcard {{ flashcard.id }} </h1>
+    {% endblock %}
+    {% block article %}
+        {{ form_start(form, { method: 'post', action: url('flashcard_delete', {'id': flashcard.id}) }) }}
+        {{ form_widget(form) }}
+        <input type="submit" value="Usuń" class="btn btn-success" />
+        {{ form_end(form) }}
+        <a href="{{ url('flashcard_index') }}" title="Powrót" class="btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>
+            Powrót
+        </a>
+    {% endblock %}
 {% endblock %}

@@ -29,9 +29,10 @@ body {
     font-size: large;
 }
 
-#navbar ul li button {
+#navbar ul li .btn {
    background-color:  #FFE500;
     border: 0px;
+    padding: 7px 12px;
     color: #ffffff;
     font-size: medium;
 }

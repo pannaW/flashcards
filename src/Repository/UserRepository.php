@@ -1,46 +1,77 @@
 <?php
 /**
- * User Repository
+ * User repository
  */
 
 namespace Repository;
 
 use Doctrine\DBAL\Connection;
+use Doctrine\DBAL\DBALException;
+use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
 
 /**
- * Class UserRepository
+ * Class UserRepository.
+ *
  * @package Repository
  */
 class UserRepository
 {
     /**
      * Doctrine DBAL connection.
+     *
      * @var \Doctrine\DBAL\Connection $db
      */
     protected $db;
 
     /**
+     * Set repository.
+     *
+     * @var null|\Repository\SetRepository $setRepository
+     */
+    protected $setRepository = null;
+
+    /**
      * UserRepository constructor.
-     * @param Connection $db
+     *
+     * @param \Doctrine\DBAL\Connection $db
      */
     public function __construct(Connection $db)
     {
         $this->db = $db;
+        $this->setRepository = new SetRepository($db);
     }
 
+
     /**
-     * Fetch all records;
-     * @return array
+     * Fetch all records.
+     *
+     * @return array Result
      */
     public function findAll()
     {
         $queryBuilder = $this->db->createQueryBuilder();
-        $queryBuilder->select('id', 'login')
+        $queryBuilder->select('*')
             ->from('users');
 
         return $queryBuilder->execute()->fetchAll();
     }
 
+
+    /**
+     * @param $userId
+     * @return mixed
+     */
+    public function findUserDataByUserId($userId)
+    {
+        $queryBuilder = $this->db->createQueryBuilder()
+            ->select('*')
+            ->from('users_data')
+            ->where('users_id = :users_id')
+            ->setParameter(':users_id', $userId,\PDO::PARAM_INT);
+        $result = $queryBuilder->execute()->fetch();
+
+        return $result;
+    }
 
     /**
      * Find one record.
@@ -52,7 +83,7 @@ class UserRepository
     public function findOneById($id)
     {
         $queryBuilder = $this->db->createQueryBuilder();
-        $queryBuilder->select('id', 'login')
+        $queryBuilder->select('*')
             ->from('users')
             ->where('id = :id')
             ->setParameter(':id', $id, \PDO::PARAM_INT);
@@ -62,37 +93,229 @@ class UserRepository
     }
 
     /**
-     * Save record.
+     * Saving user into DB
      *
-     * @param array $user User
-     *
-     * @return boolean Result
+     * @param $user
+     * @throws DBALException
      */
     public function save($user)
     {
-        // TODO: wiążemy z user_data
-        if (isset($user['id']) && ctype_digit((string) $user['id'])) {
-            // update record
-            $id = $user['id'];
-            unset($user['id']);
+        $this->db->beginTransaction();
 
-            return $this->db->update('users', $user, ['id' => $id]);
-        } else {
-            // add new record
-            return $this->db->insert('users', $user);
+        try {
+                $this->db->insert(
+                    'users',
+                    [
+                        'login' => $user['login'],
+                        'password' => $user['password'],
+                        'roles_id' => $user['roles_id'],
+                    ]
+                );
+                $userId = $this->db->lastInsertId();
+                $this->db->insert(
+                    'users_data',
+                    [
+                        'name' => $user['name'],
+                        'surname' => $user['surname'],
+                        'email' => $user['email'],
+                        'users_id' => $userId,
+                    ]
+                );
+            $this->db->commit();
+        } catch (DBALException $e) {
+            $this->db->rollBack();
+            throw $e;
         }
     }
 
     /**
      * Remove record.
      *
-     * @param array $user user
+     * @param array $user User
      *
-     * @return boolean Result
+     * @throws \Doctrine\DBAL\DBALException
+     *
      */
     public function delete($user)
     {
-        // TODO: usuwamy też sety
-        return $this->db->delete('users', ['id' => $user['id']]);
+        $this->db->beginTransaction();
+        try {
+            $userId = $user['id'];
+            unset($user['id']);
+            $this->RemoveUserData($userId);
+            $sets = $this->findLinkedSets($userId);
+           foreach ($sets as $set) {
+               $this->setRepository->delete($set);
+           }
+            $this->db->delete('users', ['id' => $userId]);
+            $this->db->commit();
+        } catch (DBALException $e) {
+            $this->db->rollBack();
+            throw $e;
+        }
+    }
+
+
+    /**
+     * Edits user's data
+     *
+     * @param $user
+     * @return int
+     */
+    public function editUserData($user)
+    {
+        if (isset($user['id']) && ($user['id'] != '') && ctype_digit((string)$user['id'])) {
+            $userId = $user['users_id'];
+            unset($user['id']);
+
+            return $this->db->update('users_data', $user, array('users_id' => $userId));
+        }
+    }
+
+    /**
+     * Loads user by login.
+     *
+     * @param string $login User login
+     * @throws UsernameNotFoundException
+     * @throws \Doctrine\DBAL\DBALException
+     *
+     * @return array Result
+     */
+    public function loadUserByLogin($login)
+    {
+        try {
+            $user = $this->getUserByLogin($login);
+
+            if (!$user || !count($user)) {
+                throw new UsernameNotFoundException(
+                    sprintf('Username "%s" does not exist.', $login)
+                );
+            }
+
+            $roles = $this->getUserRoles($user['id']);
+
+            if (!$roles || !count($roles)) {
+                throw new UsernameNotFoundException(
+                    sprintf('Username "%s" does not exist.', $login)
+                );
+            }
+
+            return [
+                'login' => $user['login'],
+                'password' => $user['password'],
+                'role' => $roles,
+            ];
+        } catch (DBALException $exception) {
+            throw new UsernameNotFoundException(
+                sprintf('Username "%s" does not exist.', $login)
+            );
+        } catch (UsernameNotFoundException $exception) {
+            throw $exception;
+        }
+    }
+
+    /**
+     * Gets user data by login.
+     *
+     * @param string $login User login
+     * @throws \Doctrine\DBAL\DBALException
+     *
+     * @return array Result
+     */
+    public function getUserByLogin($login)
+    {
+        try {
+            $queryBuilder = $this->db->createQueryBuilder();
+            $queryBuilder->select('u.id', 'u.login', 'u.password')
+                ->from('users', 'u')
+                ->where('u.login = :login')
+                ->setParameter(':login', $login, \PDO::PARAM_STR);
+
+            return $queryBuilder->execute()->fetch();
+        } catch (DBALException $exception) {
+            return [];
+        }
+    }
+
+    /**
+     * Gets user roles by User ID.
+     *
+     * @param integer $userId User ID
+     * @throws \Doctrine\DBAL\DBALException
+     *
+     * @return array Result
+     */
+    public function getUserRoles($userId)
+    {
+        $roles = [];
+
+        try {
+            $queryBuilder = $this->db->createQueryBuilder();
+            $queryBuilder->select('r.role')
+                ->from('users', 'u')
+                ->innerJoin('u', 'roles', 'r', 'u.roles_id = r.id')
+                ->where('u.id = :id')
+                ->setParameter(':id', $userId, \PDO::PARAM_INT);
+            $result = $queryBuilder->execute()->fetchAll();
+
+            if ($result) {
+                $roles = array_column($result, 'role');
+            }
+
+            return $roles;
+        } catch (DBALException $exception) {
+            return $roles;
+        }
+    }
+
+    /**
+     * Find for uniqueness.
+     *
+     * @param string          $login Element login
+     * @param int|string|null $id    Element id
+     *
+     * @return array Result
+     */
+    public function findForUniqueness($login, $id = null)
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+        $queryBuilder->select('login', 'id')
+            ->from('users', 'u')
+            ->where('u.login = :login')
+            ->setParameter(':login', $login, \PDO::PARAM_STR);
+        if ($id) {
+            $queryBuilder->andWhere('u.id <> :id')
+                ->setParameter(':id', $id, \PDO::PARAM_INT);
+        }
+
+        return $queryBuilder->execute()->fetchAll();
+    }
+
+    /**
+     * @param $userId
+     * @return int
+     */
+    public function RemoveUserData($userId)
+    {
+        return $this->db->delete('users_data', ['users_id' => $userId]);
+    }
+    /**
+     * Find linked sets.
+     *
+     * @param int $userId User Id
+     *
+     * @return array Result
+     */
+
+    public function findLinkedSets($userId)
+    {
+        $queryBuilder = $this->db->createQueryBuilder()
+            ->select('*')
+            ->from('sets')
+            ->where('users_id = :users_id')
+            ->setParameter('users_id', $userId,\PDO::PARAM_INT);
+        $result = $queryBuilder->execute()->fetchAll();
+
+        return $result;
     }
 }

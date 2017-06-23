@@ -103,7 +103,7 @@ class FlashcardType extends AbstractType
                 'sets_id',
                 HiddenType::class,
                 [
-                    'data' => 6,
+                    'data' => 1,
                 ]
             );
     }
