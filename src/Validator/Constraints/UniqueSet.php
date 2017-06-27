@@ -27,6 +27,13 @@ class UniqueSet extends Constraint
     public $elementId = null;
 
     /**
+     * User id.
+     *
+     * @var int|string|null $UserId
+     */
+    public $userId = null;
+
+    /**
      * Set repository.
      *
      * @var null|\Repository\SetRepository $repository

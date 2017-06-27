@@ -15,18 +15,28 @@
 
         {% block article %}
             <article>
-            {% if set|length %}
-                {% for row in set %}
-                    <li><a href="{{ url('set_view', {'id': row.id }) }}">
-                        {{ row.id }}, {{ row.name }}
-                        </a></li>
+            {% if sets|length %}
+                    <ul>
+                {% for set in sets %}
+                    <li><a href="{{ url('set_view', {'id': set.id }) }}">
+                            {{ set.id }}, {{ set.name }} </a></li>
+                            {% if set.tags|length and set.tags is iterable %}
+                                <ul>
+                                {% for tag in set.tags %}
+                                <li>
+                                    #{{ tag.name }}
+                                </li>
+                                {% endfor %}
+                                </ul>
+                            {% endif %}
                 {% endfor %}
-
+                    </ul>
             {% else %}
                 <div>
                     No sets found
                 </div>
             {% endif %}
+                <a href="{{ url('set_add') }}"> Dodaj zestaw </a>
             </article>
         {% endblock %}
     {% endblock %}

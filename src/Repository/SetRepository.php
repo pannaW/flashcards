@@ -78,6 +78,14 @@ class SetRepository
         return $result;
     }
 
+//    public function bindFlashcards($result)
+//    {
+//        $result['flashcards'] = $this->findLinkedFlashcards($result['id']);
+//
+//        return $result;
+//    }
+
+
     /**
      * Save record.
      *
@@ -150,11 +158,13 @@ class SetRepository
      *
      * @return array Result
      */
-    public function findForUniqueness($name, $id = null)
+    public function findForUniqueness($name, $id = null, $userId)
     {
         $queryBuilder = $this->queryAll();
         $queryBuilder->where('s.name = :name')
-            ->setParameter(':name', $name, \PDO::PARAM_STR);
+            ->andWhere('s.users_id = :users_id')
+            ->setParameter(':name', $name, \PDO::PARAM_STR)
+            ->setParameter(':users_id', $userId,\PDO::PARAM_INT);
         if ($id) {
             $queryBuilder->andWhere('s.id <> :id')
                 ->setParameter(':id', $id, \PDO::PARAM_INT);
@@ -177,6 +187,57 @@ class SetRepository
         return is_array($tagsIds)
             ? $this->tagRepository->findById($tagsIds)
             : [];
+    }
+
+    /**
+     * @param $setId
+     * @return array
+     */
+    public function findLinkedFlashcards($setId)
+    {
+        $queryBuilder = $this->db->createQueryBuilder()
+            ->select('id, word, definition')
+            ->from('flashcards', 'f')
+            ->where('f.sets_id = :sets_id')
+            ->setParameter(':sets_id', $setId, \PDO::PARAM_INT);
+        $result = $queryBuilder->execute()->fetchAll();
+
+        return isset($result) ? $result : [];
+    }
+
+    /**
+     * @param $userId
+     * @return array
+     */
+    public function loadUserSets($userId)
+    {
+        $queryBuilder = $this->db->createQueryBuilder()
+            ->select('*')
+            ->from('sets', 's')
+            ->where('s.users_id = :users_id')
+            ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
+        $result = $queryBuilder->execute()->fetchAll();
+
+        return isset($result) ? $result : [];
+    }
+
+    /**
+     * @param $id
+     * @param $userId
+     * @return bool
+     */
+    public function checkOwnership($id, $userId)
+    {
+        $queryBuilder = $this->db->createQueryBuilder()
+            ->select('id, users_id')
+            ->from('sets', 's')
+            ->where('s.id = :id')
+            ->andWhere('s.users_id = :users_id')
+            ->setParameter(':id', $id, \PDO::PARAM_INT)
+            ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
+        $result = $queryBuilder->execute()->fetchAll();
+
+        return !empty($result) ? true : false ;
     }
 
     /**
@@ -210,6 +271,10 @@ class SetRepository
         return $this->db->delete('set_has_tag', ['sets_id' => $setId]);
     }
 
+    /**
+     * @param $setId
+     * @return int
+     */
     protected function deleteConnectedFlashcards($setId)
     {
         return $this->db->delete('flashcards', ['sets_id' => $setId]);

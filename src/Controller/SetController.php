@@ -9,11 +9,11 @@ use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Form\SetType;
-use Repository\SetRepository;
 use Repository\TagRepository;
+use Repository\SetRepository;
+use Repository\UserRepository;
+use Form\SetType;
 
 /**
  * Class SetController
@@ -22,6 +22,9 @@ use Repository\TagRepository;
  */
 class SetController implements ControllerProviderInterface
 {
+
+    protected $view = [];
+
     /**
      * {@inheritdoc}
      */
@@ -56,14 +59,84 @@ class SetController implements ControllerProviderInterface
      */
     public function indexAction(Application $app)
     {
-        $setRepository = new SetRepository($app['db']);
+        $access = $this->checkAccess($app);
 
-        return $app['twig']->render(
-            'set/index.html.twig',
-            ['set' => $setRepository->findAll()]
-        );
+        switch ($access) {
+            case "user":
+                $token = $app['security.token_storage']->getToken();
+                if (null !== $token) {
+                    $username = $token->getUsername();
+                }
+                $userRepository = new UserRepository($app['db']);
+                $user = $userRepository->getUserByLogin($username);
+                $setRepository = new SetRepository($app['db']);
+                $sets = $setRepository->loadUserSets($user['id']);
+
+                if( $sets && is_array($sets)) {
+                    foreach ($sets as $set) {
+                        $setIds[] = $set['id'];
+                    }
+                    foreach ($setIds as $setId) {
+                        $result[] = $setRepository->findOneById($setId);
+                    }
+                } else {
+                    $result = [];
+                }
+                    return $app['twig']->render(
+                        'set/index.html.twig',
+                        [
+                            'sets' => $result,
+                            'username' => $username,
+                        ]
+                    );
+            case "admin":
+                $token = $app['security.token_storage']->getToken();
+                if (null !== $token) {
+                    $username = $token->getUsername();
+                }
+
+                $setRepository = new SetRepository($app['db']);
+                $sets = $setRepository->findAll();
+                if( $sets && is_array($sets)) {
+                    foreach ($sets as $set) {
+                        $setIds[] = $set['id'];
+                    }
+
+                    foreach ($setIds as $setId) {
+                        $result[] = $setRepository->findOneById($setId);
+                    }
+                }
+                else {
+                    $result = [];
+                }
+                return $app['twig']->render(
+                    'set/index.html.twig',
+                    [
+                        'sets' => $result,
+                        'username' => $username,
+                    ]
+                );
+            case "anonymous":
+                return $app->redirect($app['url_generator']->generate('homepage'));
+        }
     }
 
+    /**
+     * Checks an access
+     *
+     * @param Application $app
+     * @return string
+     */
+    public function checkAccess(Application $app)
+{
+    if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))
+        return "admin";
+
+    else if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))
+        return "user";
+    else
+        return "anonymous";
+}
 
     /**
      * @param Application $app
@@ -72,10 +145,19 @@ class SetController implements ControllerProviderInterface
      */
     public function addAction(Application $app, Request $request)
     {
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         $set = [];
         $form = $app['form.factory']
-           ->createBuilder(SetType::class, $set, ['set_repository' => new SetRepository($app['db']), 'tag_repository' => new TagRepository($app['db'])])
-           ->getForm();
+           ->createBuilder(SetType::class, $set, ['set_repository' => new SetRepository($app['db']),
+               'tag_repository' => new TagRepository($app['db']), 'userId' => $user['id']])
+            ->add('users_id', HiddenType::class, ['data' => $user['id']])
+            ->getForm();
 
         $form->handleRequest($request);
 
@@ -99,6 +181,7 @@ class SetController implements ControllerProviderInterface
             [
                 'set' => $set,
                 'form' => $form->createView(),
+                'username' => $username,
             ]
         );
 
@@ -111,16 +194,35 @@ class SetController implements ControllerProviderInterface
      */
     public function viewAction(Application $app, $id)
     {
+        $access = $this->checkAccess($app);
+
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         $setRepository = new SetRepository($app['db']);
 
-        return $app['twig']->render(
-            'set/view.html.twig',
-            [
-                'set' => $setRepository->findOneById($id),
-                'id' => $id,
-            ]
-        );
+        if($access == 'admin' || ($access == 'user' && $setRepository->checkOwnership($id, $user['id']))) {
+            $set = $setRepository->findOneById($id);
+            $flashcards = $setRepository->findLinkedFlashcards($id);
 
+            return $app['twig']->render(
+                'set/view.html.twig',
+                [
+                    'set' => $set,
+                    'username' => $username,
+                    'flashcards' => $flashcards,
+                    'id' => $id,
+                ]
+            );
+        } else if ($access == 'user') {
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $app->redirect($app['url_generator']->generate('homepage'));
+        }
     }
 
     /**
@@ -131,47 +233,66 @@ class SetController implements ControllerProviderInterface
      */
     public function editAction(Application $app, $id, Request $request)
     {
+        $access = $this->checkAccess($app);
+
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         $setRepository = new SetRepository($app['db']);
-        $set = $setRepository->findOneById($id);
 
-        if (!$set) {
-            $app['session']->getFlashBag()->add(
-                'messages',
+        if ($access == 'admin' || ($access == 'user' && $setRepository->checkOwnership($id, $user['id']))) {
+            $setRepository = new SetRepository($app['db']);
+            $set = $setRepository->findOneById($id);
+
+            if (!$set) {
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'warning',
+                        'message' => 'message.record_not_found',
+                    ]
+                );
+
+                return $app->redirect($app['url_generator']->generate('set_index'));
+            }
+
+            $form = $app['form.factory']
+                ->createBuilder(SetType::class, $set, ['set_repository' => new SetRepository($app['db']), 'tag_repository' => new TagRepository($app['db'])])
+                ->add('users_id', HiddenType::class, ['data' => $user['id']])
+                ->getForm();
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $setRepository->save($form->getData());
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'success',
+                        'message' => 'message.element_successfully_added',
+                    ]
+                );
+
+                return $app->redirect($app['url_generator']->generate('set_index'), 301);
+            }
+
+            return $app['twig']->render(
+                'set/edit.html.twig',
                 [
-                    'type' => 'warning',
-                    'message' => 'message.record_not_found',
+                    'set' => $set,
+                    'form' => $form->createView(),
+                    'username' => $username,
                 ]
             );
-
+        } else if ($access == 'user') {
             return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $app->redirect($app['url_generator']->generate('homepage'));
         }
-
-        $form = $app['form.factory']
-            ->createBuilder(SetType::class, $set, ['set_repository' => new SetRepository($app['db']), 'tag_repository' => new TagRepository($app['db'])])
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $setRepository->save($form->getData());
-            $app['session']->getFlashBag()->add(
-                'messages',
-                [
-                    'type' => 'success',
-                    'message' => 'message.element_successfully_added',
-                ]
-            );
-
-            return $app->redirect($app['url_generator']->generate('set_index'), 301);
-        }
-
-        return $app['twig']->render(
-            'set/edit.html.twig',
-            [
-                'set' => $set,
-                'form' => $form->createView(),
-            ]
-        );
     }
 
     /**
@@ -182,52 +303,70 @@ class SetController implements ControllerProviderInterface
      */
     public function deleteAction(Application $app, $id, Request $request)
     {
+        $access = $this->checkAccess($app);
+
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         $setRepository = new SetRepository($app['db']);
-        $set = $setRepository->findOneById($id);
 
-        if (!$set) {
-            $app['session']->getFlashBag->add(
-                'messages',
+        if ($access == 'admin' || ($access == 'user' && $setRepository->checkOwnership($id, $user['id']))) {
+            $setRepository = new SetRepository($app['db']);
+            $set = $setRepository->findOneById($id);
+
+            if (!$set) {
+                $app['session']->getFlashBag->add(
+                    'messages',
+                    [
+                        'type' => 'warning',
+                        'message' => 'message.record_not_found',
+                    ]
+                );
+
+                return $app->redirect(
+                    $app['url_generator']->generate('set_index')
+                );
+            }
+
+            $form = $app['form.factory']
+                ->createBuilder(FormType::class, $set)
+                ->add('id', HiddenType::class)
+                ->getForm();
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $setRepository->delete($form->getData());
+
+                $app['session']->getFlashBag()->add(
+                    '/messages',
+                    [
+                        'type' => 'success',
+                        'message' => 'message.element_successfully_deleted',
+                    ]
+                );
+
+                return $app->redirect(
+                    $app['url_generator']->generate('set_index'),
+                    301
+                );
+            }
+
+            return $app['twig']->render(
+                'set/delete.html.twig',
                 [
-                    'type' => 'warning',
-                    'message' => 'message.record_not_found',
+                    'form' => $form->createView(),
+                    'username' => $username,
+                    'set' => $set,
                 ]
             );
-
-            return $app->redirect(
-                $app['url_generator']->generate('set_index')
-            );
+        } else if ($access == 'user') {
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $app->redirect($app['url_generator']->generate('homepage'));
         }
-
-        $form = $app['form.factory']
-            ->createBuilder(FormType::class, $set)
-            ->add('id', HiddenType::class)
-            ->getForm();
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $setRepository->delete($form->getData());
-
-            $app['session']->getFlashBag()->add(
-                '/messages',
-                [
-                  'type' => 'success',
-                    'message' => 'message.element_successfully_deleted',
-                ]
-            );
-
-            return $app->redirect(
-                $app['url_generator']->generate('set_index'),
-                301
-            );
-        }
-
-        return $app['twig']->render(
-            'set/delete.html.twig',
-            [
-                'form' => $form->createView(),
-                'set' => $set,
-            ]
-        );
     }
 }

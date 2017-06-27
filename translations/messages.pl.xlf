@@ -26,7 +26,6 @@
                                             <source> message.element_successfully_delete </source>
                                             <target> Usunięto element. </target>
                         </trans-unit>
-
         </body>
     </file>
 </xliff>

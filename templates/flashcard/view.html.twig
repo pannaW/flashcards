@@ -14,8 +14,8 @@
         {% if flashcard|length %}
             <div>
             {{ flashcard.word }} => {{ flashcard.definition }}
-            <a href="{{ url('set_edit', {'id': id }) }}"><i class="fa fa-edit"></i></a>
-            <a href="{{ url('set_delete', {'id': id }) }}"><i class="fa fa-remove"></i></a>
+            <a href="{{ url('flashcard_edit', {'id': id }) }}"><i class="fa fa-edit"></i></a>
+            <a href="{{ url('flashcard_delete', {'id': id }) }}"><i class="fa fa-remove"></i></a>
         {% else %}
             <div>
                 No flashcards found

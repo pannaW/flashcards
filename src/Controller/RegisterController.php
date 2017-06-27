@@ -61,7 +61,7 @@ class RegisterController implements ControllerProviderInterface
                 ]
             );
 
-            return $app->redirect($app['url_generator']->generate('homepage'), 301);
+            return $app->redirect($app['url_generator']->generate('auth_login'), 301);
         }
 
         return $app['twig']->render(

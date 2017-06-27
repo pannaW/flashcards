@@ -16,6 +16,15 @@
         {% if set|length %}
             <div>
             {{ set.id }}, {{ set.name }}
+                {% if flashcards|length %}
+                    <ul>
+                        {% for flashcard in flashcards %}
+                            <li><a href="{{ url('flashcard_view', {'id': flashcard.id }) }}">
+                                    {{ flashcard.word }} => {{ flashcard.definition }} </a> </li>
+                        {% endfor %}
+                    </ul>
+                {% endif %}
+            <br>
             <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i></a>
             <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i></a>
         {% else %}

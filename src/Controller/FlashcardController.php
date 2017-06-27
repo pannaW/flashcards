@@ -11,6 +11,7 @@ use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\Request;
 use Form\FlashcardType;
 use Repository\FlashcardRepository;
+use Repository\UserRepository;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 
 /**
@@ -47,6 +48,22 @@ class FlashcardController implements ControllerProviderInterface
 
     }
 
+    /**
+     * Checks an access
+     *
+     * @param Application $app
+     * @return string
+     */
+    public function checkAccess(Application $app)
+    {
+        if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))
+            return "admin";
+
+        else if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))
+            return "user";
+        else
+            return "anonymous";
+    }
 
     /**
      * @param Application $app
@@ -54,12 +71,20 @@ class FlashcardController implements ControllerProviderInterface
      */
     public function indexAction(Application $app)
     {
-        $flashcardRepository = new FlashcardRepository($app['db']);
+        $access = $this->checkAccess($app);
+        switch ($access) {
+            case "admin":
+                $flashcardRepository = new FlashcardRepository($app['db']);
 
-        return $app['twig']->render(
-            'flashcard/index.html.twig',
-            ['flashcard' => $flashcardRepository->findAll()]
-        );
+                return $app['twig']->render(
+                    'flashcard/index.html.twig',
+                    ['flashcard' => $flashcardRepository->findAll()]
+                );
+            case "user":
+                return $app->redirect($app['url_generator']->generate('set_index'));
+            case "anonymous":
+                return $app->redirect($app['url_generator']->generate('homepage'));
+        }
     }
 
 
@@ -70,6 +95,11 @@ class FlashcardController implements ControllerProviderInterface
      */
     public function addAction(Application $app, Request $request)
     {
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+
         $flashcard = [];
         $form = $app['form.factory']
             ->createBuilder(FlashcardType::class, $flashcard, ['flashcard_repository' => new FlashcardRepository($app['db'])])
@@ -97,9 +127,9 @@ class FlashcardController implements ControllerProviderInterface
             [
                 'flashcard' => $flashcard,
                 'form' => $form->createView(),
+                'username' => $username,
             ]
         );
-
     }
 
     /**
@@ -109,16 +139,32 @@ class FlashcardController implements ControllerProviderInterface
      */
     public function viewAction(Application $app, $id)
     {
+        $access = $this->checkAccess($app);
+
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         $flashcardRepository = new FlashcardRepository($app['db']);
 
-        return $app['twig']->render(
-            'flashcard/view.html.twig',
-            [
-                'flashcard' => $flashcardRepository->findOneById($id),
-                'id' => $id,
-            ]
-        );
+        if($access == 'admin' || ($access == 'user' && $flashcardRepository->checkOwnership($id, $user['id']))) {
 
+            return $app['twig']->render(
+                'flashcard/view.html.twig',
+                [
+                    'flashcard' => $flashcardRepository->findOneById($id),
+                    'username' => $username,
+                    'id' => $id,
+                ]
+            );
+        }else if ($access == 'user') {
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $app->redirect($app['url_generator']->generate('homepage'));
+        }
     }
 
     /**
@@ -129,47 +175,65 @@ class FlashcardController implements ControllerProviderInterface
      */
     public function editAction(Application $app, $id, Request $request)
     {
+        $access = $this->checkAccess($app);
+
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         $flashcardRepository = new FlashcardRepository($app['db']);
-        $flashcard = $flashcardRepository->findOneById($id);
 
-        if (!$flashcard) {
-            $app['session']->getFlashBag()->add(
-                'messages',
+        if ($access == 'admin' || ($access == 'user' && $flashcardRepository->checkOwnership($id, $user['id']))) {
+
+            $flashcard = $flashcardRepository->findOneById($id);
+
+            if (!$flashcard) {
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'warning',
+                        'message' => 'message.record_not_found',
+                    ]
+                );
+
+                return $app->redirect($app['url_generator']->generate('flashcard_index'));
+            }
+
+            $form = $app['form.factory']
+                ->createBuilder(FlashcardType::class, $flashcard, ['flashcard_repository' => new FlashcardRepository($app['db'])])
+                ->getForm();
+
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $flashcardRepository->save($form->getData());
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'success',
+                        'message' => 'message.element_successfully_added',
+                    ]
+                );
+
+                return $app->redirect($app['url_generator']->generate('flashcard_index'), 301);
+            }
+
+            return $app['twig']->render(
+                'flashcard/edit.html.twig',
                 [
-                    'type' => 'warning',
-                    'message' => 'message.record_not_found',
+                    'flashcard' => $flashcard,
+                    'form' => $form->createView(),
+                    'username' => $username,
                 ]
             );
-
-            return $app->redirect($app['url_generator']->generate('flashcard_index'));
+        } else if ($access == 'user') {
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $app->redirect($app['url_generator']->generate('homepage'));
         }
-
-        $form = $app['form.factory']
-            ->createBuilder(FlashcardType::class, $flashcard, ['flashcard_repository' => new FlashcardRepository($app['db'])])
-            ->getForm();
-
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $flashcardRepository->save($form->getData());
-            $app['session']->getFlashBag()->add(
-                'messages',
-                [
-                    'type' => 'success',
-                    'message' => 'message.element_successfully_added',
-                ]
-            );
-
-            return $app->redirect($app['url_generator']->generate('flashcard_index'), 301);
-        }
-
-        return $app['twig']->render(
-            'flashcard/edit.html.twig',
-            [
-                'flashcard' => $flashcard,
-                'form' => $form->createView(),
-            ]
-        );
     }
 
     /**
@@ -180,52 +244,70 @@ class FlashcardController implements ControllerProviderInterface
      */
     public function deleteAction(Application $app, $id, Request $request)
     {
+        $access = $this->checkAccess($app);
+
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         $flashcardRepository = new FlashcardRepository($app['db']);
-        $flashcard = $flashcardRepository->findOneById($id);
 
-        if (!$flashcard) {
-            $app['session']->getFlashBag->add(
-                'messages',
+        if ($access == 'admin' || ($access == 'user' && $flashcardRepository->checkOwnership($id, $user['id']))) {
+
+            $flashcard = $flashcardRepository->findOneById($id);
+
+            if (!$flashcard) {
+                $app['session']->getFlashBag->add(
+                    'messages',
+                    [
+                        'type' => 'warning',
+                        'message' => 'message.record_not_found',
+                    ]
+                );
+
+                return $app->redirect(
+                    $app['url_generator']->generate('flashcard_index')
+                );
+            }
+
+            $form = $app['form.factory']
+                ->createBuilder(FormType::class, $flashcard)
+                ->add('id', HiddenType::class)
+                ->getForm();
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $flashcardRepository->delete($form->getData());
+
+                $app['session']->getFlashBag()->add(
+                    '/messages',
+                    [
+                        'type' => 'success',
+                        'message' => 'message.element_successfully_deleted',
+                    ]
+                );
+
+                return $app->redirect(
+                    $app['url_generator']->generate('flashcard_index'),
+                    301
+                );
+            }
+
+            return $app['twig']->render(
+                'flashcard/delete.html.twig',
                 [
-                    'type' => 'warning',
-                    'message' => 'message.record_not_found',
+                    'form' => $form->createView(),
+                    'flashcard' => $flashcard,
+                    'username' => $username,
                 ]
             );
-
-            return $app->redirect(
-                $app['url_generator']->generate('flashcard_index')
-            );
+        } else if ($access == 'user') {
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $app->redirect($app['url_generator']->generate('homepage'));
         }
-
-        $form = $app['form.factory']
-            ->createBuilder(FormType::class, $flashcard)
-            ->add('id', HiddenType::class)
-            ->getForm();
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $flashcardRepository->delete($form->getData());
-
-            $app['session']->getFlashBag()->add(
-                '/messages',
-                [
-                    'type' => 'success',
-                    'message' => 'message.element_successfully_deleted',
-                ]
-            );
-
-            return $app->redirect(
-                $app['url_generator']->generate('flashcard_index'),
-                301
-            );
-        }
-
-        return $app['twig']->render(
-            'flashcard/delete.html.twig',
-            [
-                'form' => $form->createView(),
-                'flashcard' => $flashcard,
-            ]
-        );
     }
 }

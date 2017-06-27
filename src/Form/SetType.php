@@ -62,19 +62,13 @@ class SetType extends AbstractType
                               'groups' => ['set-default'],
                               'repository' => isset($options['set_repository']) ? $options['set_repository'] : null,
                               'elementId' => isset($options['data']['id']) ? $options['data']['id'] : null,
+                              'userId' => isset($options['data']['users_id']) ? $options['data']['users_id'] :
+                                  (isset($options['userId']) ? $options['userId'] : null )
                           ]
                       ),
                   ],
               ]
           )
-            //TEMPORAR!
-            ->add(
-                'users_id',
-                HiddenType::class,
-                [
-                    'data' => 2,
-                ]
-            )
         ->add(
             'public',
             CheckboxType::class,
@@ -98,7 +92,6 @@ class SetType extends AbstractType
         $builder->get('tags')->addModelTransformer(
             new TagsDataTransformer($options['tag_repository'])
         );
-
         $builder->get('public')->addModelTransformer(
             new SetsDataTransformer($options['set_repository'])
         );
@@ -122,6 +115,7 @@ class SetType extends AbstractType
                 'validation_groups' => 'set-default',
                 'set_repository' => null,
                 'tag_repository' => null,
+                'userId' => null,
             ]
         );
     }

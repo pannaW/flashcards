@@ -13,6 +13,7 @@ use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\Request;
 use Repository\TagRepository;
+use Repository\UserRepository;
 use Form\TagType;
 
 /**
@@ -48,6 +49,22 @@ class TagController implements ControllerProviderInterface
         return $controller;
     }
 
+    /**
+     * Checks an access
+     *
+     * @param Application $app
+     * @return string
+     */
+    public function checkAccess(Application $app)
+    {
+        if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))
+            return "admin";
+
+        else if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))
+            return "user";
+        else
+            return "anonymous";
+    }
 
     /**
      * @param Application $app
@@ -55,12 +72,21 @@ class TagController implements ControllerProviderInterface
      */
     public function indexAction(Application $app)
     {
-        $tagRepository = new TagRepository($app['db']);
+        $access = $this->checkAccess($app);
 
-        return $app['twig']->render(
-            'tag/index.html.twig',
-            ['tag' => $tagRepository->findAll()]
-        );
+        switch ($access) {
+            case "admin":
+                $tagRepository = new TagRepository($app['db']);
+
+                return $app['twig']->render(
+                    'tag/index.html.twig',
+                    ['tag' => $tagRepository->findAll()]
+                );
+            case "user":
+                return $app->redirect($app['url_generator']->generate('set_index'));
+            case "anonymous":
+                return $app->redirect($app['url_generator']->generate('homepage'));
+        }
     }
 
     /**
@@ -70,15 +96,32 @@ class TagController implements ControllerProviderInterface
      */
     public function viewAction(Application $app, $id)
     {
+        $access = $this->checkAccess($app);
+
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         $tagRepository = new TagRepository($app['db']);
 
-        return $app['twig']->render(
-            'tag/view.html.twig',
-            [
-                'tag' => $tagRepository->findOneById($id),
-                'id' => $id,
-            ]
-        );
+        if($access == 'admin' || ($access == 'user' && $tagRepository->checkOwnership($id, $user['id']))) {
+
+            return $app['twig']->render(
+                'tag/view.html.twig',
+                [
+                    'tag' => $tagRepository->findOneById($id),
+                    'id' => $id,
+                    'username' => $username,
+                ]
+            );
+        } else if ($access == 'user') {
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $app->redirect($app['url_generator']->generate('homepage'));
+        }
     }
 
     /**
@@ -88,6 +131,11 @@ class TagController implements ControllerProviderInterface
      */
     public function addAction(Application $app, Request $request)
     {
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+
         $tag = [];
 
         $form = $app['form.factory']
@@ -107,7 +155,7 @@ class TagController implements ControllerProviderInterface
                 ]
             );
 
-            return $app->redirect($app['url_generator']->generate('tag_index'), 301);
+            return $app->redirect($app['url_generator']->generate('set_index'), 301);
         }
 
         return $app['twig']->render(
@@ -115,6 +163,7 @@ class TagController implements ControllerProviderInterface
             [
                 'form' => $form->createView(),
                 'tag' => $tag,
+                'username' => $username,
             ]
         );
 
@@ -128,45 +177,63 @@ class TagController implements ControllerProviderInterface
      */
     public function editAction(Application $app, $id, Request $request)
     {
+        $access = $this->checkAccess($app);
+
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         $tagRepository = new TagRepository($app['db']);
-        $tag = $tagRepository->findOneById($id);
 
-        if (!$tag) {
-            $app['session']->getFlashBag()->add(
-                'messages',
+        if($access == 'admin' || ($access == 'user' && $tagRepository->checkOwnership($id, $user['id']))) {
+
+            $tag = $tagRepository->findOneById($id);
+
+            if (!$tag) {
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'warning',
+                        'message' => 'message.record_not_found',
+                    ]
+                );
+                return $app->redirect($app['url_generator']->generate('set_index'));
+            }
+
+            $form = $app['form.factory']->createBuilder(TagType::class, $tag, ['tag_repository' => new TagRepository($app['db'])])
+                ->getForm();
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $tagRepository->save($form->getData());
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'success',
+                        'message' => 'message.element_successfully_added',
+                    ]
+                );
+
+                return $app->redirect($app['url_generator']->generate('tag_index'), 301);
+            }
+
+            return $app['twig']->render(
+                'tag/edit.html.twig',
                 [
-                    'type' => 'warning',
-                    'message' => 'message.record_not_found',
+                    'form' => $form->createView(),
+                    'tag' => $tag,
+                    'id' => $id,
+                    'username' => $username,
                 ]
             );
-            // return redirect
+        }else if ($access == 'user') {
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $app->redirect($app['url_generator']->generate('homepage'));
         }
-
-        $form = $app['form.factory']->createBuilder(TagType::class, $tag, ['tag_repository' => new TagRepository($app['db'])])
-            ->getForm();
-        $form->handleRequest($request);
-
-        if ($form->isSubmitted() && $form->isValid()) {
-            $tagRepository->save($form->getData());
-            $app['session']->getFlashBag()->add(
-                'messages',
-                [
-                    'type' => 'success',
-                    'message' => 'message.element_successfully_added',
-                ]
-            );
-
-            return $app->redirect($app['url_generator']->generate('tag_index'), 301);
-        }
-
-        return $app['twig']->render(
-            'tag/edit.html.twig',
-            [
-                'form' => $form->createView(),
-                'tag' => $tag,
-                'id' => $id,
-            ]
-        );
     }
 
     /**
@@ -177,60 +244,73 @@ class TagController implements ControllerProviderInterface
      */
     public function deleteAction(Application $app, $id, Request $request)
     {
-        $tagRepository = new TagRepository($app['db']);
-        $tag = $tagRepository->findOneById($id);
+        $access = $this->checkAccess($app);
 
-        if (!$tag) {
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
+        $tagRepository = new TagRepository($app['db']);
+
+        if ($access == 'admin' || ($access == 'user' && $tagRepository->checkOwnership($id, $user['id']))) {
+            $tag = $tagRepository->findOneById($id);
+
+            if (!$tag) {
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'warning',
+                        'message' => 'message.record_not_found',
+                    ]
+                );
+
+                return $app->redirect($app['url_generator']->generate('tag_index'));
+            }
+
+            if (!($tagRepository->findIfTagLinked($id))) {
+                //if tag not linked with set
+                $form = $app['form.factory']->createBuilder(FormType::class, $tag)->add('id', HiddenType::class)->getForm();
+                $form->handleRequest($request);
+
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $tagRepository->delete($form->getData());
+
+                    $app['session']->getFlashBag()->add(
+                        'messages',
+                        [
+                            'type' => 'success',
+                            'message' => 'message.element_successfully_deleted',
+                        ]
+                    );
+
+                    return $app->redirect(
+                        $app['url_generator']->generate('tag_index'),
+                        301
+                    );
+                }
+
+                return $app['twig']->render(
+                    'tag/delete.html.twig',
+                    [
+                        'tag' => $tag,
+                        'form' => $form->createView(),
+                        'username' => $username,
+                    ]
+                );
+            }
+
             $app['session']->getFlashBag()->add(
                 'messages',
                 [
                     'type' => 'warning',
-                    'message' => 'message.record_not_found',
+                    'message' => 'message.tag_linked_to_set',
                 ]
             );
 
-            return $app->redirect($app['url_generator']->generate('tag_index'));
+            return $app->redirect($app['url_generator']->generate('set_index'));
         }
-
-        if (!($tagRepository->findIfTagLinked($id))) {
-            //if tag not linked with set
-            $form = $app['form.factory']->createBuilder(FormType::class, $tag)->add('id', HiddenType::class)->getForm();
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-                $tagRepository->delete($form->getData());
-
-                $app['session']->getFlashBag()->add(
-                    'messages',
-                    [
-                        'type' => 'success',
-                        'message' => 'message.element_successfully_deleted',
-                    ]
-                );
-
-                return $app->redirect(
-                    $app['url_generator']->generate('tag_index'),
-                    301
-                );
-            }
-
-            return $app['twig']->render(
-                'tag/delete.html.twig',
-                [
-                    'tag' => $tag,
-                    'form' => $form->createView(),
-                ]
-            );
-        }
-
-        $app['session']->getFlashBag()->add(
-            'messages',
-            [
-                'type' => 'warning',
-                'message' => 'message.tag_linked_to_set',
-            ]
-        );
-
-        return $app->redirect($app['url_generator']->generate('tag_index'));
     }
 }

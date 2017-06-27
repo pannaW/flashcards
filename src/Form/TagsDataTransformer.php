@@ -70,7 +70,7 @@ class TagsDataTransformer implements DataTransformerInterface
                 $tag = $this->tagRepository->findOneByName($tagName);
                 if (null === $tag || !count($tag)) {
                     $tag = [];
-                    $tag['name'] = strtolower($tagName);
+                    $tag['name'] = mb_strtolower($tagName);
                     $tag = $this->tagRepository->save($tag);
                 }
                 $tags[] = $tag;

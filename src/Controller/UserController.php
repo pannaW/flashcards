@@ -49,6 +49,16 @@ class UserController implements ControllerProviderInterface
 
     }
 
+    public function checkAccess(Application $app)
+    {
+        if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))
+            return "admin";
+
+        else if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))
+            return "user";
+        else
+            return "anonymous";
+    }
 
     /**
      * @param Application $app
@@ -56,12 +66,22 @@ class UserController implements ControllerProviderInterface
      */
     public function indexAction(Application $app)
     {
-        $userRepository = new UserRepository($app['db']);
+        $access=$this->checkAccess($app);
 
-        return $app['twig']->render(
-            'user/index.html.twig',
-            ['user' => $userRepository->findAll()]
-        );
+        switch($access){
+            case "admin":
+                $userRepository = new UserRepository($app['db']);
+
+                return $app['twig']->render(
+                    'user/index.html.twig',
+                    ['user' => $userRepository->findAll()]
+                );
+            case "user":
+                return $app->redirect($app['url_generator']->generate('set_index'));
+            case "anonymous":
+                return $app->redirect($app['url_generator']->generate('homepage'));
+        }
+
     }
 
     /**

@@ -58,6 +58,27 @@ class FlashcardRepository
     }
 
     /**
+     * @param $id
+     * @param $userId
+     * @return bool
+     */
+    public function checkOwnership($id, $userId)
+    {
+        $queryBuilder = $this->db->createQueryBuilder()
+            ->select('*')
+            ->from('sets', 's')
+            ->innerJoin('s','flashcards','f', 's.id = f.sets_id')
+            ->where('f.id = :id')
+            ->andWhere('s.users_id = :users_id')
+            ->setParameter(':id', $id, \PDO::PARAM_INT)
+            ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
+        $result = $queryBuilder->execute()->fetchAll();
+
+            dump($result);
+        return !empty($result) ? true : false ;
+    }
+
+    /**
      * Save record.
      *
      * @param array $flashcard Flashcard
