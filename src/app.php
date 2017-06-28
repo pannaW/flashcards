@@ -98,6 +98,8 @@ $app->register(
         'security.access_rules' => [
             ['^/auth.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
             ['^/registration.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
+            ['^/set.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
+            ['^/flashcard.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
             ['^/.+$', 'ROLE_USER'],
             ['^/admin.+$', 'ROLE_ADMIN'],
 

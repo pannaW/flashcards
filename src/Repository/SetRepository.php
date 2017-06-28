@@ -119,6 +119,7 @@ class SetRepository
                 $this->addLinkedTags($setId, $tagsIds);
             }
             $this->db->commit();
+            return $setId;
         } catch (DBALException $e) {
             $this->db->rollBack();
             throw $e;
@@ -241,6 +242,18 @@ class SetRepository
     }
 
     /**
+     * Remove linked tags.
+     *
+     * @param int $setIds Set Ids
+     *
+     * @return boolean Result
+     */
+    public function removeLinkedTags($setId)
+    {
+        return $this->db->delete('set_has_tag', ['sets_id' => $setId]);
+    }
+
+    /**
      * Finds linked tags Ids.
      *
      * @param int $setId Set Id
@@ -259,17 +272,6 @@ class SetRepository
         return isset($result) ? array_column($result, 'tags_id') : [];
     }
 
-    /**
-     * Remove linked tags.
-     *
-     * @param int $setId Set Id
-     *
-     * @return boolean Result
-     */
-    protected function removeLinkedTags($setId)
-    {
-        return $this->db->delete('set_has_tag', ['sets_id' => $setId]);
-    }
 
     /**
      * @param $setId

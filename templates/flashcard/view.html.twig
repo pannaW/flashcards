@@ -14,15 +14,17 @@
         {% if flashcard|length %}
             <div>
             {{ flashcard.word }} => {{ flashcard.definition }}
-            <a href="{{ url('flashcard_edit', {'id': id }) }}"><i class="fa fa-edit"></i></a>
-            <a href="{{ url('flashcard_delete', {'id': id }) }}"><i class="fa fa-remove"></i></a>
+            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="{{ url('flashcard_edit', {'id': id }) }}"><i class="fa fa-edit"></i></a>
+                <a href="{{ url('flashcard_delete', {'id': id }) }}"><i class="fa fa-remove"></i></a>
+            {% endif %}
         {% else %}
             <div>
                 No flashcards found
             </div>
         {% endif %}
         <br>
-        <a href="{{ url('flashcard_index') }}" title="Powrót">
+        <a href="{{ url('set_view', { 'id' : flashcard.sets_id }) }}" title="Powrót">
             Powrót</a>
     {% endblock %}
 {% endblock %}

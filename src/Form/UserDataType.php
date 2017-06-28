@@ -93,16 +93,15 @@ class UserDataType extends AbstractType
             [
                 'label' => 'label.email',
                 'required' => true,
-                //                'constraints' => [
-                //                    new CustomAssert\UniqueEmail(
-                //                        //TODO: implement validators, remember about user_data_repository
-                //                        [
-                //                            'groups' => ['register-default'],
-                //                            'repository' => isset($options['user_repository']) ? $options['user_repository'] : null,
-                //                            'elementId' => isset($options['data']['id']) ? $options['data']['id'] : null,
-                //                        ]
-                //                    ),
-                //                ],
+                    'constraints' => [
+                        new CustomAssert\UniqueEmail(
+                            [
+                                'groups' => ['user-data-default'],
+                                'repository' => isset($options['user_repository']) ? $options['user_repository'] : null,
+                                'userId' => isset($options['userId']) ? $options['userId'] : null,
+                            ]
+                        ),
+                    ],
             ]
         );
     }
@@ -123,6 +122,8 @@ class UserDataType extends AbstractType
         $resolver->setDefaults(
             [
                 'validation_groups' => 'user-data-default',
+                'user_repository' => null,
+                'userId' => null,
             ]
         );
     }

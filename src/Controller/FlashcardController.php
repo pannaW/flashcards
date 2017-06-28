@@ -12,6 +12,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Form\FlashcardType;
 use Repository\FlashcardRepository;
 use Repository\UserRepository;
+use Repository\SetRepository;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 
 /**
@@ -72,13 +73,24 @@ class FlashcardController implements ControllerProviderInterface
     public function indexAction(Application $app)
     {
         $access = $this->checkAccess($app);
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         switch ($access) {
             case "admin":
                 $flashcardRepository = new FlashcardRepository($app['db']);
 
                 return $app['twig']->render(
                     'flashcard/index.html.twig',
-                    ['flashcard' => $flashcardRepository->findAll()]
+                    [
+                        'flashcard' => $flashcardRepository->findAll(),
+                        'userId' => $user['id'],
+                        'username' => $username,
+                    ]
                 );
             case "user":
                 return $app->redirect($app['url_generator']->generate('set_index'));
@@ -95,41 +107,62 @@ class FlashcardController implements ControllerProviderInterface
      */
     public function addAction(Application $app, Request $request)
     {
-        $token = $app['security.token_storage']->getToken();
-        if (null !== $token) {
-            $username = $token->getUsername();
-        }
+        if($app['session']->get('setId')) {
+            //if foreign key from set passed
 
-        $flashcard = [];
-        $form = $app['form.factory']
-            ->createBuilder(FlashcardType::class, $flashcard, ['flashcard_repository' => new FlashcardRepository($app['db'])])
-            ->getForm();
+            $access = $this->checkAccess($app);
 
-        $form->handleRequest($request);
+            $token = $app['security.token_storage']->getToken();
+            if (null !== $token) {
+                $username = $token->getUsername();
+            }
+            $userRepository = new UserRepository($app['db']);
+            $user = $userRepository->getUserByLogin($username);
 
-        if ($form->isSubmitted() && $form->isValid()) {
-            $flashcardRepository = new flashcardRepository($app['db']);
-            $flashcardRepository->save($form->getData());
+            $flashcard['sets_id'] = $app['session']->get('setId');
+            $setRepository = new SetRepository($app['db']);
 
-            $app['session']->getFlashBag()->add(
-                'messages',
-                [
-                    'type' => 'success',
-                    'message' => 'message.element_successfully_added',
-                ]
-            );
+            if ($access == 'admin' || ($access == 'user' && $setRepository->checkOwnership($flashcard['sets_id'], $user['id']))) {
+                $form = $app['form.factory']
+                    ->createBuilder(FlashcardType::class, $flashcard, ['flashcard_repository' => new FlashcardRepository($app['db']),
+                        'userId' => $user['id']])
+                    ->getForm();
 
-            return $app->redirect($app['url_generator']->generate('flashcard_index'), 301);
-        }
+                $form->handleRequest($request);
 
-        return $app['twig']->render(
-            'flashcard/add.html.twig',
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $flashcardRepository = new flashcardRepository($app['db']);
+                    $flashcardRepository->save($form->getData());
+
+                    $app['session']->getFlashBag()->add(
+                        'messages',
+                        [
+                            'type' => 'success',
+                            'message' => 'message.element_successfully_added',
+                        ]
+                    );
+
+                    return $app->redirect($app['url_generator']->generate('set_view', ['id' => $flashcard['sets_id']]), 301);
+                }
+
+                return $app['twig']->render(
+                    'flashcard/add.html.twig',
+                    [
+                        'flashcard' => $flashcard,
+                        'form' => $form->createView(),
+                        'username' => $username,
+                        'userId' => $user['id'],
+                    ]
+                );
+            }
+        }$app['session']->getFlashBag()->add(
+            'messages',
             [
-                'flashcard' => $flashcard,
-                'form' => $form->createView(),
-                'username' => $username,
+                'type' => 'danger',
+                'message' => 'message.adding_to_elses_set_forbidden',
             ]
         );
+        return $app->redirect($app['url_generator']->generate('set_view', ['id' => $flashcard['sets_id']]));
     }
 
     /**
@@ -141,6 +174,24 @@ class FlashcardController implements ControllerProviderInterface
     {
         $access = $this->checkAccess($app);
 
+        //check if public
+        $flashcardRepository = new FlashcardRepository($app['db']);
+        $flashcard = $flashcardRepository->findOneById($id);
+
+        $setRepository = new SetRepository($app['db']);
+        $set = $setRepository->findOneById($flashcard['sets_id']);
+        if($set['public'] && $access == "anonymous"){
+            $flashcardRepository = new FlashcardRepository($app['db']);
+
+            return $app['twig']->render(
+                'flashcard/view.html.twig',
+                [
+                    'flashcard' => $flashcardRepository->findOneById($id),
+                    'id' => $id,
+                ]
+            );
+        }
+
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
             $username = $token->getUsername();
@@ -150,13 +201,17 @@ class FlashcardController implements ControllerProviderInterface
 
         $flashcardRepository = new FlashcardRepository($app['db']);
 
-        if($access == 'admin' || ($access == 'user' && $flashcardRepository->checkOwnership($id, $user['id']))) {
 
+        if($access == 'admin' ||
+            ($access == 'user' && $flashcardRepository->checkOwnership($id, $user['id'])) ||
+            (($set['public'] && $access == 'user'))) {
+            //check access
             return $app['twig']->render(
                 'flashcard/view.html.twig',
                 [
                     'flashcard' => $flashcardRepository->findOneById($id),
                     'username' => $username,
+                    'userId' => $user['id'],
                     'id' => $id,
                 ]
             );
@@ -166,6 +221,7 @@ class FlashcardController implements ControllerProviderInterface
             $app->redirect($app['url_generator']->generate('homepage'));
         }
     }
+
 
     /**
      * @param Application $app
@@ -199,11 +255,12 @@ class FlashcardController implements ControllerProviderInterface
                     ]
                 );
 
-                return $app->redirect($app['url_generator']->generate('flashcard_index'));
+                return $app->redirect($app['url_generator']->generate('set_index'));
             }
 
             $form = $app['form.factory']
-                ->createBuilder(FlashcardType::class, $flashcard, ['flashcard_repository' => new FlashcardRepository($app['db'])])
+                ->createBuilder(FlashcardType::class, $flashcard, ['flashcard_repository' => new FlashcardRepository($app['db']),
+                    'userId' => $user['id']])
                 ->getForm();
 
             $form->handleRequest($request);
@@ -218,7 +275,7 @@ class FlashcardController implements ControllerProviderInterface
                     ]
                 );
 
-                return $app->redirect($app['url_generator']->generate('flashcard_index'), 301);
+                return $app->redirect($app['url_generator']->generate('set_view', ['id' => $flashcard['sets_id'] ]), 301);
             }
 
             return $app['twig']->render(
@@ -227,6 +284,7 @@ class FlashcardController implements ControllerProviderInterface
                     'flashcard' => $flashcard,
                     'form' => $form->createView(),
                     'username' => $username,
+                    'userId' => $user['id'],
                 ]
             );
         } else if ($access == 'user') {
@@ -302,6 +360,7 @@ class FlashcardController implements ControllerProviderInterface
                     'form' => $form->createView(),
                     'flashcard' => $flashcard,
                     'username' => $username,
+                    'userId' => $user['id'],
                 ]
             );
         } else if ($access == 'user') {

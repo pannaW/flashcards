@@ -26,6 +26,14 @@ class UniqueFlashcard extends Constraint
      */
     public $elementId = null;
 
+
+    /**
+     * User id
+     *
+     * @var int|string|null $userId
+     */
+    public $userId = null;
+
     /**
      * Flashcard repository.
      *

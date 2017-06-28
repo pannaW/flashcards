@@ -8,7 +8,7 @@
 {% block rightnavlist %}
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
-        <li><a href="#" title="{{ 'user.label'|trans }}"> User </a></li>
+        <li><a href="{{ url('user_view', {'id': userId }) }}" title="{{ 'user.label'|trans }}"> {{ username }} </a></li>
         <li><a href="{{ url('auth_logout') }}" title="{{ 'auth.logout.label'|trans }}"> Log out
             </a></li>
     {% else %}

@@ -1,0 +1,25 @@
+{% extends 'panel.html.twig' %}
+
+{% block title %}
+    Your account
+{% endblock %}
+
+{% block board %}
+    {% block header %}
+        <h1> Your account </h1>
+    {% endblock %}
+    {% block article %}
+           <ul>
+               <li> {{ user.login }} </li>
+               {% if userData|length %}
+               <li> {{ userData.name }}</li>
+               <li> {{ userData.surname }}</li>
+               <li> {{ userData.email }}</li>
+               {% endif %}
+           </ul>
+            <a href="{{ url('edit_data', {'id': userId }) }}"><i class="fa fa-edit"></i></a>
+        <br>
+        <a href="{{ url('user_index') }}" title="Powrót">
+            Powrót</a>
+    {% endblock %}
+{% endblock %}

@@ -147,22 +147,18 @@ class TagRepository
         return $queryBuilder->execute()->fetchAll();
     }
 
-    /**
-     * Find out if tag is linked.
-     *
-     * @param null $id
-     * @return bool
-     */
-    public function findIfTagLinked($id = null)
+
+
+    public function findLinkedTags($id = null)
     {
         $queryBuilder = $this->db->createQueryBuilder()
-            ->select('st.tags_id')
+            ->select('st.sets_id')
             ->from('set_has_tag', 'st')
             ->where('st.tags_id = :tag_id')
             ->setParameter(':tag_id', $id, \PDO::PARAM_INT);
         $result = $queryBuilder->execute()->fetchAll();
 
-        return !empty($result) ;
+        return !empty($result) ? $result : false ;
     }
 
     /**

@@ -24,7 +24,7 @@ class UniqueUser extends Constraint
      *
      * @var int|string|null $elementId
      */
-    public $elementId = null;
+    public $userId = null;
 
     /**
      * User repository.

@@ -74,7 +74,6 @@ class FlashcardRepository
             ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
         $result = $queryBuilder->execute()->fetchAll();
 
-            dump($result);
         return !empty($result) ? true : false ;
     }
 
@@ -119,13 +118,18 @@ class FlashcardRepository
      *
      * @return array Result
      */
-    public function findForUniqueness($word, $id = null)
+    public function findForUniqueness($word, $id = null, $userId)
     {
-        $queryBuilder = $this->queryAll();
-        $queryBuilder->where('t.word = :word')
-            ->setParameter(':word', $word, \PDO::PARAM_STR);
+        $queryBuilder = $this->db->createQueryBuilder()
+            ->select('*')
+            ->from('sets', 's')
+            ->innerJoin('s','flashcards','f', 's.id = f.sets_id')
+            ->where('f.word = :word')
+            ->andWhere('s.users_id = :users_id')
+            ->setParameter(':word', $word, \PDO::PARAM_INT)
+            ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
         if ($id) {
-            $queryBuilder->andWhere('t.id <> :id')
+            $queryBuilder->andWhere('s.id <> :id')
                 ->setParameter(':id', $id, \PDO::PARAM_INT);
         }
 
@@ -141,7 +145,7 @@ class FlashcardRepository
     {
         $queryBuilder = $this->db->createQueryBuilder();
 
-        return $queryBuilder->select('t.id', 't.word', 't.definition')
+        return $queryBuilder->select('*')
             ->from('flashcards', 't');
     }
 }

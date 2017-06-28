@@ -9,6 +9,7 @@ use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Repository\TagRepository;
 use Repository\SetRepository;
@@ -22,9 +23,6 @@ use Form\SetType;
  */
 class SetController implements ControllerProviderInterface
 {
-
-    protected $view = [];
-
     /**
      * {@inheritdoc}
      */
@@ -61,14 +59,15 @@ class SetController implements ControllerProviderInterface
     {
         $access = $this->checkAccess($app);
 
+        $token = $app['security.token_storage']->getToken();
+        if (null !== $token) {
+            $username = $token->getUsername();
+        }
+        $userRepository = new UserRepository($app['db']);
+        $user = $userRepository->getUserByLogin($username);
+
         switch ($access) {
             case "user":
-                $token = $app['security.token_storage']->getToken();
-                if (null !== $token) {
-                    $username = $token->getUsername();
-                }
-                $userRepository = new UserRepository($app['db']);
-                $user = $userRepository->getUserByLogin($username);
                 $setRepository = new SetRepository($app['db']);
                 $sets = $setRepository->loadUserSets($user['id']);
 
@@ -87,14 +86,10 @@ class SetController implements ControllerProviderInterface
                         [
                             'sets' => $result,
                             'username' => $username,
+                            'userId' => $user['id'],
                         ]
                     );
             case "admin":
-                $token = $app['security.token_storage']->getToken();
-                if (null !== $token) {
-                    $username = $token->getUsername();
-                }
-
                 $setRepository = new SetRepository($app['db']);
                 $sets = $setRepository->findAll();
                 if( $sets && is_array($sets)) {
@@ -114,6 +109,7 @@ class SetController implements ControllerProviderInterface
                     [
                         'sets' => $result,
                         'username' => $username,
+                        'userId' => $user['id'],
                     ]
                 );
             case "anonymous":
@@ -163,7 +159,8 @@ class SetController implements ControllerProviderInterface
 
         if ($form->isSubmitted() && $form->isValid()) {
             $setRepository = new SetRepository($app['db']);
-            $setRepository->save($form->getData());
+
+            $setId = $setRepository->save($form->getData());
 
             $app['session']->getFlashBag()->add(
                 'messages',
@@ -173,7 +170,7 @@ class SetController implements ControllerProviderInterface
                 ]
             );
 
-            return $app->redirect($app['url_generator']->generate('set_index'), 301);
+            return $app->redirect($app['url_generator']->generate('set_view', ['id' => $setId ]), 301);
         }
 
         return $app['twig']->render(
@@ -182,6 +179,7 @@ class SetController implements ControllerProviderInterface
                 'set' => $set,
                 'form' => $form->createView(),
                 'username' => $username,
+                'userId' => $user['id'],
             ]
         );
 
@@ -196,6 +194,22 @@ class SetController implements ControllerProviderInterface
     {
         $access = $this->checkAccess($app);
 
+        $setRepository = new SetRepository($app['db']);
+        $set = $setRepository->findOneById($id);
+        //check if public
+        if($set['public'] && $access == "anonymous"){
+            $flashcards = $setRepository->findLinkedFlashcards($id);
+
+            return $app['twig']->render(
+                'set/view.html.twig',
+                [
+                    'set' => $set,
+                    'flashcards' => $flashcards,
+                    'id' => $id,
+                ]
+            );
+        }
+
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
             $username = $token->getUsername();
@@ -203,10 +217,13 @@ class SetController implements ControllerProviderInterface
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
-        $setRepository = new SetRepository($app['db']);
+        if ($access == 'admin' ||
+            ($access == 'user' && $setRepository->checkOwnership($id, $user['id'])) ||
+            (($set['public'] && $access == 'user'))) {
+            //check access
 
-        if($access == 'admin' || ($access == 'user' && $setRepository->checkOwnership($id, $user['id']))) {
-            $set = $setRepository->findOneById($id);
+            $app['session']->set('setId', $id);
+
             $flashcards = $setRepository->findLinkedFlashcards($id);
 
             return $app['twig']->render(
@@ -216,6 +233,7 @@ class SetController implements ControllerProviderInterface
                     'username' => $username,
                     'flashcards' => $flashcards,
                     'id' => $id,
+                    'userId' => $user['id'],
                 ]
             );
         } else if ($access == 'user') {
@@ -286,10 +304,18 @@ class SetController implements ControllerProviderInterface
                     'set' => $set,
                     'form' => $form->createView(),
                     'username' => $username,
+                    'userId' => $user['id'],
                 ]
             );
         } else if ($access == 'user') {
-            return $app->redirect($app['url_generator']->generate('set_index'));
+            $app['session']->getFlashBag()->add(
+                'messages',
+                [
+                    'type' => 'danger',
+                    'message' => 'message.editing_elses_sets_forbidden',
+                ]
+            );
+            return $app->redirect($app['url_generator']->generate('set_view', ['id' => $id ]));
         } else {
             $app->redirect($app['url_generator']->generate('homepage'));
         }
@@ -360,11 +386,19 @@ class SetController implements ControllerProviderInterface
                 [
                     'form' => $form->createView(),
                     'username' => $username,
+                    'userId' => $user['id'],
                     'set' => $set,
                 ]
             );
         } else if ($access == 'user') {
-            return $app->redirect($app['url_generator']->generate('set_index'));
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'danger',
+                        'message' => 'message.deleting_elses_set_forbidden',
+                    ]
+                );
+                return $app->redirect($app['url_generator']->generate('set_view', ['id' => $id ]));
         } else {
             $app->redirect($app['url_generator']->generate('homepage'));
         }

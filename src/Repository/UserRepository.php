@@ -41,6 +41,24 @@ class UserRepository
         $this->setRepository = new SetRepository($db);
     }
 
+    /**
+     * @param $id
+     * @param $userId
+     * @return bool
+     */
+    public function checkOwnership($id, $userId)
+    {
+        $queryBuilder = $this->db->createQueryBuilder()
+            ->select('id, users_id')
+            ->from('sets', 's')
+            ->where('s.id = :id')
+            ->andWhere('s.users_id = :users_id')
+            ->setParameter(':id', $id, \PDO::PARAM_INT)
+            ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
+        $result = $queryBuilder->execute()->fetchAll();
+
+        return !empty($result) ? true : false ;
+    }
 
     /**
      * Fetch all records.
@@ -92,8 +110,14 @@ class UserRepository
         return !$result ? [] : $result;
     }
 
+    public function updateUser($user) {
+            $userId = $user['id'];
+            unset($user['id']);
+            return $this->db->update('users', $user, ['id' => $userId]);
+    }
+
     /**
-     * Saving user into DB
+     * Saving user into DB with user data
      *
      * @param $user
      * @throws DBALException
@@ -126,6 +150,10 @@ class UserRepository
             $this->db->rollBack();
             throw $e;
         }
+    }
+
+    public function resetPassword($data) {
+        return $this->db->update('users', $data, ['id' => $data['id']]);
     }
 
     /**
@@ -226,7 +254,7 @@ class UserRepository
     {
         try {
             $queryBuilder = $this->db->createQueryBuilder();
-            $queryBuilder->select('u.id', 'u.login', 'u.password')
+            $queryBuilder->select('*')
                 ->from('users', 'u')
                 ->where('u.login = :login')
                 ->setParameter(':login', $login, \PDO::PARAM_STR);
@@ -286,6 +314,21 @@ class UserRepository
         if ($id) {
             $queryBuilder->andWhere('u.id <> :id')
                 ->setParameter(':id', $id, \PDO::PARAM_INT);
+        }
+
+        return $queryBuilder->execute()->fetchAll();
+    }
+
+    public function findForUniqueEmail($email, $userId = null)
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+        $queryBuilder->select('email')
+            ->from('users_data', 'ud')
+            ->where('ud.email = :email')
+            ->setParameter(':email', $email, \PDO::PARAM_STR);
+        if ($userId) {
+            $queryBuilder->andWhere('ud.users_id <> :users_id')
+                ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
         }
 
         return $queryBuilder->execute()->fetchAll();

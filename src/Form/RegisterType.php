@@ -33,9 +33,6 @@ class RegisterType extends AbstractType
             [
                 'label' => 'label.login',
                 'required' => true,
-                'attr' => [
-                    'max_length' => 45,
-                ],
                 'constraints' => [
                     new Assert\NotBlank(
                         ['groups' => ['register-default']]
@@ -51,7 +48,7 @@ class RegisterType extends AbstractType
                         [
                             'groups' => ['register-default'],
                             'repository' => isset($options['user_repository']) ? $options['user_repository'] : null,
-                            'elementId' => isset($options['data']['id']) ? $options['data']['id'] : null,
+                            'userId' => isset($options['userId']) ? $options['userId'] : null,
                         ]
                     ),
                 ],
@@ -126,11 +123,11 @@ class RegisterType extends AbstractType
                 'required' => true,
                 'constraints' => [
                     new Assert\NotBlank(
-                        ['groups' => ['user-default']]
+                        ['groups' => ['register-default']]
                     ),
                     new Assert\Length(
                         [
-                            'groups' => ['user-default'],
+                            'groups' => ['register-default'],
                             'min' => 3,
                             'max' => 45,
                         ]
@@ -151,16 +148,15 @@ class RegisterType extends AbstractType
             [
                 'label' => 'label.email',
                 'required' => true,
-                    //                'constraints' => [
-                    //                    new CustomAssert\UniqueEmail(
-                    //                        //TODO: implement validators, remember about user_data_repository
-                    //                        [
-                    //                            'groups' => ['register-default'],
-                    //                            'repository' => isset($options['user_repository']) ? $options['user_repository'] : null,
-                    //                            'elementId' => isset($options['data']['id']) ? $options['data']['id'] : null,
-                    //                        ]
-                    //                    ),
-                    //                ],
+                    'constraints' => [
+                        new CustomAssert\UniqueEmail(
+                            [
+                                'groups' => ['register-default'],
+                                'repository' => isset($options['user_repository']) ? $options['user_repository'] : null,
+                                'userId' => isset($options['userId']) ? $options['userId'] : null,
+                            ]
+                        ),
+                    ],
             ]
         );
         $builder->add(
@@ -173,12 +169,13 @@ class RegisterType extends AbstractType
             )
         );
     }
+
     /**
      * {@inheritdoc}
      */
     public function getBlockPrefix()
     {
-        return 'user_type';
+        return 'register_type';
     }
 
     /**
@@ -188,8 +185,9 @@ class RegisterType extends AbstractType
     {
         $resolver->setDefaults(
             [
-                'validation_groups' => 'user-default',
+                'validation_groups' => 'register-default',
                 'user_repository' => null,
+                'userId' => null,
             ]
         );
     }

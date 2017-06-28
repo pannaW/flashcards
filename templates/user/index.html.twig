@@ -10,7 +10,7 @@
 
         {% if user|length %}
             {% for row in user %}
-                <li><a href="#">
+                <li><a href="{{ url('user_view', {'id': row.id }) }}">
                         {{ row.id }}, {{ row.login }}
                     </a></li>
             {% endfor %}
