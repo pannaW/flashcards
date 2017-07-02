@@ -32,6 +32,9 @@ class UserController implements ControllerProviderInterface
         $controller = $app['controllers_factory'];
         $controller->get('/', [$this, 'indexAction'])
             ->bind('user_index');
+        $controller->get('/page/{page}', [$this, 'indexAction'])
+            ->value('page', 1)
+            ->bind('user_index_paginated');
         $controller->get('/{id}', [$this, 'viewAction'])
             ->bind('user_view')
             ->assert('id', '[1-9]\d*');
@@ -76,7 +79,7 @@ class UserController implements ControllerProviderInterface
      * @param Application $app
      * @return mixed
      */
-    public function indexAction(Application $app)
+    public function indexAction(Application $app, $page = 1)
     {
         $access = $this->checkAccess($app);
         $token = $app['security.token_storage']->getToken();
@@ -93,7 +96,7 @@ class UserController implements ControllerProviderInterface
                 return $app['twig']->render(
                     'user/index.html.twig',
                     [
-                        'user' => $userRepository->findAll(),
+                        'paginator' => $userRepository->findAllPaginated($page),
                         'username' => $username,
                         'userId' => $user['id'],
 

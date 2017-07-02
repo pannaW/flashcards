@@ -30,6 +30,9 @@ class FlashcardController implements ControllerProviderInterface
         $controller = $app['controllers_factory'];
         $controller->get('/', [$this, 'indexAction'])
             ->bind('flashcard_index');
+        $controller->get('/page/{page}', [$this, 'indexAction'])
+            ->value('page', 1)
+            ->bind('flashcard_index_paginated');
         $controller->get('/add', [$this, 'addAction'])
             ->method('POST|GET')
             ->bind('flashcard_add');
@@ -70,7 +73,7 @@ class FlashcardController implements ControllerProviderInterface
      * @param Application $app
      * @return mixed
      */
-    public function indexAction(Application $app)
+    public function indexAction(Application $app, $page = 1)
     {
         $access = $this->checkAccess($app);
         $token = $app['security.token_storage']->getToken();
@@ -87,7 +90,7 @@ class FlashcardController implements ControllerProviderInterface
                 return $app['twig']->render(
                     'flashcard/index.html.twig',
                     [
-                        'flashcard' => $flashcardRepository->findAll(),
+                        'paginator' => $flashcardRepository->findAllPaginated($page),
                         'userId' => $user['id'],
                         'username' => $username,
                     ]

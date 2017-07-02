@@ -8,12 +8,12 @@ namespace Controller;
 
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
-use Symfony\Component\HttpFoundation\Session\Flash\FlashBag;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\Request;
 use Repository\TagRepository;
 use Repository\SetRepository;
+use Repository\UserRepository;
 
 /**
  * Class TagController
@@ -30,6 +30,9 @@ class TagController implements ControllerProviderInterface
         $controller = $app['controllers_factory'];
         $controller->get('/', [$this, 'indexAction'])
             ->bind('tag_index');
+        $controller->get('/page/{page}', [$this, 'indexAction'])
+            ->value('page', 1)
+            ->bind('tag_index_paginated');
         $controller->match('{id}/delete', [$this, 'deleteAction'])
             ->method('GET|POST')
             ->assert('id', '[1-9]\d*')
@@ -59,7 +62,7 @@ class TagController implements ControllerProviderInterface
      * @param Application $app
      * @return mixed
      */
-    public function indexAction(Application $app)
+    public function indexAction(Application $app, $page = 1)
     {
         $access = $this->checkAccess($app);
         $token = $app['security.token_storage']->getToken();
@@ -76,7 +79,7 @@ class TagController implements ControllerProviderInterface
                 return $app['twig']->render(
                     'tag/index.html.twig',
                     [
-                        'tag' => $tagRepository->findAll(),
+                        'paginator' => $tagRepository->findAllPaginated($page),
                         'username' => $username,
                         'userId' => $user['id'],
                     ]

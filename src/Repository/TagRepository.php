@@ -6,6 +6,7 @@
 namespace Repository;
 
 use Doctrine\DBAL\Connection;
+use Utils\Paginator;
 
 /**
  * Class TagRepository
@@ -18,6 +19,10 @@ class TagRepository
      * @var \Doctrine\DBAL\Connection $db
      */
     protected $db;
+
+
+    const NUM_ITEMS = 5;
+
 
     /**
      * TagRepository constructor.
@@ -37,6 +42,26 @@ class TagRepository
         $queryBuilder = $this->queryAll();
 
         return $queryBuilder->execute()->fetchAll();
+    }
+
+    /**
+     * Get records paginated.
+     *
+     * @param int $page Current page number
+     *
+     * @return array Result
+     */
+    public function findAllPaginated($page = 1)
+    {
+        $countQueryBuilder = $this->queryAll()
+            ->select('COUNT(DISTINCT t.id) AS total_results')
+            ->setMaxResults(1);
+
+        $paginator = new Paginator($this->queryAll(), $countQueryBuilder);
+        $paginator->setCurrentPage($page);
+        $paginator->setMaxPerPage(self::NUM_ITEMS);
+
+        return $paginator->getCurrentPageResults();
     }
 
     /**

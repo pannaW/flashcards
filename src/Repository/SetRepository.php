@@ -7,6 +7,7 @@ namespace Repository;
 
 use Doctrine\DBAL\DBALException;
 use Doctrine\DBAL\Connection;
+use Utils\Paginator;
 
 /**
  * Class SetRepository
@@ -34,6 +35,8 @@ class SetRepository
      */
     protected $flashcardRepository = null;
 
+    const NUM_ITEMS = 3;
+
     /**
      * SetRepository constructor.
      * @param Connection $db
@@ -58,6 +61,26 @@ class SetRepository
     }
 
     /**
+     * Get records paginated.
+     *
+     * @param int $page Current page number
+     *
+     * @return array Result
+     */
+    public function findAllPaginated($page = 1)
+    {
+        $countQueryBuilder = $this->queryAll()
+            ->select('COUNT(DISTINCT s.id) AS total_results')
+            ->setMaxResults(1);
+
+        $paginator = new Paginator($this->queryAll(), $countQueryBuilder);
+        $paginator->setCurrentPage($page);
+        $paginator->setMaxPerPage(self::NUM_ITEMS);
+
+        return $paginator->getCurrentPageResults();
+    }
+
+    /**
      * Find one record.
      *
      * @param string $id Element id
@@ -78,12 +101,6 @@ class SetRepository
         return $result;
     }
 
-//    public function bindFlashcards($result)
-//    {
-//        $result['flashcards'] = $this->findLinkedFlashcards($result['id']);
-//
-//        return $result;
-//    }
 
 
     /**

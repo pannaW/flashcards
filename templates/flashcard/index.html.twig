@@ -11,12 +11,17 @@
         {% endblock %}
 
         {% block article %}
-            {% if flashcard|length %}
-                {% for row in flashcard %}
+            {% if paginator.data|length %}
+                {% for row in paginator.data %}
                     <li><a href="{{ url('flashcard_view', {'id': row.id }) }}">
                             {{ row.id }}, {{ row.word }} => {{ row.definition }}
                         </a></li>
                 {% endfor %}
+
+                {% include 'default/_paginator.html.twig' with {
+                paginator: paginator,
+                route_name: 'flashcard_index_paginated',
+                } %}
 
             {% else %}
                 <div>

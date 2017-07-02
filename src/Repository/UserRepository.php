@@ -8,6 +8,7 @@ namespace Repository;
 use Doctrine\DBAL\Connection;
 use Doctrine\DBAL\DBALException;
 use Symfony\Component\Security\Core\Exception\UsernameNotFoundException;
+use Utils\Paginator;
 
 /**
  * Class UserRepository.
@@ -23,6 +24,7 @@ class UserRepository
      */
     protected $db;
 
+    const NUM_ITEMS = 5;
     /**
      * Set repository.
      *
@@ -67,13 +69,30 @@ class UserRepository
      */
     public function findAll()
     {
-        $queryBuilder = $this->db->createQueryBuilder();
-        $queryBuilder->select('*')
-            ->from('users');
+        $queryBuilder = $this->queryAll();
 
         return $queryBuilder->execute()->fetchAll();
     }
 
+    /**
+     * Get records paginated.
+     *
+     * @param int $page Current page number
+     *
+     * @return array Result
+     */
+    public function findAllPaginated($page = 1)
+    {
+        $countQueryBuilder = $this->queryAll()
+            ->select('COUNT(DISTINCT u.id) AS total_results')
+            ->setMaxResults(1);
+
+        $paginator = new Paginator($this->queryAll(), $countQueryBuilder);
+        $paginator->setCurrentPage($page);
+        $paginator->setMaxPerPage(self::NUM_ITEMS);
+
+        return $paginator->getCurrentPageResults();
+    }
 
     /**
      * @param $userId
@@ -100,9 +119,7 @@ class UserRepository
      */
     public function findOneById($id)
     {
-        $queryBuilder = $this->db->createQueryBuilder();
-        $queryBuilder->select('*')
-            ->from('users')
+        $queryBuilder = $this->queryAll()
             ->where('id = :id')
             ->setParameter(':id', $id, \PDO::PARAM_INT);
         $result = $queryBuilder->execute()->fetch();
@@ -253,9 +270,7 @@ class UserRepository
     public function getUserByLogin($login)
     {
         try {
-            $queryBuilder = $this->db->createQueryBuilder();
-            $queryBuilder->select('*')
-                ->from('users', 'u')
+            $queryBuilder = $this->queryAll()
                 ->where('u.login = :login')
                 ->setParameter(':login', $login, \PDO::PARAM_STR);
 
@@ -352,13 +367,24 @@ class UserRepository
 
     public function findLinkedSets($userId)
     {
-        $queryBuilder = $this->db->createQueryBuilder()
-            ->select('*')
-            ->from('sets')
+        $queryBuilder = $this->queryAll()
             ->where('users_id = :users_id')
             ->setParameter('users_id', $userId,\PDO::PARAM_INT);
         $result = $queryBuilder->execute()->fetchAll();
 
         return $result;
+    }
+
+    /**
+     * Query all records.
+     *
+     * @return \Doctrine\DBAL\Query\QueryBuilder Result
+     */
+    protected function queryAll()
+    {
+        $queryBuilder = $this->db->createQueryBuilder();
+
+        return $queryBuilder->select('*')
+            ->from('users', 'u');
     }
 }

@@ -12,13 +12,18 @@
         {% endblock %}
 
         {% block article %}
-            {% if tag|length %}
-                {% for row in tag %}
+            {% if paginator.data|length %}
+                {% for row in paginator.data %}
                     <li>
                             {{ row.id }}, {{ row.name }}
                         <a href="{{ url('tag_delete', {'id': row.id }) }}"><i class="fa fa-remove"></i></a>
                     </li>
                 {% endfor %}
+
+                {% include 'default/_paginator.html.twig' with {
+                paginator: paginator,
+                route_name: 'tag_index_paginated',
+                } %}
 
             {% else %}
                 <div>

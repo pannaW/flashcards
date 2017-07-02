@@ -31,6 +31,9 @@ class SetController implements ControllerProviderInterface
         $controller = $app['controllers_factory'];
         $controller->get('/', [$this, 'indexAction'])
             ->bind('set_index');
+        $controller->get('/page/{page}', [$this, 'indexAction'])
+            ->value('page', 1)
+            ->bind('set_index_paginated');
         $controller->get('/add', [$this, 'addAction'])
             ->method('POST|GET')
             ->bind('set_add');
@@ -55,7 +58,7 @@ class SetController implements ControllerProviderInterface
      * @param Application $app
      * @return mixed
      */
-    public function indexAction(Application $app)
+    public function indexAction(Application $app, $page = 1)
     {
         $access = $this->checkAccess($app);
 
@@ -91,7 +94,8 @@ class SetController implements ControllerProviderInterface
                     );
             case "admin":
                 $setRepository = new SetRepository($app['db']);
-                $sets = $setRepository->findAll();
+                $paginator = $setRepository->findAllPaginated($page);
+                $sets = $paginator['data'];
                 if( $sets && is_array($sets)) {
                     foreach ($sets as $set) {
                         $setIds[] = $set['id'];
@@ -107,6 +111,7 @@ class SetController implements ControllerProviderInterface
                 return $app['twig']->render(
                     'set/index.html.twig',
                     [
+                        'paginator' => $paginator,
                         'sets' => $result,
                         'username' => $username,
                         'userId' => $user['id'],

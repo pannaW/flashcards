@@ -31,6 +31,14 @@
                             {% endif %}
                 {% endfor %}
                     </ul>
+                {% if is_granted('ROLE_ADMIN') %}
+
+                    {% include 'default/_paginator.html.twig' with {
+                    paginator: paginator,
+                    route_name: 'set_index_paginated',
+                    } %}
+
+                {% endif %}
             {% else %}
                 <div>
                     No sets found
