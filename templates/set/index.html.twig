@@ -1,14 +1,22 @@
 {% extends 'panel.html.twig' %}
 
     {% block title %}
-        Your collection
+        {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+            {{ 'title.admin_set_index'|trans }}
+        {% else %}
+            {{ 'title.set_index'|trans }}
+        {% endif %}
     {% endblock %}
 
 
     {% block board %}
         {% block header %}
             <div id="header">
-            <h1> Your Collections </h1>
+                {% if is_granted('ROLE_ADMIN') %}
+                     <h1> {{ 'title.admin_set_index'|trans }} </h1>
+                {% else %}
+                    <h1> {{ 'title.set_index'|trans }} </h1>
+                {% endif %}
             <small>  3 collections | 14 tags </small>
             </div>
         {% endblock %}
@@ -41,10 +49,10 @@
                 {% endif %}
             {% else %}
                 <div>
-                    No sets found
+                    {{ 'message.no_set_found' }}
                 </div>
             {% endif %}
-                <a href="{{ url('set_add') }}"> Dodaj zestaw </a>
+                <a href="{{ url('set_add') }}"> {{ 'label.add_set'|trans }} </a>
             </article>
         {% endblock %}
     {% endblock %}

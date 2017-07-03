@@ -9,14 +9,14 @@
     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
         <li><a href="{{ url('user_view', {'id': userId }) }}" title="{{ 'user.label'|trans }}"> {{ username }} </a></li>
-        <li><a href="{{ url('auth_logout') }}" title="{{ 'auth.logout.label'|trans }}"> Log out
+        <li><a href="{{ url('auth_logout') }}" title="{{ 'auth.logout.label'|trans }}"> {{ 'auth.logout.label'|trans }}
             </a></li>
     {% else %}
         <li>
-            <a href="{{ url('auth_login') }}" title="{{ 'auth.login.label'|trans }}"> Log in</a>
+            <a href="{{ url('auth_login') }}" title="{{ 'auth.login.label'|trans }}"> {{ 'auth.login.label'|trans }} </a>
         </li>
         <li>
-            <a href="{{ url('register')}}" class="btn btn-default navbar-btn">Sign up </a>
+            <a href="{{ url('register')}}" class="btn btn-default navbar-btn">{{ 'auth.register'|trans }} </a>
         </li>
     {% endif %}
 {% endblock %}

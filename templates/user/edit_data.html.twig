@@ -1,17 +1,27 @@
 {% extends 'panel.html.twig' %}
 
 {% block title %}
-    Edit profile details {{ id }}
+    {% if is_granted('ROLE_ADMIN') %}
+        {{ 'title.admin_edit_user_data'|trans({'%id%': id}) }}
+    {% else %}
+        {{ 'title.edit_user_data'|trans }}
+    {% endif %}
 {% endblock %}
 
 {% block board %}
     {% block header %}
-        <h1> Edit data {{ id }} </h1>
+        <h1>
+            {% if is_granted('ROLE_ADMIN') %}
+                {{ 'title.admin_edit_user_data'|trans({'%id%': id}) }}
+            {% else %}
+                {{ 'title.edit_user_data'|trans }}
+            {% endif %}
+        </h1>
     {% endblock %}
     {% block article %}
         {{ form_start(form, { method: 'post', action: url('edit_data', {'id': id}) }) }}
         {{ form_widget(form) }}
-        <input type="submit" value=" Save " class="btn btn-success" />
+        <input type="submit" value="{{ 'action.save'|trans }}" class="btn btn-success" />
         {{ form_end(form) }}
     {% endblock %}
 {% endblock %}

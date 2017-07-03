@@ -1,12 +1,12 @@
 {% extends 'layout.html.twig' %}
 
     {% block title %}
-        All users
+        {{ 'title.admin_user_index'|trans }}
     {% endblock %}
 
 
     {% block body %}
-        <h1> All users </h1>
+        <h1> {{ 'title.admin_user_index'|trans }}</h1>
 
         {% if paginator.data|length %}
             {% for row in paginator.data %}
@@ -20,7 +20,7 @@
             } %}
         {% else %}
             <div>
-                No users found
+                {{ 'message.no_user_found'|trans }}
             </div>
         {% endif %}
 

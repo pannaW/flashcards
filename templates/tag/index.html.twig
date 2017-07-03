@@ -1,14 +1,14 @@
 {% extends 'panel.html.twig' %}
 
     {% block title %}
-        Your tags
+        {{ 'title.tags'|trans }}
     {% endblock %}
 
 
     {% block board %}
 
         {% block header %}
-            <h1> Your tags </h1>
+            <h1> {{ 'title.tags'|trans}} </h1>
         {% endblock %}
 
         {% block article %}
@@ -27,7 +27,7 @@
 
             {% else %}
                 <div>
-                    No tags found
+                    {{ 'message.no_tag_found' }}
                 </div>
             {% endif %}
         {% endblock %}

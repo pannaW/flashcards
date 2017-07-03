@@ -1,14 +1,14 @@
 {% extends 'panel.html.twig' %}
 
 {% block title %}
-    Zestaw {{set.id}}
+    {{ 'title.set'|trans({'%id%': id}) }}
 {% endblock %}
 
 {% block board %}
 
     {% block header %}
         <h1>
-            Zestaw {{set.id}}
+            {{ 'title.set'|trans({'%id%': id}) }}
         </h1>
     {% endblock %}
 
@@ -25,18 +25,18 @@
                     </ul>
                 {% endif %}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <br> <a href="{{ url('flashcard_add') }}">Dodaj fiszki<i class="fa fa-plus"></i> </a>
+                <br> <a href="{{ url('flashcard_add') }}">{{ 'action.flashcard_add'|trans }}<i class="fa fa-plus"></i> </a>
                 <br>
                 <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i></a>
                 <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i></a>
             {% endif %}
         {% else %}
             <div>
-                Nie znaleziono zestawu
+                {{ 'message.no_set_found' }}
             </div>
         {% endif %}
         <br>
-        <a href="{{ url('set_index') }}" title="Powrót">
-            Powrót </a>
+        <a href="{{ url('set_index') }}" title="{{ 'label.back'|trans }}">
+            {{ 'label.back'|trans }} </a>
         {% endblock %}
 {% endblock %}

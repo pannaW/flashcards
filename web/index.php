@@ -1,5 +1,5 @@
 <?php
-
+umask(0000); // This will let the permissions be 0777
 ini_set('display_errors', 0);
 
 require_once __DIR__.'/../vendor/autoload.php';

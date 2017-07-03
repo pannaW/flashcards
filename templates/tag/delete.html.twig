@@ -2,20 +2,21 @@
 
 {% extends 'panel.html.twig' %}
 
-{% block title %} Tag {{ tag.id }} {% endblock %}
+{% block title %} {{ 'title.delete_tag'|trans({'%id%': tag.id}) }} {% endblock %}
 
 {% block board %}
     {% block header %}
-        <h1> Tag {{ tag.id }} </h1>
+        <h1> {{ 'title.delete_tag'|trans({'%id%': tag.id}) }} </h1>
     {% endblock %}
     {% block article %}
         {{ form_start(form, { method: 'post', action: url('tag_delete', {'id': tag.id}) }) }}
         {{ form_widget(form) }}
-        <input type="submit" value="Usuń" class="btn btn-success" />
+        <input type="submit" value="{{ 'action.delete'|trans }}" class="btn btn-success" />
         {{ form_end(form) }}
-        <a href="{{ url('tag_index') }}" title="Powrót" class="btn btn-default">
+
+        <a href="{{ url('tag_index') }}" title="{{ 'label.back'|trans }}" class="btn btn-default">
             <span class="fa fa-mail-reply" aria-hidden="true"></span>
-            Powrót
+            {{ 'label.back'|trans }}
         </a>
     {% endblock %}
 {% endblock %}

@@ -51,6 +51,7 @@ $app->register(new FormServiceProvider());
 $app->register(new ValidatorServiceProvider());
 $app->register(new SessionServiceProvider());
 $app->register(new LocaleServiceProvider());
+$app->register(new LocaleServiceProvider());
 $app->register(
     new TranslationServiceProvider(),
     [

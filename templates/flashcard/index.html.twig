@@ -1,13 +1,13 @@
 {% extends 'panel.html.twig' %}
 
     {% block title %}
-        All flashcards
+        {{ 'title.admin_flashcards_index'|trans }}
     {% endblock %}
 
 
     {% block board %}
         {% block header %}
-            <h1> All flashcards </h1>
+            <h1> {{ 'title.admin_flashcards_index'|trans }} </h1>
         {% endblock %}
 
         {% block article %}
@@ -25,7 +25,7 @@
 
             {% else %}
                 <div>
-                    No flashcards found
+                    {{ 'message.no_flashcard_found' }}
                 </div>
             {% endif %}
         {% endblock %}

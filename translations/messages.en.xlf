@@ -2,24 +2,258 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
         <body>
-            <trans-unit id="title.bookmarks_list">
-                <source>title.bookmarks_list</source>
-                <target>Bookmarks List</target>
+            <trans-unit id="user.label">
+                <source>user.label</source>
+                <target> User</target>
             </trans-unit>
-
-            <trans-unit id="title.bookmark_view">
-                            <source>title.bookmark_view</source>
-                            <target>Bookmark no. #%id%</target>
-                        </trans-unit>
-
-            <trans-unit id="label.back_to_list">
-                            <source>label.back_to_list</source>
-                            <target> Back </target>
-                        </trans-unit>
+            <trans-unit id="label.login">
+                <source>label.login</source>
+                <target> Login </target>
+            </trans-unit>
+            <trans-unit id="label.password">
+                <source>label.password</source>
+                <target> Password </target>
+            </trans-unit>
+            <trans-unit id="action.login">
+                <source>action.login</source>
+                <target> Log in </target>
+            </trans-unit>
+            <trans-unit id="title.auth_login">
+                <source>title.auth_login</source>
+                <target> Log in </target>
+            </trans-unit>
+            <trans-unit id="label.repeat-password">
+                <source>label.repeat-password</source>
+                <target> Repeat password </target>
+            </trans-unit>
+            <trans-unit id="label.name">
+                <source>label.name</source>
+                <target> Name </target>
+            </trans-unit>
+            <trans-unit id="label.surname">
+                <source>label.surname</source>
+                <target> Surname </target>
+            </trans-unit>
+            <trans-unit id="label.email">
+                <source>label.email</source>
+                <target> E-mail address </target>
+            </trans-unit>
+            <trans-unit id="label.agreement">
+                <source>label.agreement</source>
+                <target> I do agree </target>
+            </trans-unit>
+            <trans-unit id="title.registration">
+                <source>title.registration</source>
+                <target> Sign up </target>
+            </trans-unit>
+            <trans-unit id="action.registration">
+                 <source>action.registration</source>
+                 <target> Sign up </target>
+            </trans-unit>
+            <trans-unit id="auth.login.label">
+                 <source>auth.login.label</source>
+                 <target> Log in </target>
+            </trans-unit>
+            <trans-unit id="auth.logout.label">
+                 <source>auth.logout.label</source>
+                 <target> Logout </target>
+            </trans-unit>
+            <trans-unit id="auth.register">
+                 <source>auth.register</source>
+                 <target> Sign up </target>
+            </trans-unit>
+            <trans-unit id="labels.nav.prev">
+                 <source>labels.nav.prev</source>
+                 <target> Previous </target>
+            </trans-unit>
+            <trans-unit id="label.nav.next">
+                 <source>label.nav.next</source>
+                 <target> Next </target>
+            </trans-unit>
+            <trans-unit id="title.admin_set_index">
+                 <source>title.admin_set_index</source>
+                 <target> All users' sets </target>
+            </trans-unit>
+            <trans-unit id="title.set_index">
+                 <source>title.set_index</source>
+                 <target> Your sets </target>
+            </trans-unit>
+            <trans-unit id="label.add_set">
+                 <source>label.add_set</source>
+                 <target> Add set </target>
+            </trans-unit>
+             <trans-unit id="title.add_set">
+                 <source>title.add_set</source>
+                 <target> Add set </target>
+            </trans-unit>
+            <trans-unit id="label.item_name">
+                  <source>label.item_name</source>
+                  <target> Name </target>
+            </trans-unit>
+            <trans-unit id="label.tags">
+                  <source>label.tags</source>
+                  <target> Tags </target>
+            </trans-unit>
+            <trans-unit id="label.public">
+                  <source>label.public</source>
+                  <target> Public </target>
+            </trans-unit>
+            <trans-unit id="action.add">
+                  <source>action.add</source>
+                  <target> Add </target>
+            </trans-unit>
+            <trans-unit id="title.add_flashcard">
+                  <source>title.add_flashcard</source>
+                  <target> Add flashcard </target>
+            </trans-unit>
+            <trans-unit id="label.word">
+                   <source>label.word</source>
+                   <target> Word </target>
+            </trans-unit>
+            <trans-unit id="label.definition">
+                   <source>label.definition</source>
+                   <target> Definition </target>
+            </trans-unit>
+            <trans-unit id="action.save">
+                   <source>action.save</source>
+                   <target> Save </target>
+            </trans-unit>
+            <trans-unit id="title.edit_flashcard">
+                   <source>title.edit_flashcard</source>
+                   <target> Edit flashcard no. %id% </target>
+            </trans-unit>
+            <trans-unit id="title.edit_set">
+                   <source>title.edit_set</source>
+                   <target> Edit set no. %id% </target>
+            </trans-unit>
             <trans-unit id="message.element_successfully_added">
-                             <source> message.element_successfully_added </source>
-                             <target> Element successfully added </target>
-                         </trans-unit>
+                   <source>message.element_successfully_added</source>
+                   <target> Element successfully added </target>
+            </trans-unit>
+            <trans-unit id="message.element_successfully_edited">
+                   <source>message.element_successfully_edited</source>
+                   <target> Element successfully edited </target>
+            </trans-unit>
+            <trans-unit id="message.element_successfully_deleted">
+                   <source>message.element_successfully_deleted</source>
+                   <target> Element successfully deleted </target>
+            </trans-unit>
+            <trans-unit id="message.record_not_found">
+                   <source>message.record_not_found</source>
+                   <target> Record not found </target>
+            </trans-unit>
+             <trans-unit id="title.flashcard">
+                   <source>title.flashcard</source>
+                   <target> Flashcard no. %id% </target>
+             </trans-unit>
+             <trans-unit id="label.back">
+                    <source>label.back</source>
+                    <target> Back </target>
+             </trans-unit>
+             <trans-unit id="title.set">
+                    <source>title.set</source>
+                    <target> Set %id% </target>
+             </trans-unit>
+             <trans-unit id="message.no_set_found">
+                    <source>message.no_set_found</source>
+                    <target> No sets found </target>
+             </trans-unit>
+             <trans-unit id="message.no_flashcard_found">
+                    <source>message.no_flashcard_found</source>
+                    <target> No flashcards found </target>
+             </trans-unit>
+             <trans-unit id="message.no_user_found">
+                    <source>message.no_user_found</source>
+                    <target> No users found </target>
+             </trans-unit>
+             <trans-unit id="message.no_tag_found">
+                    <source>message.no_tag_found</source>
+                    <target> No tags found </target>
+             </trans-unit>
+              <trans-unit id="title.delete_flashcard">
+                     <source>title.delete_flashcard</source>
+                     <target> Delete flashcard no. %id% </target>
+              </trans-unit>
+              <trans-unit id="title.delete_set">
+                     <source>title.delete_set</source>
+                     <target> Delete set no. %id% </target>
+              </trans-unit>
+              <trans-unit id="action.delete">
+                     <source>action.delete</source>
+                     <target> Delete </target>
+              </trans-unit>
+              <trans-unit id="title.admin_flashcards_index">
+                     <source>title.admin_flashcards_index</source>
+                     <target> All users' flashcards </target>
+              </trans-unit>
+              <trans-unit id="title.delete_tag">
+                     <source>title.delete_tag</source>
+                     <target> Delete tag no. %id% </target>
+              </trans-unit>
+              <trans-unit id="title.tags">
+                     <source>title.tags</source>
+                     <target> All tags </target>
+              </trans-unit>
+               <trans-unit id="title.delete_user">
+                      <source>title.delete_user</source>
+                      <target> Delete user %id% </target>
+               </trans-unit>
+               <trans-unit id="title.admin_user_view">
+                      <source>title.admin_user_view</source>
+                      <target> User no. %id% </target>
+               </trans-unit>
+               <trans-unit id="title.user_view">
+                      <source>title.user_view</source>
+                      <target> Your account </target>
+               </trans-unit>
+               <trans-unit id="action.reset_password">
+                       <source>action.reset_password</source>
+                       <target> Reset password </target>
+               </trans-unit>
+               <trans-unit id="title.edit_user_data">
+                       <source>title.edit_user_data</source>
+                       <target> Edit your data </target>
+               </trans-unit>
+                <trans-unit id="title.admin_edit_user_data">
+                       <source>title.admin_edit_user_data</source>
+                       <target> Edit user %id% data </target>
+               </trans-unit>
+               <trans-unit id="user.role">
+                       <source>user.role</source>
+                       <target> Role </target>
+               </trans-unit>
+               <trans-unit id="ROLE_USER">
+                       <source>ROLE_USER</source>
+                       <target> User </target>
+               </trans-unit>
+               <trans-unit id="ROLE_ADMIN">
+                       <source>ROLE_ADMIN</source>
+                       <target> Admin </target>
+               </trans-unit>
+               <trans-unit id="action.user_edit">
+                        <source>action.user_edit</source>
+                        <target> Edit account </target>
+               </trans-unit>
+               <trans-unit id="title.admin_user_index">
+                        <source>title.admin_user_index</source>
+                        <target> All users </target>
+               </trans-unit>
+               <trans-unit id="title.reset_password">
+                        <source>title.reset_password</source>
+                        <target> Reset password </target>
+               </trans-unit>
+               <trans-unit id="label.new-password">
+                        <source>label.new-password</source>
+                        <target> New password </target>
+               </trans-unit>
+               <trans-unit id="label.old_password">
+                        <source>label.old_password</source>
+                        <target> Old password </target>
+               </trans-unit>
+               <trans-unit id="label.repeat-new-password">
+                        <source>label.repeat-new-password</source>
+                        <target> Repeat new password </target>
+               </trans-unit>
         </body>
     </file>
 </xliff>

@@ -1,13 +1,13 @@
 {% extends 'panel.html.twig' %}
 
 {% block title %}
-    Flashcard {{ id }}
+    {{ 'title.flashcard'|trans({'%id%': id}) }}
 {% endblock %}
 
 {% block board %}
     {% block header %}
         <h1>
-            Flashcard {{ id }}
+            {{ 'title.flashcard'|trans({'%id%': id}) }}
         </h1>
     {% endblock %}
     {% block article %}
@@ -20,11 +20,16 @@
             {% endif %}
         {% else %}
             <div>
-                No flashcards found
+                {{ 'message.no_flashcards_found' }}
             </div>
         {% endif %}
         <br>
-        <a href="{{ url('set_view', { 'id' : flashcard.sets_id }) }}" title="Powrót">
-            Powrót</a>
+        {% if is_granted('ROLE_ADMIN') %}
+            <a href="{{url('flashcard_index')}}" title="{{ 'label.back'|trans }}">
+                {{ 'label.back'|trans }} </a>
+        {% else %}
+        <a href="{{ url('set_view', { 'id' : flashcard.sets_id }) }}" title="{{ 'label.back'|trans }}">
+            {{ 'label.back'|trans }} </a>
+        {% endif %}
     {% endblock %}
 {% endblock %}

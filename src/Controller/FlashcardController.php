@@ -274,7 +274,7 @@ class FlashcardController implements ControllerProviderInterface
                     'messages',
                     [
                         'type' => 'success',
-                        'message' => 'message.element_successfully_added',
+                        'message' => 'message.element_successfully_edited',
                     ]
                 );
 

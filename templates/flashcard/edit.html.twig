@@ -2,12 +2,23 @@
 
 {% extends 'layout.html.twig' %}
 
-{% block title %} Flashcard {{ flashcard.id }} {% endblock %}
+{% block title %}
+    {{ 'title.edit_flashcard'|trans({'%id%': flashcard.id}) }}
+{% endblock %}
 
 {% block body %}
-    <h1>Flashcard {{ flashcard.id }}</h1>
+    <h1>{{ 'title.edit_flashcard'|trans({'%id%': flashcard.id}) }}</h1>
     {{ form_start(form, { method: 'post', action: url('flashcard_edit', {'id': flashcard.id}) }) }}
     {{ form_widget(form) }}
-    <input type="submit" value="Zapisz" class="btn btn-success" />
+    <input type="submit" value="{{ 'action.save'|trans }}" class="btn btn-success" />
     {{ form_end(form) }}
+
+    {% if is_granted('ROLE_ADMIN') %}
+        <a href="{{ url('flashcard_view', { 'id' : flashcard.id }) }}" title="{{ 'label.back'|trans }}" class="btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>
+    {% else %}
+        <a href="{{ url('set_view', { 'id' : flashcard.sets_id }) }}" title="{{ 'label.back'|trans }}" class="btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>
+    {% endif %}
+
 {% endblock %}

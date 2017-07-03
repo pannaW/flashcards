@@ -29,7 +29,7 @@ class SetType extends AbstractType
               'name',
               TextType::class,
               [
-                  'label' => 'label.name',
+                  'label' => 'label.item_name',
                   'required' => true,
                   'attr' => [
                       'max_length' => 45,
@@ -72,16 +72,17 @@ class SetType extends AbstractType
         ->add(
             'public',
             CheckboxType::class,
-            array(
+            [
                 'label'    => 'label.public',
                 'required' => false,
                 'value' => true,
-            )
+            ]
         );
         $builder->add(
             'tags',
             TextType::class,
             [
+                'label'    => 'label.tags',
                 'required' => false,
                 'attr' => [
                     'max_length' => 250,

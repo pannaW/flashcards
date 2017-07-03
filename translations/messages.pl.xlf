@@ -2,30 +2,266 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="pl" datatype="plaintext" original="file.ext">
         <body>
-            <trans-unit id="action.save">
-                                <source> action.save </source>
-                                <target> Zapisz </target>
+            <trans-unit id="user.label">
+                <source>user.label</source>
+                <target> Użytkownik </target>
             </trans-unit>
-
-            <trans-unit id="label.name">
-                                <source> label.name </source>
-                                <target> Nazwa </target>
+            <trans-unit id="label.login">
+                <source>label.login</source>
+                <target> Login </target>
             </trans-unit>
-
-            <trans-unit id="label.public">
-                                <source> label.public </source>
-                                <target> Publiczny </target>
+            <trans-unit id="label.password">
+                <source>label.password</source>
+                <target> Hasło </target>
             </trans-unit>
-
-            <trans-unit id="message.element_successfully_added">
-                                <source> message.element_successfully_added </source>
-                                <target> Sukces! Dodano element. </target>
+            <trans-unit id="action.login">
+                <source>action.login</source>
+                <target> Zaloguj się </target>
             </trans-unit>
-
-            <trans-unit id="message.element_successfully_deleted">
-                                            <source> message.element_successfully_delete </source>
-                                            <target> Usunięto element. </target>
-                        </trans-unit>
+            <trans-unit id="title.auth_login">
+                 <source>title.auth_login</source>
+                 <target> Zaloguj się </target>
+            </trans-unit>
+            <trans-unit id="label.repeat-password">
+                 <source>label.repeat-password</source>
+                 <target> Powtórz hasło </target>
+            </trans-unit>
+             <trans-unit id="label.name">
+                 <source>label.name</source>
+                 <target> Imię </target>
+             </trans-unit>
+             <trans-unit id="label.surname">
+                 <source>label.surname</source>
+                 <target> Nazwisko </target>
+             </trans-unit>
+             <trans-unit id="label.email">
+                 <source>label.email</source>
+                 <target> Adres e-mail </target>
+             </trans-unit>
+              <trans-unit id="label.agreement">
+                 <source>label.agreement</source>
+                 <target> Wyrażam zgodę </target>
+              </trans-unit>
+              <trans-unit id="title.registration">
+                 <source>title.registration</source>
+                 <target> Rejestracja </target>
+              </trans-unit>
+               <trans-unit id="action.registration">
+                  <source>action.registration</source>
+                  <target> Zarejestruj się </target>
+               </trans-unit>
+               <trans-unit id="auth.login.label">
+                  <source>auth.login.label</source>
+                  <target> Zaloguj się </target>
+               </trans-unit>
+               <trans-unit id="auth.logout.label">
+                  <source>auth.logout.label</source>
+                  <target> Wyloguj się </target>
+               </trans-unit>
+               <trans-unit id="auth.register">
+                  <source>auth.register</source>
+                  <target> Zarejestruj się </target>
+               </trans-unit>
+               <trans-unit id="	labels.nav.prev">
+                  <source>labels.nav.prev</source>
+                  <target> Poprzedni </target>
+               </trans-unit>
+               <trans-unit id="label.nav.next">
+                  <source>label.nav.next</source>
+                  <target> Następny </target>
+               </trans-unit>
+               <trans-unit id="title.admin_set_index">
+                  <source>title.admin_set_index</source>
+                  <target> Wszystkie zestawy </target>
+               </trans-unit>
+               <trans-unit id="title.set_index">
+                   <source>title.set_index</source>
+                   <target> Twoje zestawy </target>
+               </trans-unit>
+               <trans-unit id="label.add_set">
+                   <source>label.add_set</source>
+                   <target> Dodaj zestaw </target>
+                </trans-unit>
+                <trans-unit id="title.add_set">
+                   <source>title.add_set</source>
+                   <target> Dodaj zestaw </target>
+                </trans-unit>
+                <trans-unit id="label.item_name">
+                   <source>label.item_name</source>
+                   <target> Nazwa </target>
+                </trans-unit>
+                <trans-unit id="label.tags">
+                   <source>label.tags</source>
+                   <target> Tagi </target>
+                </trans-unit>
+                <trans-unit id="label.public">
+                    <source>label.public</source>
+                    <target> Publiczny </target>
+                </trans-unit>
+               <trans-unit id="action.add">
+                     <source>action.add</source>
+                     <target> Dodaj </target>
+               </trans-unit>
+               <trans-unit id="title.add_flashcard">
+                    <source>title.add_flashcard</source>
+                    <target> Dodaj fiszkę </target>
+               </trans-unit>
+                <trans-unit id="label.word">
+                    <source>label.word</source>
+                    <target> Słówko </target>
+                </trans-unit>
+                <trans-unit id="label.definition">
+                    <source>label.definition</source>
+                    <target> Definicja </target>
+                </trans-unit>
+                <trans-unit id="action.save">
+                    <source>action.save</source>
+                    <target> Zapisz </target>
+                </trans-unit>
+                <trans-unit id="title.edit_flashcard">
+                    <source>title.edit_flashcard</source>
+                    <target> Edytuj fiszkę %id% </target>
+                </trans-unit>
+                <trans-unit id="title.edit_set">
+                    <source>title.edit_set</source>
+                    <target> Edytuj zestaw %id% </target>
+                </trans-unit>
+                <trans-unit id="message.element_successfully_added">
+                    <source>message.element_successfully_added</source>
+                    <target> Sukces! Element został dodany </target>
+                </trans-unit>
+                <trans-unit id="message.element_successfully_edited">
+                     <source>message.element_successfully_edited</source>
+                     <target> Sukces! Element został zmodyfikowany </target>
+                </trans-unit>
+                <trans-unit id="message.element_successfully_deleted">
+                     <source>message.element_successfully_deleted</source>
+                     <target> Sukces! Element został usunięty </target>
+                </trans-unit>
+                <trans-unit id="message.record_not_found">
+                     <source>message.record_not_found</source>
+                     <target> Nie znaleziono rekordu </target>
+                </trans-unit>
+                <trans-unit id="title.flashcard">
+                     <source>title.flashcard</source>
+                     <target> Fiszka %id% </target>
+                </trans-unit>
+                <trans-unit id="label.back">
+                      <source>label.back</source>
+                      <target> Powrót </target>
+                </trans-unit>
+                 <trans-unit id="title.set">
+                       <source>title.set</source>
+                       <target> Zestaw %id% </target>
+                 </trans-unit>
+                 <trans-unit id="message.no_set_found">
+                       <source>message.no_set_found</source>
+                       <target> Nie znaleziono żadnych zestawów </target>
+                 </trans-unit>
+                 <trans-unit id="message.no_user_found">
+                       <source>message.no_user_found</source>
+                       <target> Nie znaleziono żadnych użytkowników </target>
+                 </trans-unit>
+                <trans-unit id="message.no_tag_found">
+                       <source>message.no_tag_found</source>
+                       <target> Nie znaleziono żadnych tagów </target>
+                 </trans-unit>
+                 <trans-unit id="message.no_flashcard_found">
+                       <source>message.no_flashcard_found</source>
+                       <target> Nie znaleziono żadnych fiszek </target>
+                 </trans-unit>
+                 <trans-unit id="action.flashcard_add">
+                        <source>action.flashcard_add</source>
+                        <target> Dodaj fiszki </target>
+                 </trans-unit>
+                 <trans-unit id="title.delete_flashcard">
+                        <source>title.delete_flashcard</source>
+                        <target> Usuń fiszkę %id% </target>
+                 </trans-unit>
+                 <trans-unit id="title.delete_set">
+                        <source>title.delete_set</source>
+                        <target> Usuń zestaw %id% </target>
+                 </trans-unit>
+                 <trans-unit id="action.delete">
+                        <source>action.delete</source>
+                        <target> Usuń </target>
+                 </trans-unit>
+                 <trans-unit id="title.admin_flashcards_index">
+                         <source>title.admin_flashcards_index</source>
+                         <target> Wszystkie fiszki </target>
+                 </trans-unit>
+                 <trans-unit id="title.delete_tag">
+                          <source>title.delete_tag</source>
+                          <target> Usuń tag %id% </target>
+                 </trans-unit>
+                 <trans-unit id="title.tags">
+                           <source>title.tags</source>
+                           <target> Wszystkie tagi </target>
+                 </trans-unit>
+                 <trans-unit id="title.delete_user">
+                           <source>title.delete_user</source>
+                           <target> Usuń użytkownika %id% </target>
+                 </trans-unit>
+                 <trans-unit id="title.admin_user_view">
+                           <source>title.admin_user_view</source>
+                           <target> Użytkownik %id% </target>
+                 </trans-unit>
+                 <trans-unit id="title.user_view">
+                           <source>title.user_view</source>
+                           <target> Twoje konto </target>
+                 </trans-unit>
+                 <trans-unit id="action.reset_password">
+                            <source>action.reset_password</source>
+                            <target> Zresetuj hasło </target>
+                 </trans-unit>
+                 <trans-unit id="title.edit_user_data">
+                            <source>title.edit_user_data</source>
+                            <target> Edytuj profil </target>
+                 </trans-unit>
+                 <trans-unit id="title.admin_edit_user_data">
+                            <source>title.admin_edit_user_data</source>
+                            <target> Edytuj profil użytkownika %id% </target>
+                 </trans-unit>
+                 <trans-unit id="title.admin_edit_user">
+                            <source>title.admin_edit_user_data</source>
+                            <target> Edytuj użytkownika %id% </target>
+                 </trans-unit>
+                 <trans-unit id="user.role">
+                            <source>user.role</source>
+                            <target> Rola </target>
+                </trans-unit>
+                <trans-unit id="ROLE_USER">
+                            <source>ROLE_USER</source>
+                            <target> Użytkownik </target>
+                </trans-unit>
+                <trans-unit id="ROLE_ADMIN">
+                             <source>ROLE_ADMIN</source>
+                             <target> Administrator </target>
+                </trans-unit>
+                <trans-unit id="action.user_edit">
+                             <source>action.user_edit</source>
+                             <target> Edytuj konto </target>
+                </trans-unit>
+                <trans-unit id="title.admin_user_index">
+                             <source>title.admin_user_index</source>
+                             <target> Użytkownicy </target>
+                </trans-unit>
+                 <trans-unit id="title.reset_password">
+                             <source>title.reset_password</source>
+                             <target> Zresetuj hasło </target>
+                 </trans-unit>
+                 <trans-unit id="label.new-password">
+                             <source>label.new-password</source>
+                             <target> Nowe hasło </target>
+                 </trans-unit>
+                 <trans-unit id="label.old_password">
+                             <source>label.old_password</source>
+                             <target> Stare hasło </target>
+                 </trans-unit>
+                 <trans-unit id="label.repeat-new-password">
+                             <source>label.repeat-new-password</source>
+                             <target> Powtórz nowe hasło </target>
+                 </trans-unit>
         </body>
     </file>
 </xliff>
