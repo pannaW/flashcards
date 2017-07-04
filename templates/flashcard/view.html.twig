@@ -3,33 +3,70 @@
 {% block title %}
     {{ 'title.flashcard'|trans({'%id%': id}) }}
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/set.css') }}" rel="stylesheet">
+    <link href="{{ asset('css/flashcard.css') }}" rel="stylesheet">
+{% endblock %}
 
 {% block board %}
     {% block header %}
+        <div id="header">
         <h1>
             {{ 'title.flashcard'|trans({'%id%': id}) }}
         </h1>
+            <div class="set-menager">
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                <a href="{{ url('flashcard_edit', {'id': id }) }}"><i class="fa fa-edit"></i>
+                <span> {{ 'action.set_edit'|trans }}</span></a>
+                <a href="{{ url('flashcard_delete', {'id': id }) }}"><i class="fa fa-remove"></i>
+                <span>{{ 'action.set_delete'|trans }}</span></a>
+                {% endif %}
+                <br>
+            </div>
+        </div>
     {% endblock %}
     {% block article %}
         {% if flashcard|length %}
-            <div>
-            {{ flashcard.word }} => {{ flashcard.definition }}
-            {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <a href="{{ url('flashcard_edit', {'id': id }) }}"><i class="fa fa-edit"></i></a>
-                <a href="{{ url('flashcard_delete', {'id': id }) }}"><i class="fa fa-remove"></i></a>
-            {% endif %}
+            <div class="stage">
+                <div class="flashcard">
+                    <div class="front">
+                       <p> {{ flashcard.word }} </p>
+                    </div>
+                    <div class="back">
+                       <p>{{ flashcard.definition }} </p>
+                    </div>
+                </div>
+            </div>
+            <div class="tip">
+                <i id="tip" class="fa fa-question-circle"> </i><small> {{ 'click.to.toggle'|trans }}</small>
+            </div>
         {% else %}
             <div>
                 {{ 'message.no_flashcards_found' }}
             </div>
         {% endif %}
-        <br>
-        {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{url('flashcard_index')}}" title="{{ 'label.back'|trans }}">
-                {{ 'label.back'|trans }} </a>
-        {% else %}
-        <a href="{{ url('set_view', { 'id' : flashcard.sets_id }) }}" title="{{ 'label.back'|trans }}">
-            {{ 'label.back'|trans }} </a>
-        {% endif %}
+        {#{% if is_granted('ROLE_ADMIN') %}#}
+            {#<a href="{{url('flashcard_index')}}" title="{{ 'label.back'|trans }}"#}
+               {#class="back btn btn-default">#}
+                {#<span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>#}
+        {#{% else %}#}
+            {#<a href="{{ url('set_view', { 'id' : flashcard.sets_id }) }}" title="{{ 'label.back'|trans }}"#}
+               {#class="back btn btn-default">#}
+                {#<span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>#}
+        {#{% endif %}#}
     {% endblock %}
+{% endblock %}
+
+{% block javascripts %}
+    {{ parent() }}
+
+    <script>
+    $(document).ready(function() {
+    $('.flashcard').on('click', function() {
+    $('.flashcard').toggleClass('flipped');
+    });
+    });
+    </script>
+
 {% endblock %}

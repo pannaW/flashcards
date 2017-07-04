@@ -8,8 +8,15 @@
     {% endif %}
 {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/set.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block board %}
-    {% block header %}
+
+    {% block article %}
+        <div class="user-view">
         <h1>
             {% if is_granted('ROLE_ADMIN') %}
                 {{ 'title.admin_user_view'|trans({'%id%': user.id}) }}
@@ -17,8 +24,7 @@
                 {{ 'title.user_view'|trans }}
             {% endif %}
         </h1>
-    {% endblock %}
-    {% block article %}
+
            <ul>
                <li> {{ user.login }} </li>
                {% if userData|length %}
@@ -27,16 +33,25 @@
                <li> {{ userData.email }}</li>
                {% endif %}
            </ul>
-            <a href="{{ url('edit_data', {'id': user.id }) }}"><i class="fa fa-edit"></i></a>
-
+            <div class="buttons">
+        <div class="btn-group btn-group-justified">
+            <a href="{{ url('edit_data', {'id': user.id }) }}" class="btn btn-default">
+                <i class="fa fa-edit"></i>{{ 'action.user_edit_data'|trans }}</a>
+            <a href="{{ url('reset_password', {'id': user.id }) }}" class="btn btn-default">
+                <i class="fa fa-refresh"></i> {{ 'action.reset_password'|trans }}</a>
+        </div>
         {% if is_granted('ROLE_ADMIN') %}
-            <a href="{{ url('user_delete', {'id': user.id }) }}"><i class="fa fa-remove"></i></a>
-            <br>
-            <a href="{{ url('user_edit', {'id': user.id }) }}"> </i> {{ 'action.user_edit'|trans }}</a>
+            <div class="btn-group btn-group-justified">
+            <a href="{{ url('user_delete', {'id': user.id }) }}" class="btn btn-default">
+                <i class="fa fa-remove"></i> {{ 'action.user_delete'|trans }} </a>
+            <a href="{{ url('user_edit', {'id': user.id }) }}" class="btn btn-default"> {{ 'action.user_edit'|trans }}</a>
+            </div>
         {% endif %}
-        <br>
-        <a href="{{ url('reset_password', {'id': user.id }) }}"><i class="fa fa-refresh"></i> {{ 'action.reset_password'|trans }}</a>
-        <a href="{{ url('user_index') }}" title="{{ 'label.back'|trans }}">
-            {{ 'label.back'|trans }}</a>
+            </div>
+
+        <a href="{{ url('user_index') }}" title="{{ 'label.back'|trans }}" class="back btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>
+        </div>
+
     {% endblock %}
 {% endblock %}

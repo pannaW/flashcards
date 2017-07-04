@@ -1,16 +1,22 @@
 {% extends 'panel.html.twig' %}
 
 {% block title %} {{ 'title.edit_set'|trans({'%id%': set.id}) }} {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+{% endblock %}
 
-{% block body %}
-    {% block header %}
-        <h1> {{ 'title.edit_set'|trans({'%id%': set.id}) }} </h1>
-    {% endblock %}
-
+{% block board %}
     {% block article %}
+        <div class="form">
+        <h1> {{ 'title.edit_set'|trans({'%id%': set.id}) }} </h1>
         {{ form_start(form, { method: 'post', action: url('set_edit', {'id': set.id}) }) }}
         {{ form_widget(form) }}
-        <input type="submit" value=" {{ 'action.save'|trans }}" class="btn btn-success" />
+        <input type="submit" value=" {{ 'action.save'|trans }}" class="btn" />
         {{ form_end(form) }}
+        </div>
+
+        <a href="{{ url('set_view', { 'id' : set.id }) }}" title="{{ 'label.back'|trans }}" class="back btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>
     {% endblock %}
 {% endblock %}

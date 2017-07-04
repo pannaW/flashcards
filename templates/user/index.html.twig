@@ -1,19 +1,27 @@
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
     {% block title %}
         {{ 'title.admin_user_index'|trans }}
     {% endblock %}
 
+    {% block board %}
+        {% block header %}
+            <div id="header">
+                <h1> {{ 'title.admin_user_index'|trans }}</h1>
+            </div>
+        {% endblock %}
 
-    {% block body %}
-        <h1> {{ 'title.admin_user_index'|trans }}</h1>
-
+        {% block article %}
         {% if paginator.data|length %}
+            <div class="index-list">
+                <ul>
             {% for row in paginator.data %}
                 <li><a href="{{ url('user_view', {'id': row.id }) }}">
                         {{ row.id }}, {{ row.login }}
                     </a></li>
             {% endfor %}
+                </ul>
+            </div>
             {% include 'default/_paginator.html.twig' with {
             paginator: paginator,
             route_name: 'user_index_paginated',
@@ -23,6 +31,6 @@
                 {{ 'message.no_user_found'|trans }}
             </div>
         {% endif %}
-
+        {% endblock %}
     {% endblock %}
 

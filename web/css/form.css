@@ -1,0 +1,83 @@
+body {
+    background-color: white;
+}
+
+.wrapper {
+    width:100%;
+    min-height: 576px;
+}
+.page-content-wrapper{
+    min-height: 600px;
+    margin-top: 50px;
+    width:100%;
+}
+
+.container {
+    margin: auto;
+    width:100%;
+}
+
+.form {
+    margin: 10% 39% 9% 39%;
+    max-width: 420px;
+    padding: 10px 20px 30px 20px;
+    text-align: center;
+    border: 1px solid #FFE500;
+    border-radius: 5px;
+    color:#47525e;
+}
+
+.form h1 {
+    font-size: 30px;
+    padding-bottom:10px;
+}
+
+.form input[type=text], .form input[type=password], .form input[type=email] {
+    border:none;
+    min-width:100px;
+    margin: 0px 0px 10px 5px;
+    border-bottom: 1px solid #FFE500;
+    background-color: transparent;
+}
+
+.form .btn {
+    margin-top:15px;
+    color:#47525e;
+}
+
+.form input[type=checkbox] {
+    margin: 0px 70px 0px 5px;
+}
+
+.form select {
+    margin: 10px 0px 0px 5px;
+    border: 1px solid #FFE500;
+    border-radius: 4px;
+    background-color: white;
+}
+
+.form p {
+    font-size: 12px;
+    margin: 10px;
+    padding-top: 15px;
+}
+
+.form p a {
+    color:#47525e;
+    text-decoration: none;
+}
+
+.form p a:hover {
+    color: #36404c;
+}
+
+.back {
+    float:right;
+    margin: 10px 100px 85px 30px;
+    width: auto;
+}
+
+.form-group label.control-label.required:after {
+    content: " *";
+    color: #a94442;;
+}

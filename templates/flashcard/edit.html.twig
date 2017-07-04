@@ -1,24 +1,29 @@
-{% form_theme form with ['bootstrap_3_horizontal_layout.html.twig', 'form/form_errors.html.twig'] %}
-
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
 {% block title %}
     {{ 'title.edit_flashcard'|trans({'%id%': flashcard.id}) }}
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+{% endblock %}
 
-{% block body %}
+{% block board %}
+    {% block article %}
+        <div class="form">
     <h1>{{ 'title.edit_flashcard'|trans({'%id%': flashcard.id}) }}</h1>
     {{ form_start(form, { method: 'post', action: url('flashcard_edit', {'id': flashcard.id}) }) }}
     {{ form_widget(form) }}
-    <input type="submit" value="{{ 'action.save'|trans }}" class="btn btn-success" />
+    <input type="submit" value="{{ 'action.save'|trans }}" class="btn" />
     {{ form_end(form) }}
-
+        </div>
     {% if is_granted('ROLE_ADMIN') %}
-        <a href="{{ url('flashcard_view', { 'id' : flashcard.id }) }}" title="{{ 'label.back'|trans }}" class="btn btn-default">
+        <a href="{{ url('flashcard_view', { 'id' : flashcard.id }) }}" title="{{ 'label.back'|trans }}" class="back btn btn-default">
             <span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>
     {% else %}
-        <a href="{{ url('set_view', { 'id' : flashcard.sets_id }) }}" title="{{ 'label.back'|trans }}" class="btn btn-default">
+        <a href="{{ url('set_view', { 'id' : flashcard.sets_id }) }}" title="{{ 'label.back'|trans }}" class="back btn btn-default">
             <span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>
     {% endif %}
 
+    {% endblock %}
 {% endblock %}

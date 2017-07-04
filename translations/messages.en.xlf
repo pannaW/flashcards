@@ -254,6 +254,68 @@
                         <source>label.repeat-new-password</source>
                         <target> Repeat new password </target>
                </trans-unit>
-        </body>
+               <trans-unit id="nav.panel">
+                                                            <source>nav.panel</source>
+                                                            <target> Panel </target>
+                                               </trans-unit>
+                                               <trans-unit id="nav.dashboard">
+                                                            <source>nav.dashboard</source>
+                                                            <target> Dashboard </target>
+                                               </trans-unit>
+                                               <trans-unit id="nav.users">
+                                                            <source>nav.users</source>
+                                                            <target> Users </target>
+                                               </trans-unit>
+                                               <trans-unit id="nav.flashcards">
+                                                            <source>nav.flashcards</source>
+                                                            <target> Flashcards </target>
+                                               </trans-unit>
+                                                <trans-unit id="nav.tags">
+                                                            <source>nav.tags</source>
+                                                            <target> Tags </target>
+                                               </trans-unit>
+                                               <trans-unit id="nav.home">
+                                                            <source>nav.home</source>
+                                                            <target> Home </target>
+                                               </trans-unit>
+                                               <trans-unit id="nav.about">
+                                                            <source>nav.about</source>
+                                                            <target> About </target>
+                                               </trans-unit>
+                                               <trans-unit id="nav.terms">
+                                                            <source>nav.terms</source>
+                                                            <target> Terms and Conditions </target>
+                                               </trans-unit>
+                                               <trans-unit id="nav.contact">
+                                                            <source>nav.contact</source>
+                                                            <target> Contact </target>
+                                               </trans-unit>
+                                               <trans-unit id="Bad credentials.">
+                                                            <source>Bad credentials.</source>
+                                                            <target> Bad credentials </target>
+                                               </trans-unit>
+                                               <trans-unit id="action.user_edit_data">
+                                                            <source>action.user_edit_data</source>
+                                                            <target> Edit data </target>
+                                               </trans-unit>
+                                               <trans-unit id="action.user_delete">
+                                                            <source>action.user_delete</source>
+                                                            <target> Delete user </target>
+                                               </trans-unit>
+                                               <trans-unit id="action.set_edit">
+                                                            <source>action.set_edit </source>
+                                                            <target> Edit set </target>
+                                               </trans-unit>
+                                               <trans-unit id="action.set_delete">
+                                                            <source>action.set_delete</source>
+                                                            <target> Delete set </target>
+                                               </trans-unit>
+                                               <trans-unit id="click.to.toggle">
+                                                            <source>click.to.toggle</source>
+                                                            <target> Click on the flashcard to see definition </target>
+                                               </trans-unit>
+
+
+            </body>
     </file>
 </xliff>

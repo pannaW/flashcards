@@ -6,20 +6,24 @@
 
 
     {% block board %}
-
         {% block header %}
+            <div id="header">
             <h1> {{ 'title.tags'|trans}} </h1>
+            </div>
         {% endblock %}
 
         {% block article %}
             {% if paginator.data|length %}
-                {% for row in paginator.data %}
+                <div class="index-list">
+                    <ul>
+                    {% for row in paginator.data %}
                     <li>
                             {{ row.id }}, {{ row.name }}
                         <a href="{{ url('tag_delete', {'id': row.id }) }}"><i class="fa fa-remove"></i></a>
                     </li>
-                {% endfor %}
-
+                    {% endfor %}
+                    </ul>
+                </div>
                 {% include 'default/_paginator.html.twig' with {
                 paginator: paginator,
                 route_name: 'tag_index_paginated',

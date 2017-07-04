@@ -262,6 +262,68 @@
                              <source>label.repeat-new-password</source>
                              <target> Powtórz nowe hasło </target>
                  </trans-unit>
+                  <trans-unit id="nav.panel">
+                                             <source>nav.panel</source>
+                                             <target> Panel </target>
+                                </trans-unit>
+                                <trans-unit id="nav.dashboard">
+                                             <source>nav.dashboard</source>
+                                             <target> Dashboard </target>
+                                </trans-unit>
+                                <trans-unit id="nav.users">
+                                             <source>nav.users</source>
+                                             <target> Użytkownicy </target>
+                                </trans-unit>
+                                <trans-unit id="nav.flashcards">
+                                             <source>nav.flashcards</source>
+                                             <target> Fiszki </target>
+                                </trans-unit>
+                                 <trans-unit id="nav.tags">
+                                             <source>nav.tags</source>
+                                             <target> Tagi </target>
+                                </trans-unit>
+                                <trans-unit id="nav.home">
+                                             <source>nav.home</source>
+                                             <target> Strona domowa </target>
+                                </trans-unit>
+                                <trans-unit id="nav.about">
+                                             <source>nav.about</source>
+                                             <target> O nas </target>
+                                </trans-unit>
+                                <trans-unit id="nav.terms">
+                                             <source>nav.terms</source>
+                                             <target> Warunki i polityka </target>
+                                </trans-unit>
+                                <trans-unit id="nav.contact">
+                                             <source>nav.contact</source>
+                                             <target> Kontakt </target>
+                                </trans-unit>
+                                <trans-unit id="Bad credentials">
+                                             <source>Bad credentials.</source>
+                                             <target> Nieprawidłowy login lub hasło </target>
+                                 </trans-unit>
+                                 <trans-unit id="action.user_edit_data">
+                                             <source>action.user_edit_data</source>
+                                             <target> Edytuj dane </target>
+                                 </trans-unit>
+                                 <trans-unit id="action.user_delete">
+                                             <source>action.user_delete</source>
+                                             <target> Usuń </target>
+                                 </trans-unit>
+                                 <trans-unit id="action.set_edit">
+                                             <source>action.set_edit</source>
+                                             <target> Edytuj </target>
+                                 </trans-unit>
+                                 <trans-unit id="action.set_delete">
+                                              <source>action.set_delete</source>
+                                              <target> Usuń </target>
+                                 </trans-unit>
+                                 <trans-unit id="click.to.toggle">
+                                              <source>click.to.toggle</source>
+                                              <target> Kliknij w fiszkę aby zobaczyć odpowiedź </target>
+                                  </trans-unit>
+
+
         </body>
     </file>
 </xliff>

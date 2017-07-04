@@ -7,17 +7,22 @@
 
     {% block board %}
         {% block header %}
+        <div id="header">
             <h1> {{ 'title.admin_flashcards_index'|trans }} </h1>
+        </div>
         {% endblock %}
 
         {% block article %}
             {% if paginator.data|length %}
+                <div class="index-list">
+                    <ul>
                 {% for row in paginator.data %}
                     <li><a href="{{ url('flashcard_view', {'id': row.id }) }}">
-                            {{ row.id }}, {{ row.word }} => {{ row.definition }}
+                            {{ row.id }}, {{ row.word }} <i class="fa fa-arrow-right"></i> {{ row.definition }}
                         </a></li>
                 {% endfor %}
-
+                    </ul>
+                </div>
                 {% include 'default/_paginator.html.twig' with {
                 paginator: paginator,
                 route_name: 'flashcard_index_paginated',

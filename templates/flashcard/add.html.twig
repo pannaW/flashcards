@@ -1,11 +1,23 @@
-{% extends 'layout.html.twig' %}
+{% extends 'panel.html.twig' %}
 
 {% block title %} {{ 'title.add_flashcard'|trans }} {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+{% endblock %}
 
-{% block body %}
+{% block board %}
+    {% block article %}
+        <div class="form">
 <h1> {{ 'title.add_flashcard'|trans }} </h1>
     {{ form_start(form, {method: 'post', action : url('flashcard_add')}) }}
     {{ form_widget(form) }}
-    <input type="submit" value="{{ 'action.add'|trans }}" class="btn btn-success" />
+    <input type="submit" value="{{ 'action.add'|trans }}" class="btn" />
     {{ form_end(form) }}
+        </div>
+        <a href="{{ url('set_view', { 'id': flashcard.sets_id } ) }}" title="{{ 'label.back'|trans }}" class="back btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>
+            {{ 'label.back'|trans }}
+        </a>
+    {% endblock %}
 {% endblock %}

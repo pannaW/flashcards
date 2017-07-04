@@ -16,8 +16,9 @@
 
         {% block main %}
             <div id="wrapper">
-
-                {% include 'panel/sidebar.html.twig' %}
+                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    {% include 'panel/sidebar.html.twig' %}
+                {% endif %}
 
                 {% block dashboard %}
                     <div class="page-content-wrapper">
@@ -30,9 +31,9 @@
                                         {% block article %}
                                         {% endblock %}
                                     {% endblock %}
-                                    {% include 'panel/footer.html.twig' %}
                                 </div>
                             </div>
+                            {% include 'panel/footer.html.twig' %}
                         </div>
                     </div>
                 {% endblock %}
@@ -44,14 +45,5 @@
 
 {% block javascripts %}
     {{ parent() }}
-
-    <!-- Menu Toggle Script -->
-    <script>
-        $("#menu-toggle").click(function(e) {
-            e.preventDefault();
-            $("#wrapper").toggleClass("toggled");
-        });
-    </script>
-
 {% endblock %}
 

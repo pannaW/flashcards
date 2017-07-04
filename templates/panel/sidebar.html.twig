@@ -1,19 +1,37 @@
- <div id="sidebar-wrapper">
+ <div id="sidebar">
         <ul class="sidebar-nav">
             <li class="sidebar-brand"></li>
-            <a href="#">
-                Sidebar Brand
-            </a>
+                {{ 'nav.panel'|trans }}
             <li>
-                <a href="#">
-                    Dashboard
+                <a href="{{ url('set_index') }}">
+                    {{ 'nav.dashboard'|trans }}
                 </a>
-                <a href="#">
-                    Account settings
+            </li>
+                {% if is_granted('ROLE_ADMIN') %}
+                    <li>
+                    <a href="{{ url('user_index') }}">
+                        {{ 'nav.users'|trans }}
+                    </a>
+                    </li>
+                    <li>
+                    <a href="{{ url('flashcard_index') }}">
+                        {{ 'nav.flashcards'|trans }}
+                    </a>
+                    </li>
+                    <li>
+                    <a href="{{ url('tag_index') }}">
+                        {{ 'nav.tags'|trans }}
+                    </a>
+                    </li>
+                {% else %}
+                    <li>
+                <a href="{{ url('user_view',{ 'id': userId }) }}">
+                    {{ 'nav.account'|trans }}
                 </a>
-                <a href="#">
-                    Logout
-                </a>
+                    </li>
+                {% endif %}
+            <li>
+            <a href="{{ url('auth_logout') }}" title="{{ 'auth.logout.label'|trans }}"> {{ 'auth.logout.label'|trans }} </a>
             </li>
         </ul>
  </div>

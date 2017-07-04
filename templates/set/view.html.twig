@@ -4,39 +4,62 @@
     {{ 'title.set'|trans({'%id%': id}) }}
 {% endblock %}
 
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/set.css') }}" rel="stylesheet">
+{% endblock %}
+
 {% block board %}
 
     {% block header %}
+        <div id="header">
         <h1>
-            {{ 'title.set'|trans({'%id%': id}) }}
+            {{ set.name }}
         </h1>
+            <div class="set-menager">
+            <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i>
+                <span> {{ 'action.set_edit'|trans }}</span></a>
+            <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i>
+                <span>{{ 'action.set_delete'|trans }}</span></a>
+            </div>
+        </div>
     {% endblock %}
 
     {% block article %}
         {% if set|length %}
-            <div>
-            {{ set.id }}, {{ set.name }}
+            <div class="sets">
                 {% if flashcards|length %}
-                    <ul>
+                    <div class="row">
                         {% for flashcard in flashcards %}
-                            <li><a href="{{ url('flashcard_view', {'id': flashcard.id }) }}">
-                                    {{ flashcard.word }} => {{ flashcard.definition }} </a> </li>
+                            <a href="{{ url('flashcard_view', {'id': flashcard.id }) }}">
+                                <div id="flashcards-list" class="col-md-12 col-lg-12 set">
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                    {{ flashcard.word }}
+                                    </div>
+                                    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+                                        {{ flashcard.definition }}
+                                    </div>
+                                </div>
+                            </a>
                         {% endfor %}
-                    </ul>
                 {% endif %}
             {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <br> <a href="{{ url('flashcard_add') }}">{{ 'action.flashcard_add'|trans }}<i class="fa fa-plus"></i> </a>
-                <br>
-                <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i></a>
-                <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i></a>
+                <a href="{{ url('flashcard_add') }}">
+                    <div id="add-flashcard" class="col-xs-12 col-sm-12 col-md-12 col-lg-12 set">
+                        {{ 'action.flashcard_add'|trans }}
+                        <i class="fa fa-plus"> </i>
+                    </div>
+                </a>
             {% endif %}
+                    </div>
+            </div>
         {% else %}
             <div>
                 {{ 'message.no_set_found' }}
             </div>
         {% endif %}
         <br>
-        <a href="{{ url('set_index') }}" title="{{ 'label.back'|trans }}">
-            {{ 'label.back'|trans }} </a>
+        <a href="{{ url('set_index') }}" title="{{ 'label.back'|trans }}" class="back btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>
         {% endblock %}
 {% endblock %}

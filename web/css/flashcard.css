@@ -1,0 +1,56 @@
+.stage {
+    /*-webkit-perspective: 1000;*/
+}
+
+.flashcard {
+    height: 300px;
+    width: 500px;
+    background-color: white;
+    margin: 5% auto;
+    box-shadow: 4px 4px 2px #E0E6ED;
+    -moz-box-shadow: 4px 4px 2px #E0E6ED;
+    -o-box-shadow: 4px 4px 2px #E0E6ED;
+    -webkit-box-shadow: 4px 4px 2px #E0E6ED;
+    -webkit-transform-style: preserve-3d;
+    transition: all 0.3s;
+    -webkit-transition: all 0.3s;
+}
+
+.flashcard:hover {
+    cursor: pointer;
+}
+
+.front, .back {
+    height: 300px;
+    width: 500px;
+    position: absolute;
+    text-align: center;
+    -webkit-backface-visibility: hidden;
+}
+
+.front p, .back p {
+    margin-top: 25%;
+    font-size: 3em;
+    color: #4e5966;
+}
+
+.back, .flipped {
+    transform: rotateY(180deg);
+    -webkit-transform: rotateY(180deg);
+}
+
+#tip{
+    background-color:transparent;
+    border:none;
+    color: #4E5966;
+    width: 14px;
+    height: 14px;
+    font-size: 12px;
+    margin-right: 0;
+    padding-right: -10px;
+}
+
+.tip {
+    text-align: center;
+    margin: -50px auto 50px;
+}

@@ -7,21 +7,28 @@
         {{ 'title.edit_user_data'|trans }}
     {% endif %}
 {% endblock %}
+{% block stylesheets %}
+    {{ parent() }}
+    <link href="{{ asset('css/form.css') }}" rel="stylesheet">
+{% endblock %}
 
 {% block board %}
-    {% block header %}
-        <h1>
-            {% if is_granted('ROLE_ADMIN') %}
-                {{ 'title.admin_edit_user_data'|trans({'%id%': id}) }}
-            {% else %}
-                {{ 'title.edit_user_data'|trans }}
-            {% endif %}
-        </h1>
-    {% endblock %}
     {% block article %}
+        <div class="form">
+            <h1>
+                {% if is_granted('ROLE_ADMIN') %}
+                    {{ 'title.admin_edit_user_data'|trans({'%id%': id}) }}
+                {% else %}
+                    {{ 'title.edit_user_data'|trans }}
+                {% endif %}
+            </h1>
+
         {{ form_start(form, { method: 'post', action: url('edit_data', {'id': id}) }) }}
         {{ form_widget(form) }}
-        <input type="submit" value="{{ 'action.save'|trans }}" class="btn btn-success" />
+        <input type="submit" value="{{ 'action.save'|trans }}" class="btn" />
         {{ form_end(form) }}
+        </div>
+        <a href="{{ url('user_view', { 'id' : id }) }}" title="{{ 'label.back'|trans }}" class="back btn btn-default">
+            <span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>
     {% endblock %}
 {% endblock %}

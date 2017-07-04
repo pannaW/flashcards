@@ -8,6 +8,11 @@
         {% endif %}
     {% endblock %}
 
+     {% block stylesheets %}
+         {{ parent() }}
+         <link href="{{ asset('css/set.css') }}" rel="stylesheet">
+     {% endblock %}
+
 
     {% block board %}
         {% block header %}
@@ -17,28 +22,46 @@
                 {% else %}
                     <h1> {{ 'title.set_index'|trans }} </h1>
                 {% endif %}
-            <small>  3 collections | 14 tags </small>
+            {#<small>  3 collections | 14 tags </small>#}
             </div>
         {% endblock %}
 
         {% block article %}
             <article>
             {% if sets|length %}
-                    <ul>
+                <div class="sets">
                 {% for set in sets %}
-                    <li><a href="{{ url('set_view', {'id': set.id }) }}">
-                            {{ set.id }}, {{ set.name }} </a></li>
-                            {% if set.tags|length and set.tags is iterable %}
-                                <ul>
+                    <a href="{{ url('set_view', {'id': set.id }) }}">
+                    <div class="set">
+                        <small> 83 flashcards | 12-03-2017 </small>
+                        <h2> {{ set.name }}  </h2>
+                        <div class="set-menager">
+                            <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i>
+                            <span>{{ 'action.set_edit'|trans }}</span></a>
+                            <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i>
+                           <span> {{ 'action.set_delete'|trans }}</span></a>
+                        </div>
+                        {% if set.tags|length and set.tags is iterable %}
+                            <div class="tag-list">
+                            <ul>
                                 {% for tag in set.tags %}
-                                <li>
-                                    #{{ tag.name }}
-                                </li>
+                                    <li>
+                                        #{{ tag.name }}
+                                    </li>
                                 {% endfor %}
-                                </ul>
-                            {% endif %}
-                {% endfor %}
-                    </ul>
+                            </ul>
+                            </div>
+                        {% endif %}
+                    </div>
+                    </a>
+                        {% endfor %}
+                    <a href="{{ url('set_add') }}">
+                        <div id="add-set" class="set">
+                            {{ 'label.add_set'|trans }}
+                            <i class="fa fa-plus"> </i>
+                        </div>
+                    </a>
+                </div>
                 {% if is_granted('ROLE_ADMIN') %}
 
                     {% include 'default/_paginator.html.twig' with {
@@ -52,7 +75,6 @@
                     {{ 'message.no_set_found' }}
                 </div>
             {% endif %}
-                <a href="{{ url('set_add') }}"> {{ 'label.add_set'|trans }} </a>
             </article>
         {% endblock %}
     {% endblock %}

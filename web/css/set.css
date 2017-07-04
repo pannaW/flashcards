@@ -1,0 +1,145 @@
+h2 {
+    margin: 5px;
+    color:#47525E;
+    font-family: 'Lato black', sans-serif;
+    font-weight: 900;
+    font-size: 30px;
+}
+
+a, a:hover, a:active, a:link {
+    text-decoration: none;
+}
+
+.sets {
+    padding: 20px;
+    margin: 5px 20px;
+}
+
+.set {
+    padding:20px;
+    margin-bottom: 15px;
+    height:130px;
+    background-color: white;
+    box-shadow: 4px 4px 2px #E0E6ED;
+    -moz-box-shadow: 4px 4px 2px #E0E6ED;
+    -o-box-shadow: 4px 4px 2px #E0E6ED;
+    -webkit-box-shadow: 4px 4px 2px #E0E6ED;
+}
+
+#flashcards-list div {
+    font-weight: 300;
+    font-size: 26px;
+    text-align: center;
+    padding:15px 10px;
+    color: #6c7c8a;
+}
+
+#flashcards-list div:last-child {
+    border-left: 2px solid #ececec;
+    height: 100%;
+}
+
+.tag-list{
+    min-height: 10px;
+    margin:10px;
+}
+
+.tag-list li {
+    position:relative;
+    bottom: 32px;
+    display: inline;
+    float:left;
+    color:white;
+    background-color:#FFE500;
+    margin: 1px 3px 1px;
+    padding:4px 9px;
+}
+
+.tag-list li::after{
+    clear:both;
+}
+
+#add-set {
+    font-size:30px;
+    padding: 30px;
+    font-weight: bolder;
+    text-align: center;
+    color: #FFE500;
+    text-shadow: 1.5px 1.5px #ececec;
+}
+
+#add-flashcard {
+    font-size:30px;
+    padding: 20px;
+    font-weight: bolder;
+    text-align: center;
+    color: #FFE500;
+    text-shadow: 1.5px 1.5px #ececec;
+}
+
+#add-set i {
+    font-size: 20px;
+    width:38px;
+    height: 38px;
+    padding:8px;
+    margin: 1px;
+    color: #fff443;
+    text-shadow: 1.5px 1.5px #ececec;
+}
+
+.back {
+    float:right;
+    margin: 10px 100px 85px 30px;
+    width: auto;
+}
+
+#header {
+    position:relative;
+}
+
+#header h1 {
+    display: inline-block;
+    position:relative;
+    top:-30px;
+    float:left;
+}
+
+.set-menager {
+    position: relative;
+    left:600px;
+    bottom:45px;
+}
+
+#header .set-menager {
+    bottom:5px;
+}
+
+.set-menager i {
+    font-size: 18px;
+    height:28px;
+    width: 28px;
+    margin-right:10px;
+    margin-left:10px;
+    padding:5px;
+    text-align: center;
+    color: white;
+    background-color: #47525E;
+    border: 1px solid #47525E;
+    border-radius: 20px;
+}
+
+#header .set-menager i {
+    font-size: 24px;
+    height:34px;
+    width: 34px;
+}
+
+#header .set-menager span {
+    font-size: 14px;
+    color:#6F8093;
+}
+
+.set-menager span {
+    font-size: 12px;
+    color:#6F8093;
+}
