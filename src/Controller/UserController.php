@@ -59,6 +59,10 @@ class UserController implements ControllerProviderInterface
 
     }
 
+    /**
+     * @param Application $app
+     * @return string
+     */
     public function checkAccess(Application $app)
     {
         if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))
@@ -70,12 +74,19 @@ class UserController implements ControllerProviderInterface
             return "anonymous";
     }
 
+    /**
+     * @param $id
+     * @param $userId
+     * @return bool
+     */
     public function checkOwnership($id, $userId)
     {
         return ($id == $userId) ? true : false;
     }
 
     /**
+     * Index action
+     *
      * @param Application $app
      * @return mixed
      */
@@ -111,6 +122,8 @@ class UserController implements ControllerProviderInterface
     }
 
     /**
+     * View action
+     *
      * @param Application $app
      * @param             $id
      * @return mixed
@@ -146,6 +159,14 @@ class UserController implements ControllerProviderInterface
         }
     }
 
+    /**
+     * Edit user's login and role
+     *
+     * @param Application $app
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function editAction(Application $app, $id, Request $request)
     {
         $access = $this->checkAccess($app);
@@ -206,6 +227,8 @@ class UserController implements ControllerProviderInterface
     }
 
     /**
+     * Edit user's data
+     *
      * @param Application $app
      * @param             $id
      * @param Request     $request
@@ -274,6 +297,14 @@ class UserController implements ControllerProviderInterface
     }
 
 
+    /**
+     * Reset password action
+     *
+     * @param Application $app
+     * @param $id
+     * @param Request $request
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
     public function resetPasswordAction(Application $app, $id, Request $request)
     {
         $access = $this->checkAccess($app);
@@ -386,6 +417,8 @@ class UserController implements ControllerProviderInterface
 
 
     /**
+     * Delete Action
+     *
      * @param Application $app
      * @param id          $id
      * @param Request     $request

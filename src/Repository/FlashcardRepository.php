@@ -21,6 +21,9 @@ class FlashcardRepository
     protected $db;
 
 
+    /**
+     * Number of items on one page when items paginated
+     */
     const NUM_ITEMS = 5;
 
 

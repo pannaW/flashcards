@@ -18,6 +18,12 @@
             <div id="wrapper">
                 {% if is_granted('IS_AUTHENTICATED_FULLY') %}
                     {% include 'panel/sidebar.html.twig' %}
+                    {% else %}
+                            <style>
+                                @media (min-width: 768px) {
+                                    #wrapper { padding-left:0}
+                                }
+                            </style>
                 {% endif %}
 
                 {% block dashboard %}

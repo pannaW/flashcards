@@ -24,6 +24,9 @@ class UserRepository
      */
     protected $db;
 
+    /**
+     * Number of items on one page when items paginated
+     */
     const NUM_ITEMS = 5;
     /**
      * Set repository.
@@ -44,6 +47,8 @@ class UserRepository
     }
 
     /**
+     * Check if user is an owner of a set
+     *
      * @param $id
      * @param $userId
      * @return bool
@@ -95,6 +100,8 @@ class UserRepository
     }
 
     /**
+     * Finds user data by users id.
+     *
      * @param $userId
      * @return mixed
      */
@@ -127,6 +134,12 @@ class UserRepository
         return !$result ? [] : $result;
     }
 
+    /**
+     * Update record user
+     *
+     * @param $user
+     * @return int
+     */
     public function updateUser($user) {
             $userId = $user['id'];
             unset($user['id']);
@@ -169,6 +182,12 @@ class UserRepository
         }
     }
 
+    /**
+     * Resets passwords
+     *
+     * @param $data
+     * @return int
+     */
     public function resetPassword($data) {
         return $this->db->update('users', $data, ['id' => $data['id']]);
     }
@@ -334,6 +353,13 @@ class UserRepository
         return $queryBuilder->execute()->fetchAll();
     }
 
+    /**
+     * Finds if email is unique
+     *
+     * @param $email
+     * @param null $userId
+     * @return array
+     */
     public function findForUniqueEmail($email, $userId = null)
     {
         $queryBuilder = $this->db->createQueryBuilder();

@@ -35,6 +35,9 @@ class SetRepository
      */
     protected $flashcardRepository = null;
 
+    /**
+     *Number of items on one page when items paginated
+     */
     const NUM_ITEMS = 3;
 
     /**

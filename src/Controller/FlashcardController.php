@@ -70,6 +70,8 @@ class FlashcardController implements ControllerProviderInterface
     }
 
     /**
+     * Index action
+     *
      * @param Application $app
      * @return mixed
      */
@@ -169,6 +171,8 @@ class FlashcardController implements ControllerProviderInterface
     }
 
     /**
+     * View action
+     *
      * @param Application $app
      * @param id          $id
      * @return mixed
@@ -227,6 +231,8 @@ class FlashcardController implements ControllerProviderInterface
 
 
     /**
+     * Edit action
+     *
      * @param Application $app
      * @param id          $id
      * @param Request     $request
@@ -298,6 +304,8 @@ class FlashcardController implements ControllerProviderInterface
     }
 
     /**
+     * Delete action
+     *
      * @param Application $app
      * @param id          $id
      * @param Request     $request

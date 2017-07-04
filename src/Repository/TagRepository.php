@@ -21,6 +21,9 @@ class TagRepository
     protected $db;
 
 
+    /**
+     * Number of items on one page when items paginated
+     */
     const NUM_ITEMS = 5;
 
 
@@ -173,7 +176,12 @@ class TagRepository
     }
 
 
-
+    /**
+     * Look for tags connected with sets
+     *
+     * @param null $id
+     * @return array|bool
+     */
     public function findLinkedTags($id = null)
     {
         $queryBuilder = $this->db->createQueryBuilder()

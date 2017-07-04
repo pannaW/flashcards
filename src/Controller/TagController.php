@@ -59,6 +59,8 @@ class TagController implements ControllerProviderInterface
     }
 
     /**
+     * Index action
+     *
      * @param Application $app
      * @return mixed
      */
@@ -92,6 +94,8 @@ class TagController implements ControllerProviderInterface
     }
 
     /**
+     * Delete Action
+     *
      * @param Application $app
      * @param id $id
      * @param Request $request

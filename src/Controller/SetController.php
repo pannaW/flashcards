@@ -140,6 +140,8 @@ class SetController implements ControllerProviderInterface
 }
 
     /**
+     * Add action
+     *
      * @param Application $app
      * @param Request     $request
      * @return mixed
@@ -191,6 +193,8 @@ class SetController implements ControllerProviderInterface
     }
 
     /**
+     * View action
+     *
      * @param Application $app
      * @param id          $id
      * @return mixed
@@ -249,6 +253,8 @@ class SetController implements ControllerProviderInterface
     }
 
     /**
+     * Edit action
+     *
      * @param Application $app
      * @param Set id      $id
      * @param Request     $request
@@ -327,6 +333,8 @@ class SetController implements ControllerProviderInterface
     }
 
     /**
+     * Delete action
+     *
      * @param Application $app
      * @param Set id      $id
      * @param Request     $request

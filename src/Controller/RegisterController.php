@@ -33,6 +33,8 @@ class RegisterController implements ControllerProviderInterface
     }
 
     /**
+     * Register action
+     *
      * @param Application $app
      * @param Request     $request
      * @return mixed

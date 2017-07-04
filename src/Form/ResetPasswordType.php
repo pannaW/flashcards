@@ -9,6 +9,10 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
 
+/**
+ * Class ResetPasswordType
+ * @package Form
+ */
 class ResetPasswordType extends AbstractType
 {
     /**
@@ -45,6 +49,9 @@ class ResetPasswordType extends AbstractType
         );
     }
 
+    /**
+     * {@inheritdoc}
+     */
     public function getBlockPrefix()
     {
         return 'resetPassword_type';
