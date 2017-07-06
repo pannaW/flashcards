@@ -2,158 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9b0c976c-a66a-491b-af04-c65f873edb7f" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/02/dd/c4dd02" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/03/29/c02903" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/10/0b/4f0b10" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/10/cf/70cf10" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/13/4a/254a13" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/13/94/849413" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/14/d3/afd314" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/15/83/1f8315" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/15/bf/d8bf15" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/19/04/8c0419" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/1a/e8/39e81a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/1b/ad/31ad1b" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/1d/31/69311d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/1d/4b/5c4b1d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/20/4a/074a20" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/21/54/d85421" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/22/af/4eaf22" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/24/18/c41824" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/26/ef/67ef26" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/28/78/3f7828" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/28/ab/e8ab28" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/29/13/d31329" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/2f/e0/dfe02f" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/30/c4/02c430" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/33/e3/07e333" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/34/45/704534" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/36/17/3e1736" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/36/be/c5be36" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/36/ed/feed36" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/37/aa/e3aa37" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/37/e9/46e937" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/3a/e2/79e23a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/3c/6c/1e6c3c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/3e/ae/5fae3e" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/41/98/3e9841" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/41/c2/86c241" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/41/c2/b1c241" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/41/f5/7ef541" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/43/94/729443" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/44/49/ce4944" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/46/dc/02dc46" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/47/db/b3db47" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/48/79/747948" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/49/fe/bffe49" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/50/f8/37f850" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/51/e2/57e251" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/53/b9/c1b953" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/57/76/827657" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/58/ff/84ff58" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/59/d6/a1d659" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/5a/00/03005a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/5a/5f/9a5f5a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/5c/3f/ce3f5c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/5c/6f/116f5c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/5f/fa/56fa5f" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/60/43/b84360" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/63/0d/b70d63" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/64/fa/d4fa64" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/65/f2/07f265" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/6c/4c/d64c6c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/6c/53/72536c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/6c/9e/0a9e6c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/70/c5/75c570" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/72/24/062472" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/72/a7/03a772" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/72/aa/1eaa72" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/75/20/242075" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/75/64/176475" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/78/3b/f33b78" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/78/73/757378" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/7a/e8/fee87a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/7e/f4/4cf47e" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/7f/08/e6087f" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/80/9d/8a9d80" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/80/af/86af80" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/83/87/8c8783" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/85/db/38db85" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/86/19/d31986" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/87/02/600287" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/88/aa/37aa88" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/89/cb/d7cb89" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/8a/97/4c978a" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/8b/b1/fdb18b" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/8d/f2/77f28d" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/92/54/175492" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/94/d7/90d794" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/95/04/5b0495" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/95/65/416595" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/96/bf/aabf96" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/96/f0/69f096" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/97/c5/47c597" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/97/db/69db97" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/9b/36/78369b" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/9c/37/f0379c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/9c/95/f6959c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/9c/a2/eda29c" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/9e/1b/fd1b9e" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/9f/8d/0c8d9f" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/a0/0a/050aa0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/a0/6c/386ca0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/a0/f4/f2f4a0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/a1/af/22afa1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/a2/12/fc12a2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/a5/60/6060a5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/a7/09/9a09a7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/a8/80/0380a8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/a8/c4/3fc4a8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/ab/2f/be2fab" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/b0/7c/6a7cb0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/b1/95/6f95b1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/b1/f2/d4f2b1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/b2/05/d405b2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/b2/92/8892b2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/b3/5f/8e5fb3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/b4/ad/68adb4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/b7/34/b434b7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/bd/d3/17d3bd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/c3/5f/b95fc3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/c4/1f/e01fc4" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/c7/22/bf22c7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/ce/0c/810cce" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/ce/13/0b13ce" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/cf/17/e417cf" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/d7/4a/024ad7" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/da/5d/ee5dda" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/dc/39/e739dc" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/dd/a2/6aa2dd" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/de/08/2308de" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/de/96/1f96de" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/e0/7b/147be0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/e1/67/a867e1" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/e3/1e/a61ee3" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/e5/7a/df7ae5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/ec/d3/b0d3ec" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/ef/04/5504ef" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f0/1b/c01bf0" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f2/35/9e35f2" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f5/4c/8b4cf5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f5/76/4376f5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f5/c6/1ec6f5" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f6/74/3374f6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f6/b8/afb8f6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f6/fb/44fbf6" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f8/02/3302f8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f8/87/b987f8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/f8/c4/b2c4f8" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/fb/e6/b4e6fb" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/ff/0b/4a0bff" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/cache/profiler/index.csv" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/var/logs/silex_dev.log" afterPath="" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/app.php" afterPath="$PROJECT_DIR$/src/app.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/Repository/FlashcardRepository.php" afterPath="$PROJECT_DIR$/src/Repository/FlashcardRepository.php" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -174,11 +23,31 @@
   <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="app.php" pinned="false" current-in-tab="true">
+      <file leaf-file-name="app.php" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/app.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="232">
               <caret line="63" column="64" lean-forward="false" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="SetController.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Controller/SetController.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="181">
+              <caret line="74" column="45" lean-forward="false" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="FlashcardRepository.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/Repository/FlashcardRepository.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="191">
+              <caret line="164" column="51" lean-forward="true" selection-start-line="164" selection-start-column="51" selection-end-line="164" selection-end-column="51" />
               <folding />
             </state>
           </provider>
@@ -199,7 +68,6 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>viewA</find>
-      <find>dump</find>
       <find>findfor</find>
       <find>findforun</find>
       <find>findall</find>
@@ -228,6 +96,7 @@
       <find>validation.</find>
       <find>%</find>
       <find>%</find>
+      <find>dump</find>
     </findStrings>
     <replaceStrings>
       <replace>$this-&gt;view['user']</replace>
@@ -289,7 +158,6 @@
         <option value="$PROJECT_DIR$/src/Controller/FlashcardController.php" />
         <option value="$PROJECT_DIR$/web/css/panel.css" />
         <option value="$PROJECT_DIR$/src/Repository/TagRepository.php" />
-        <option value="$PROJECT_DIR$/src/Repository/FlashcardRepository.php" />
         <option value="$PROJECT_DIR$/src/Controller/SetController.php" />
         <option value="$PROJECT_DIR$/src/Repository/SetRepository.php" />
         <option value="$PROJECT_DIR$/web/css/set.css" />
@@ -299,6 +167,7 @@
         <option value="$PROJECT_DIR$/templates/set/index.html.twig" />
         <option value="$PROJECT_DIR$/templates/landingpage/navigation.html.twig" />
         <option value="$PROJECT_DIR$/src/app.php" />
+        <option value="$PROJECT_DIR$/src/Repository/FlashcardRepository.php" />
       </list>
     </option>
   </component>
@@ -401,6 +270,42 @@
             </PATH_ELEMENT>
             <PATH_ELEMENT>
               <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Repository" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="fiszki" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="src" />
+              <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="Controller" />
               <option name="myItemType" value="com.jetbrains.php.projectView.PhpTreeStructureProvider$1" />
             </PATH_ELEMENT>
           </PATH>
@@ -524,12 +429,12 @@
       <workItem from="1499012476555" duration="23031000" />
       <workItem from="1499082411200" duration="14816000" />
       <workItem from="1499110185546" duration="26423000" />
-      <workItem from="1499363748844" duration="17126000" />
+      <workItem from="1499363748844" duration="17589000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="218954000" />
+    <option name="totallyTimeSpent" value="219417000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="743" extended-state="6" />
@@ -878,14 +783,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/TagRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="368">
-          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Controller/FlashcardController.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="281">
@@ -898,22 +795,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="153">
           <caret line="219" column="42" lean-forward="false" selection-start-line="219" selection-start-column="42" selection-end-line="219" selection-end-column="42" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Controller/SetController.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="335">
-          <caret line="236" column="0" lean-forward="false" selection-start-line="236" selection-start-column="0" selection-end-line="236" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Repository/FlashcardRepository.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="416">
-          <caret line="45" column="0" lean-forward="false" selection-start-line="45" selection-start-column="0" selection-end-line="45" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -978,6 +859,30 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="232">
           <caret line="63" column="64" lean-forward="false" selection-start-line="63" selection-start-column="64" selection-end-line="63" selection-end-column="64" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/TagRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="341">
+          <caret line="26" column="24" lean-forward="false" selection-start-line="26" selection-start-column="24" selection-end-line="26" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Controller/SetController.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="181">
+          <caret line="74" column="45" lean-forward="false" selection-start-line="74" selection-start-column="45" selection-end-line="74" selection-end-column="45" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Repository/FlashcardRepository.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="191">
+          <caret line="164" column="51" lean-forward="true" selection-start-line="164" selection-start-column="51" selection-end-line="164" selection-end-column="51" />
           <folding />
         </state>
       </provider>
