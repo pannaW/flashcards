@@ -18,7 +18,7 @@ class UniqueFlashcard extends Constraint
      *
      * @var string $message
      */
-    public $message = '{{ flashcard }} is not unique Flashcard.';
+    public $message = 'not-unique-flashcard';
     /**
      * Element id.
      *

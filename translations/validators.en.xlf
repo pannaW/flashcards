@@ -2,7 +2,26 @@
 <xliff version="1.2" xmlns="urn:oasis:names:tc:xliff:document:1.2">
     <file source-language="en" target-language="en" datatype="plaintext" original="file.ext">
         <body>
-
+                                               <trans-unit id="not-unique-email">
+                                                            <source>not-unique-email</source>
+                                                            <target> Email with such a name already exist </target>
+                                               </trans-unit>
+                                               <trans-unit id="not-unique-set">
+                                                            <source>not-unique-set</source>
+                                                            <target> Set with such a name already exist </target>
+                                               </trans-unit>
+                                                <trans-unit id="not-unique-flashcard">
+                                                            <source>not-unique-flashcard</source>
+                                                            <target> Flashcard with such a name already exist </target>
+                                               </trans-unit>
+                                               <trans-unit id="not-unique-username">
+                                                            <source>not-unique-username</source>
+                                                            <target> User with such a name already exist </target>
+                                               </trans-unit>
+                                               <trans-unit id="not-unique-tag">
+                                                            <source>not-unique-tag</source>
+                                                            <target> Tag with such a name already exist </target>
+                                               </trans-unit>
         </body>
     </file>
 </xliff>

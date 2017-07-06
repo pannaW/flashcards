@@ -24,7 +24,7 @@ class FlashcardRepository
     /**
      * Number of items on one page when items paginated
      */
-    const NUM_ITEMS = 5;
+    const NUM_ITEMS = 20;
 
 
     /**
@@ -158,11 +158,11 @@ class FlashcardRepository
             ->setParameter(':word', $word, \PDO::PARAM_INT)
             ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
         if ($id) {
-            $queryBuilder->andWhere('s.id <> :id')
+            $queryBuilder->andWhere('f.id <> :id')
                 ->setParameter(':id', $id, \PDO::PARAM_INT);
         }
 
-        return $queryBuilder->execute()->fetchAll();
+        dump($queryBuilder->execute()->fetchAll());
     }
 
     /**

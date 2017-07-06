@@ -17,11 +17,23 @@
             {{ set.name }}
         </h1>
             <div class="set-menager">
-            <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i>
-                <span> {{ 'action.set_edit'|trans }}</span></a>
-            <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i>
-                <span>{{ 'action.set_delete'|trans }}</span></a>
+                <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i>
+                    <span> {{ 'action.set_edit'|trans }}</span></a>
+                <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i>
+                    <span>{{ 'action.set_delete'|trans }}</span></a>
             </div>
+
+            {% if set.tags|length and set.tags is iterable %}
+                <div class="tag-list tag-list-view">
+                    <ul>
+                        {% for tag in set.tags %}
+                            <li>
+                                #{{ tag.name }}
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            {% endif %}
         </div>
     {% endblock %}
 

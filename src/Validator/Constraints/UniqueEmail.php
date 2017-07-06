@@ -18,7 +18,7 @@ class UniqueEmail extends Constraint
      *
      * @var string $message
      */
-    public $message = '{{ email }} is not unique Email.';
+    public $message = 'validation.not-unique-email';
     /**
      * Element id.
      *

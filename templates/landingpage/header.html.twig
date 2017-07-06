@@ -4,11 +4,11 @@
         <div class="container-fluid">
             <div class="row">
                 <div id="page-heading" class="col-lg-6 col-md-6">
-                    <h1> Learn with us </h1>
-                    <p> more efficiently </p>
+                    <h1> {{ 'lead.learn-with-us'|trans }}</h1>
+                    <p>  {{ 'lead.more-efficiently'|trans }} </p>
                     <div class="col-lg-6 col-md-6 col-sm-3 col-xs-2"></div>
                     <div class="col-lg-6 col-md-6 col-sm-3 col-xs-4">
-                        <button class="btn btn-lg" align="center" data-toggle="modal" data-target="#signup-modal"> Get started </button>
+                        <a class="btn btn-lg" align="center" href="{{ url('register')}}">   {{ 'action.start'|trans }} </a>
                     </div>
                 </div>
             </div>

@@ -18,7 +18,7 @@ class UniqueUser extends Constraint
      *
      * @var string $message
      */
-    public $message = '{{ user }} is not unique User.';
+    public $message = 'not-unique-user';
     /**
      * Element id.
      *

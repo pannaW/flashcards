@@ -8,15 +8,15 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand navbar-brand-custom" href="#"> FISHKI </a>
+            <a class="navbar-brand navbar-brand-custom" href="{{ url('homepage')}}"> FISHKI </a>
         </div>
 
         <div id="navbar" class="collapse navbar-collapse">
             <ul class="nav navbar-nav">
                 {% block navlist %}
-                <li class="active"><a href="#header"> Home <span class="sr-only"> (current) </span> </a> </li>
-                <li><a href="#start">About</a></li>
-                <li><a href="#footer">Contact</a></li>
+                <li class="active"><a href="#header"> {{ 'nav.home'|trans }} <span class="sr-only"> (current) </span> </a> </li>
+                <li><a href="#start">{{ 'nav.about'|trans }} </a></li>
+                <li><a href="#footer">{{ 'nav.contact'|trans }} </a></li>
                 {% endblock %}
             </ul>
 
@@ -24,14 +24,14 @@
                 {% block rightnavlist %}
                     {% if is_granted('IS_AUTHENTICATED_FULLY') %}
 
-                        <li><a href="{{ url('auth_logout') }}" title="{{ 'auth.logout.label'|trans }}"> Log out
+                        <li><a href="{{ url('auth_logout') }}" title="{{ 'auth.logout.label'|trans }}"> {{ 'auth.logout.label'|trans }}
                             </a></li>
                     {% else %}
                         <li>
-                            <a href="{{ url('auth_login') }}" title="{{ 'auth.login.label'|trans }}"> Log in</a>
+                            <a href="{{ url('auth_login') }}" title="{{ 'auth.login.label'|trans }}"> {{ 'auth.login.label'|trans }}</a>
                         </li>
                         <li>
-                            <a href="{{ url('register')}}" class="btn btn-default navbar-btn">Sign up </a>
+                            <a href="{{ url('register')}}" class="btn btn-default navbar-btn">{{ 'action.registration'|trans }} </a>
                         </li>
                     {% endif %}
                 {% endblock %}

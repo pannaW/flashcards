@@ -18,7 +18,7 @@ class UniqueTag extends Constraint
      *
      * @var string $message
      */
-    public $message = '{{ tag }} is not unique Tag.';
+    public $message = 'not-unique-tag';
     /**
      * Element id.
      *

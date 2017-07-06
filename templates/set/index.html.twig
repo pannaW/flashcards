@@ -22,7 +22,6 @@
                 {% else %}
                     <h1> {{ 'title.set_index'|trans }} </h1>
                 {% endif %}
-            {#<small>  3 collections | 14 tags </small>#}
             </div>
         {% endblock %}
 
@@ -33,8 +32,8 @@
                 {% for set in sets %}
                     <a href="{{ url('set_view', {'id': set.id }) }}">
                     <div class="set">
-                        <small> 83 flashcards | 12-03-2017 </small>
                         <h2> {{ set.name }}  </h2>
+                        <small> {{ 'set.created-at'|trans }} {{ set.created_at }} | {{ 'set.modified-at'|trans }} {{ set.modified_at }}</small>
                         <div class="set-menager">
                             <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i>
                             <span>{{ 'action.set_edit'|trans }}</span></a>
@@ -68,12 +67,14 @@
                     paginator: paginator,
                     route_name: 'set_index_paginated',
                     } %}
-
                 {% endif %}
             {% else %}
-                <div>
-                    {{ 'message.no_set_found' }}
-                </div>
+                <a href="{{ url('set_add') }}">
+                    <div id="add-set" class="set">
+                        {{ 'label.add_set'|trans }}
+                        <i class="fa fa-plus"> </i>
+                    </div>
+                </a>
             {% endif %}
             </article>
         {% endblock %}

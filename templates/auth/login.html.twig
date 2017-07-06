@@ -9,7 +9,7 @@
 
 {% block body %}
     <div class="form">
-        <h1>{{ 'title.auth_login'|trans }}</h1>
+        <h1><b> {{ 'title.auth_login'|trans }} </b></h1>
 
         {% if error is defined and error|length %}
             {% include 'default/_single_alert_message.html.twig' with {
@@ -23,7 +23,7 @@
         <div>
             {{ form_start(form, { method: 'post', action: path('auth_login_check') }) }}
             {{ form_widget(form) }}
-            <p><a href="{{ url('register')}}"> Don't have an account yet? Sign up!</a></p>
+            <p><a href="{{ url('register')}}"> {{ 'register.not-a-member'|trans }}</a></p>
             <input type="submit" value="{{ 'action.login'|trans }}" class="btn" />
             {{ form_end(form) }}
         </div>

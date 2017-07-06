@@ -120,11 +120,11 @@
             </trans-unit>
             <trans-unit id="title.edit_flashcard">
                    <source>title.edit_flashcard</source>
-                   <target> Edit flashcard no. %id% </target>
+                   <target> Edit flashcard no.#%id% </target>
             </trans-unit>
             <trans-unit id="title.edit_set">
                    <source>title.edit_set</source>
-                   <target> Edit set no. %id% </target>
+                   <target> Edit set no.#%id% </target>
             </trans-unit>
             <trans-unit id="message.element_successfully_added">
                    <source>message.element_successfully_added</source>
@@ -144,7 +144,7 @@
             </trans-unit>
              <trans-unit id="title.flashcard">
                    <source>title.flashcard</source>
-                   <target> Flashcard no. %id% </target>
+                   <target> Flashcard no.#%id% </target>
              </trans-unit>
              <trans-unit id="label.back">
                     <source>label.back</source>
@@ -152,7 +152,7 @@
              </trans-unit>
              <trans-unit id="title.set">
                     <source>title.set</source>
-                    <target> Set %id% </target>
+                    <target> Set#%id% </target>
              </trans-unit>
              <trans-unit id="message.no_set_found">
                     <source>message.no_set_found</source>
@@ -172,11 +172,11 @@
              </trans-unit>
               <trans-unit id="title.delete_flashcard">
                      <source>title.delete_flashcard</source>
-                     <target> Delete flashcard no. %id% </target>
+                     <target> Delete flashcard no.#%id% </target>
               </trans-unit>
               <trans-unit id="title.delete_set">
                      <source>title.delete_set</source>
-                     <target> Delete set no. %id% </target>
+                     <target> Delete set no.#%id% </target>
               </trans-unit>
               <trans-unit id="action.delete">
                      <source>action.delete</source>
@@ -188,7 +188,7 @@
               </trans-unit>
               <trans-unit id="title.delete_tag">
                      <source>title.delete_tag</source>
-                     <target> Delete tag no. %id% </target>
+                     <target> Delete tag no.#%id% </target>
               </trans-unit>
               <trans-unit id="title.tags">
                      <source>title.tags</source>
@@ -196,11 +196,11 @@
               </trans-unit>
                <trans-unit id="title.delete_user">
                       <source>title.delete_user</source>
-                      <target> Delete user %id% </target>
+                      <target> Delete user#%id% </target>
                </trans-unit>
                <trans-unit id="title.admin_user_view">
                       <source>title.admin_user_view</source>
-                      <target> User no. %id% </target>
+                      <target> User no.#%id% </target>
                </trans-unit>
                <trans-unit id="title.user_view">
                       <source>title.user_view</source>
@@ -216,7 +216,7 @@
                </trans-unit>
                 <trans-unit id="title.admin_edit_user_data">
                        <source>title.admin_edit_user_data</source>
-                       <target> Edit user %id% data </target>
+                       <target> Edit user#%id% data </target>
                </trans-unit>
                <trans-unit id="user.role">
                        <source>user.role</source>
@@ -265,6 +265,10 @@
                                                <trans-unit id="nav.users">
                                                             <source>nav.users</source>
                                                             <target> Users </target>
+                                               </trans-unit>
+                                               <trans-unit id="nav.account">
+                                                            <source>nav.account</source>
+                                                            <target> Your account </target>
                                                </trans-unit>
                                                <trans-unit id="nav.flashcards">
                                                             <source>nav.flashcards</source>
@@ -315,6 +319,88 @@
                                                             <target> Click on the flashcard to see definition </target>
                                                </trans-unit>
 
+                                               <trans-unit id="action.start">
+                                                            <source>action.start</source>
+                                                            <target> Get started </target>
+                                               </trans-unit>
+                                               <trans-unit id="lead.learn-with-us">
+                                                            <source>lead.learn-with-us</source>
+                                                            <target> Learn with us </target>
+                                               </trans-unit>
+                                               <trans-unit id="lead.more-efficiently">
+                                                            <source>lead.more-efficiently</source>
+                                                            <target> more efficently </target>
+                                               </trans-unit>
+                                                <trans-unit id="about.start">
+                                                            <source>about.start</source>
+                                                            <target> HOW TO START </target>
+                                               </trans-unit>
+
+                                               <trans-unit id="about.register">
+                                                            <source>about.register</source>
+                                                            <target> REGISTER </target>
+                                               </trans-unit>
+                                               <trans-unit id="about.create-set">
+                                                            <source>about.create-set</source>
+                                                            <target> CREATE A SET </target>
+                                               </trans-unit>
+                                               <trans-unit id="about.tag">
+                                                            <source>about.tag</source>
+                                                            <target> TAG IT </target>
+                                               </trans-unit>
+                                               <trans-unit id="about.share">
+                                                            <source>about.share</source>
+                                                            <target> SHARE </target>
+                                               </trans-unit>
+                                               <trans-unit id="about.start.description">
+                                                            <source>about.start.description</source>
+                                                            <target>learn how easy it is to start out with our application. Step by step!</target>
+                                               </trans-unit>
+
+                                               <trans-unit id="about.register.description">
+                                                            <source>about.register.description</source>
+                                                            <target> Register to add sets or log in
+                                                                     if you're already a member  </target>
+                                               </trans-unit>
+                                               <trans-unit id="about.create-set.description">
+                                                            <source>about.create-set.description</source>
+                                                            <target> Organize your flashcards
+                                                                 within sets in your own fashion </target>
+                                               </trans-unit>
+                                               <trans-unit id="about.tag.description">
+                                                            <source>about.tag.description</source>
+                                                            <target> Add as many tags as you wish
+                                                                                             to manage your learning assistance better</target>
+                                               </trans-unit>
+                                               <trans-unit id="about.share.description">
+                                                            <source>about.share.description</source>
+                                                            <target>Set your flashcards public
+                                                                                             or keep it just for you </target>
+                                               </trans-unit>
+                                               <trans-unit id="footer.contact">
+                                                            <source>footer.contact</source>
+                                                            <target> Contact </target>
+                                               </trans-unit>
+                                               <trans-unit id="copyright.graphic">
+                                                            <source>copyright.graphic</source>
+                                                            <target> Used graphic on Creative Commons licence </target>
+                                               </trans-unit>
+                                                <trans-unit id="register.already-member">
+                                                            <source>register.already-member</source>
+                                                            <target> Already have an account? Log in! </target>
+                                               </trans-unit>
+                                               <trans-unit id="register.not-a-member">
+                                                            <source>register.not-a-member</source>
+                                                            <target> Don't have an account yet? Sign up! </target>
+                                               </trans-unit>
+                                                <trans-unit id="set.created-at">
+                                                            <source>set.created-at</source>
+                                                            <target> Created at </target>
+                                               </trans-unit>
+                                               <trans-unit id="set.modified-at">
+                                                            <source>set.modified-at</source>
+                                                            <target> Modified at </target>
+                                               </trans-unit>
 
             </body>
     </file>

@@ -18,7 +18,7 @@ class UniqueSet extends Constraint
      *
      * @var string $message
      */
-    public $message = '{{ set }} is not unique Set.';
+    public $message = 'not-unique-set';
     /**
      * Element id.
      *

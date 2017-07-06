@@ -55,6 +55,12 @@ a, a:hover, a:active, a:link {
     padding:4px 9px;
 }
 
+.tag-list-view {
+    position: relative;
+    top: 50px;
+    left:-250px;
+}
+
 .tag-list li::after{
     clear:both;
 }
