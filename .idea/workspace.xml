@@ -34,21 +34,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messages.pl.xlf" pinned="false" current-in-tab="false">
+      <file leaf-file-name="messages.pl.xlf" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/translations/messages.pl.xlf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="417">
-              <caret line="414" column="60" lean-forward="true" selection-start-line="411" selection-start-column="46" selection-end-line="414" selection-end-column="60" />
+            <state relative-caret-position="401">
+              <caret line="421" column="80" lean-forward="false" selection-start-line="421" selection-start-column="80" selection-end-line="421" selection-end-column="80" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="validators.en.xlf" pinned="false" current-in-tab="true">
+      <file leaf-file-name="validators.en.xlf" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/translations/validators.en.xlf">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="401">
-              <caret line="26" column="103" lean-forward="false" selection-start-line="26" selection-start-column="103" selection-end-line="26" selection-end-column="103" />
+            <state relative-caret-position="417">
+              <caret line="35" column="61" lean-forward="true" selection-start-line="28" selection-start-column="48" selection-end-line="35" selection-end-column="61" />
               <folding />
             </state>
           </provider>
@@ -187,8 +187,8 @@
         <option value="$PROJECT_DIR$/templates/landingpage/navigation.html.twig" />
         <option value="$PROJECT_DIR$/src/Repository/FlashcardRepository.php" />
         <option value="$PROJECT_DIR$/src/app.php" />
-        <option value="$PROJECT_DIR$/translations/messages.pl.xlf" />
         <option value="$PROJECT_DIR$/translations/validators.en.xlf" />
+        <option value="$PROJECT_DIR$/translations/messages.pl.xlf" />
       </list>
     </option>
   </component>
@@ -464,12 +464,12 @@
       <workItem from="1499012476555" duration="23031000" />
       <workItem from="1499082411200" duration="14816000" />
       <workItem from="1499110185546" duration="26423000" />
-      <workItem from="1499363748844" duration="18466000" />
+      <workItem from="1499363748844" duration="18868000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="220294000" />
+    <option name="totallyTimeSpent" value="220696000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-1" y="0" width="1368" height="743" extended-state="6" />
@@ -906,18 +906,18 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/translations/messages.pl.xlf">
+    <entry file="file://$PROJECT_DIR$/translations/validators.en.xlf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="417">
-          <caret line="414" column="60" lean-forward="true" selection-start-line="411" selection-start-column="46" selection-end-line="414" selection-end-column="60" />
+          <caret line="35" column="61" lean-forward="true" selection-start-line="28" selection-start-column="48" selection-end-line="35" selection-end-column="61" />
           <folding />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/translations/validators.en.xlf">
+    <entry file="file://$PROJECT_DIR$/translations/messages.pl.xlf">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="401">
-          <caret line="26" column="103" lean-forward="false" selection-start-line="26" selection-start-column="103" selection-end-line="26" selection-end-column="103" />
+          <caret line="421" column="80" lean-forward="false" selection-start-line="421" selection-start-column="80" selection-end-line="421" selection-end-column="80" />
           <folding />
         </state>
       </provider>
