@@ -409,6 +409,10 @@
                                                             <source>set.modified-at</source>
                                                             <target> Ostatnia modyfikacja </target>
                                                </trans-unit>
+                                               <trans-unit id="message.adding_to_elses_set_forbidden">
+                                                            <source>message.adding_to_elses_set_forbidden</source>
+                                                            <target> Dodawanie to zestawów innych nie jest dozwolone! </target>
+                                               </trans-unit>
                                                                                       
         </body>
     </file>
