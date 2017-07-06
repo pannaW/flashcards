@@ -61,7 +61,7 @@ $app->register(
 );
 
 $app->extend('translator', function ($translator, $app) {
-    $translator->addResource('xliff', __DIR__.'/../translations/:messages.en.xlf', 'en', 'messages');
+    $translator->addResource('xliff', __DIR__.'/../translations/messages.en.xlf', 'en', 'messages');
     $translator->addResource('xliff', __DIR__.'/../translations/validators.en.xlf', 'en', 'validators');
     $translator->addResource('xliff', __DIR__.'/../translations/messages.pl.xlf', 'pl', 'messages');
     $translator->addResource('xliff', __DIR__.'/../translations/validators.pl.xlf', 'pl', 'validators');
