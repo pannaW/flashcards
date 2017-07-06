@@ -162,7 +162,7 @@ class FlashcardRepository
                 ->setParameter(':id', $id, \PDO::PARAM_INT);
         }
 
-        dump($queryBuilder->execute()->fetchAll());
+        return $queryBuilder->execute()->fetchAll();
     }
 
     /**
