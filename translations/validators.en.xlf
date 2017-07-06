@@ -22,6 +22,10 @@
                                                             <source>not-unique-tag</source>
                                                             <target> Tag with such a name already exist </target>
                                                </trans-unit>
+                                                <trans-unit id="message.adding_to_elses_set_forbidden">
+                                                             <source>message.adding_to_elses_set_forbidden</source>
+                                                             <target> Adding to elses sets is forbidden! </target>
+                                                </trans-unit>
         </body>
     </file>
 </xliff>
