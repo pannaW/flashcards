@@ -425,12 +425,12 @@
                                                             <source>message.adding_to_elses_set_forbidden</source>
                                                             <target> Dodawanie do zestawów innych nie jest dozwolone! </target>
                                                </trans-unit>
-                                                <trans-unit id="message.editing_elses_set_forbidden">
-                                                              <source>message.editing_elses_set_forbidden</source>
+                                                <trans-unit id="message.editing_elses_sets_forbidden">
+                                                              <source>message.editing_elses_sets_forbidden</source>
                                                               <target> Edytowanie zestawów innych nie jest dozwolone! </target>
                                                  </trans-unit>
-                                                  <trans-unit id="message.deleting_elses_set_forbidden">
-                                                              <source>message.deleting_elses_set_forbidden</source>
+                                                  <trans-unit id="message.deleting_elses_sets_forbidden">
+                                                              <source>message.deleting_elses_sets_forbidden</source>
                                                               <target> Usuwanie zestawów innych nie jest dozwolone! </target>
                                                  </trans-unit>                                                                                      
         </body>
