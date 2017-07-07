@@ -406,11 +406,11 @@
                                                              <target> Adding to elses sets is forbidden! </target>
                                                 </trans-unit>
                                                 <trans-unit id="message.editing_elses_sets_forbidden">
-                                                             <source>message.editing_elses_set_forbidden</source>
+                                                             <source>message.editing_elses_sets_forbidden</source>
                                                              <target> Editing elses sets is forbidden! </target>
                                                 </trans-unit>
                                                  <trans-unit id="message.deleting_elses_sets_forbidden">
-                                                             <source>message.deleting_elses_set_forbidden</source>
+                                                             <source>message.deleting_elses_sets_forbidden</source>
                                                              <target> Deleting elses sets is forbidden! </target>
                                                 </trans-unit>
 
