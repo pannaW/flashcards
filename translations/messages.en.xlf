@@ -409,8 +409,8 @@
                                                              <source>message.editing_elses_sets_forbidden</source>
                                                              <target> Editing elses sets is forbidden! </target>
                                                 </trans-unit>
-                                                 <trans-unit id="message.deleting_elses_sets_forbidden">
-                                                             <source>message.deleting_elses_sets_forbidden</source>
+                                                 <trans-unit id="message.deleting_elses_set_forbidden">
+                                                             <source>message.deleting_elses_set_forbidden</source>
                                                              <target> Deleting elses sets is forbidden! </target>
                                                 </trans-unit>
 
