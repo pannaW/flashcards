@@ -1,1 +1,3 @@
 /vendor/**
+/var/**
+/src/app.php
