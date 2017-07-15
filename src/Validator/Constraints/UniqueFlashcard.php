@@ -28,11 +28,11 @@ class UniqueFlashcard extends Constraint
 
 
     /**
-     * User id
+     * Set id
      *
-     * @var int|string|null $userId
+     * @var int|string|null $setId
      */
-    public $userId = null;
+    public $setId = null;
 
     /**
      * Flashcard repository.
@@ -40,5 +40,4 @@ class UniqueFlashcard extends Constraint
      * @var null|\Repository\FlashcardRepository $repository
      */
     public $repository = null;
-
 }

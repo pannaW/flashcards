@@ -12,17 +12,21 @@
 {% block board %}
     {% block header %}
         <div id="header">
-        <h1>
-            {{ 'title.flashcard'|trans({'%id%': id}) }}
-        </h1>
-            <div class="set-menager">
-                {% if is_granted('IS_AUTHENTICATED_FULLY') %}
-                <a href="{{ url('flashcard_edit', {'id': id }) }}"><i class="fa fa-edit"></i>
-                <span> {{ 'action.set_edit'|trans }}</span></a>
-                <a href="{{ url('flashcard_delete', {'id': id }) }}"><i class="fa fa-remove"></i>
-                <span>{{ 'action.set_delete'|trans }}</span></a>
-                {% endif %}
-                <br>
+            <div class="row">
+                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    <h1>
+                        {{ 'title.flashcard'|trans({'%id%': id}) }}
+                    </h1>
+                </div>
+                <div class="set-menager col-lg-6 col-md-6 col-sm-6 col-xs-12">
+                    {% if is_granted('IS_AUTHENTICATED_FULLY') %}
+                    <a href="{{ url('flashcard_edit', {'id': id }) }}"><i class="fa fa-edit"></i>
+                    <span> {{ 'action.set_edit'|trans }}</span></a>
+                    <a href="{{ url('flashcard_delete', {'id': id }) }}"><i class="fa fa-remove"></i>
+                    <span>{{ 'action.set_delete'|trans }}</span></a>
+                    {% endif %}
+                    <br>
+                </div>
             </div>
         </div>
     {% endblock %}
@@ -39,7 +43,7 @@
                 </div>
             </div>
             <div class="tip">
-                <i id="tip" class="fa fa-question-circle"> </i><small> {{ 'click.to.toggle'|trans }}</small>
+                <small> <i id="tip" class="fa fa-question-circle"></i> {{ 'click.to.toggle'|trans }}</small>
             </div>
         {% else %}
             <div>

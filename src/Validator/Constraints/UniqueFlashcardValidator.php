@@ -25,8 +25,8 @@ class UniqueFlashcardValidator extends ConstraintValidator
 
         $result = $constraint->repository->findForUniqueness(
             $value,
-            $constraint->elementId,
-            $constraint->userId
+            $constraint->setId,
+            $constraint->elementId
         );
 
         if ($result && count($result)) {

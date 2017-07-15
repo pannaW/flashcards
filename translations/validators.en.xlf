@@ -22,8 +22,6 @@
                                                             <source>not-unique-tag</source>
                                                             <target> Tag with such a name already exist </target>
                                                </trans-unit>
-
-
         </body>
     </file>
 </xliff>

@@ -8,7 +8,7 @@
             </trans-unit>
             <trans-unit id="label.login">
                 <source>label.login</source>
-                <target> Login </target>
+                <target> Nazwa użytkownika </target>
             </trans-unit>
             <trans-unit id="label.password">
                 <source>label.password</source>
@@ -420,7 +420,15 @@
                                                   <trans-unit id="message.deleting_elses_set_forbidden">
                                                               <source>message.deleting_elses_set_forbidden</source>
                                                               <target> Usuwanie zestawów innych nie jest dozwolone! </target>
-                                                 </trans-unit>                                                                                      
+                                                 </trans-unit>
+                                                <trans-unit id="messsage.old_password_wrong">
+                                                             <source>messsage.old_password_wrong</source>
+                                                             <target> Stare hasło jest nieprawidłowe </target>
+                                                </trans-unit>
+                                                <trans-unit id="message.password_successfully_changed">
+                                                             <source>message.password_successfully_changed</source>
+                                                             <target> Hasło zostało zmienione. </target>
+                                                </trans-unit>
         </body>
     </file>
 </xliff>

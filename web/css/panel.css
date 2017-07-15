@@ -18,7 +18,7 @@ body {
  }
 
 #header, article {
-    padding:30px 30px 60px 60px;
+    padding:30px 30px 30px 60px;
     width:100%;
     margin:0px;
     min-height: 100px;
@@ -29,12 +29,29 @@ body {
 }
 
 #header{
+    padding-bottom: 20px;
+    min-height: 180px;
     background-color: white;
 }
 
+#header > div {
+    min-height: 60px;
+    margin-bottom:30px;
+}
+
+#header .row {
+    margin-bottom: 5px;
+}
+
+#header .row > div {
+    max-height: 50px;
+}
+
 small{
+    display: block;
     font-weight: lighter;
     padding-left: 10px;
+    margin-bottom: 8px;
 }
 
 #header h1{
@@ -206,6 +223,11 @@ small{
 }
 
 @media(max-width:768px) {
+    nav .container-fluid {
+        margin:0px;
+        padding: 0px;
+    }
+
     #wrapper {
         padding-left: 0;
         margin-left: 0;
@@ -225,5 +247,10 @@ small{
     .form {
         margin:0;
         width:100%;
+    }
+
+    article {
+        padding: 0;
+        margin:0;
     }
 }

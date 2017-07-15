@@ -87,8 +87,8 @@ class FlashcardRepository
     }
 
     /**
-     * @param $id
-     * @param $userId
+     * @param int $id     Element id
+     * @param int $userId User id
      * @return bool
      */
     public function checkOwnership($id, $userId)
@@ -96,7 +96,7 @@ class FlashcardRepository
         $queryBuilder = $this->db->createQueryBuilder()
             ->select('*')
             ->from('sets', 's')
-            ->innerJoin('s','flashcards','f', 's.id = f.sets_id')
+            ->innerJoin('s', 'flashcards', 'f', 's.id = f.sets_id')
             ->where('f.id = :id')
             ->andWhere('s.users_id = :users_id')
             ->setParameter(':id', $id, \PDO::PARAM_INT)
@@ -142,21 +142,21 @@ class FlashcardRepository
     /**
      * Find for uniqueness.
      *
-     * @param string          $word Element word
-     * @param int|string|null $id   Element id
+     * @param string          $word  Element word
+     * @param int|string|null $setId Set id
+     * @param int|string|null $id    Element id
      *
      * @return array Result
      */
-    public function findForUniqueness($word, $id = null, $userId)
+    public function findForUniqueness($word, $setId, $id = null)
     {
         $queryBuilder = $this->db->createQueryBuilder()
             ->select('*')
-            ->from('sets', 's')
-            ->innerJoin('s','flashcards','f', 's.id = f.sets_id')
+            ->from('flashcards', 'f')
             ->where('f.word = :word')
-            ->andWhere('s.users_id = :users_id')
+            ->andWhere('f.sets_id = :sets_id')
             ->setParameter(':word', $word, \PDO::PARAM_INT)
-            ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
+            ->setParameter(':sets_id', $setId, \PDO::PARAM_INT);
         if ($id) {
             $queryBuilder->andWhere('f.id <> :id')
                 ->setParameter(':id', $id, \PDO::PARAM_INT);

@@ -20,10 +20,22 @@ class ResetPasswordType extends AbstractType
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
-            $builder->add(
-            'new_password',
-            RepeatedType::class,
+        $builder->add(
+            'old_password',
+            PasswordType::class,
             [
+                'label' => 'label.old_password',
+                'constraints' => [
+                    new Assert\NotBlank(
+                        ['groups' => ['reset-password-default']]
+                    ),
+                ],
+            ]
+        );
+            $builder->add(
+                'new_password',
+                RepeatedType::class,
+                [
                 'type' => PasswordType::class,
                 'first_options' => [
                     'label' => 'label.new-password',
@@ -45,8 +57,8 @@ class ResetPasswordType extends AbstractType
                     'label' => 'label.repeat-new-password',
                     'required' => true,
                 ],
-            ]
-        );
+                ]
+            );
     }
 
     /**
@@ -54,7 +66,7 @@ class ResetPasswordType extends AbstractType
      */
     public function getBlockPrefix()
     {
-        return 'resetPassword_type';
+        return 'reset-password_type';
     }
 
     /**

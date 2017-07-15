@@ -17,11 +17,13 @@
     {% block board %}
         {% block header %}
             <div id="header">
+                <div>
                 {% if is_granted('ROLE_ADMIN') %}
                      <h1> {{ 'title.admin_set_index'|trans }} </h1>
                 {% else %}
                     <h1> {{ 'title.set_index'|trans }} </h1>
                 {% endif %}
+                </div>
             </div>
         {% endblock %}
 
@@ -32,25 +34,33 @@
                 {% for set in sets %}
                     <a href="{{ url('set_view', {'id': set.id }) }}">
                     <div class="set">
-                        <h2> {{ set.name }}  </h2>
-                        <small> {{ 'set.created-at'|trans }} {{ set.created_at }} | {{ 'set.modified-at'|trans }} {{ set.modified_at }}</small>
-                        <div class="set-menager">
-                            <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i>
-                            <span>{{ 'action.set_edit'|trans }}</span></a>
-                            <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i>
-                           <span> {{ 'action.set_delete'|trans }}</span></a>
-                        </div>
-                        {% if set.tags|length and set.tags is iterable %}
-                            <div class="tag-list">
-                            <ul>
-                                {% for tag in set.tags %}
-                                    <li>
-                                        #{{ tag.name }}
-                                    </li>
-                                {% endfor %}
-                            </ul>
+                        <div class="row">
+                            <div class="col-lg-6 col-md-6 col-sm-6">
+                                <h2> {{ set.name }}  </h2>
+                                <small> {{ 'set.created-at'|trans }} {{ set.created_at|date("m-d-Y") }}
+                                    | {{ 'set.modified-at'|trans }} {{ set.modified_at|date("m-d-Y") }}
+                                </small>
                             </div>
+                            <div class="set-menager col-lg-6 col-md-6 col-sm-6">
+                                <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i>
+                                <span>{{ 'action.set_edit'|trans }}</span></a>
+                                <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i>
+                               <span> {{ 'action.set_delete'|trans }}</span></a>
+                            </div>
+                        </div>
+                        <div class="row">
+                        {% if set.tags|length and set.tags is iterable %}
+                                <div class="tag-list col-lg-12 col-md-12 col-sm-12 col-xs-12">
+                                <ul>
+                                    {% for tag in set.tags %}
+                                        <li>
+                                            #{{ tag.name }}
+                                        </li>
+                                    {% endfor %}
+                                </ul>
+                                </div>
                         {% endif %}
+                        </div>
                     </div>
                     </a>
                         {% endfor %}

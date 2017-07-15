@@ -8,14 +8,13 @@ namespace Controller;
 use Form\UserDataType;
 use Form\UserType;
 use Form\ResetPasswordType;
+use Form\AdminResetPasswordType;
 use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\Request;
 use Repository\UserRepository;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
-use Symfony\Component\Form\Extension\Core\Type\PasswordType;
-use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * Class UserController
@@ -58,25 +57,9 @@ class UserController implements ControllerProviderInterface
         return $controller;
 
     }
-
     /**
-     * @param Application $app
-     * @return string
-     */
-    public function checkAccess(Application $app)
-    {
-        if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))
-            return "admin";
-
-        else if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))
-            return "user";
-        else
-            return "anonymous";
-    }
-
-    /**
-     * @param $id
-     * @param $userId
+     * @param int $id     Element id
+     * @param int $userId User id
      * @return bool
      */
     public function checkOwnership($id, $userId)
@@ -88,74 +71,71 @@ class UserController implements ControllerProviderInterface
      * Index action
      *
      * @param Application $app
+     * @param int         $page Number of a current page
      * @return mixed
      */
     public function indexAction(Application $app, $page = 1)
     {
-        $access = $this->checkAccess($app);
-        $token = $app['security.token_storage']->getToken();
-        if (null !== $token) {
-            $username = $token->getUsername();
+        if (!($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        } elseif (!($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))) {
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $token = $app['security.token_storage']->getToken();
+            if (null !== $token) {
+                $username = $token->getUsername();
+            }
+            $userRepository = new UserRepository($app['db']);
+            $user = $userRepository->getUserByLogin($username);
+
+            $userRepository = new UserRepository($app['db']);
+
+            return $app['twig']->render(
+                'user/index.html.twig',
+                [
+                    'paginator' => $userRepository->findAllPaginated($page),
+                    'username' => $username,
+                    'userId' => $user['id'],
+
+                ]
+            );
         }
-        $userRepository = new UserRepository($app['db']);
-        $user = $userRepository->getUserByLogin($username);
-
-        switch($access){
-            case "admin":
-                $userRepository = new UserRepository($app['db']);
-
-                return $app['twig']->render(
-                    'user/index.html.twig',
-                    [
-                        'paginator' => $userRepository->findAllPaginated($page),
-                        'username' => $username,
-                        'userId' => $user['id'],
-
-                    ]
-                );
-            case "user":
-                return $app->redirect($app['url_generator']->generate('set_index'));
-            case "anonymous":
-                return $app->redirect($app['url_generator']->generate('homepage'));
-        }
-
     }
 
     /**
      * View action
      *
      * @param Application $app
-     * @param             $id
+     * @param int         $id  Element id
      * @return mixed
      */
     public function viewAction(Application $app, $id)
     {
-        $access = $this->checkAccess($app);
-
-        $token = $app['security.token_storage']->getToken();
-        if (null !== $token) {
-            $username = $token->getUsername();
-        }
-        $userRepository = new UserRepository($app['db']);
-        $user = $userRepository->getUserByLogin($username);
-
-
-        if($access == 'admin' || ($access == 'user' && $this->checkOwnership($id, $user['id']))) {
-
-            return $app['twig']->render(
-                'user/view.html.twig',
-                [
-                    'user' => $userRepository->findOneById($id),
-                    'userData' => $userRepository->findUserDataByUserId($id),
-                    'id' => $id,
-                    'username' => $username,
-                    'userId' => $user['id'],
-                ]
-            );
-        }else if ($access == 'user') {
-            return $app->redirect($app['url_generator']->generate('set_index'));
+        if (!($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
+            return $app->redirect($app['url_generator']->generate('homepage'));
         } else {
-            $app->redirect($app['url_generator']->generate('homepage'));
+            $token = $app['security.token_storage']->getToken();
+            if (null !== $token) {
+                $username = $token->getUsername();
+            }
+            $userRepository = new UserRepository($app['db']);
+            $user = $userRepository->getUserByLogin($username);
+
+            if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN') ||
+                ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY') && $this->checkOwnership($id, $user['id']))) {
+                return $app['twig']->render(
+                    'user/view.html.twig',
+                    [
+                        'user' => $userRepository->findOneById($id),
+                        'userData' => $userRepository->findUserDataByUserId($id),
+                        'id' => $id,
+                        'username' => $username,
+                        'userId' => $user['id'],
+                    ]
+                );
+            } elseif ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
+                return $app->redirect($app['url_generator']->generate('set_index'));
+            }
         }
     }
 
@@ -163,23 +143,96 @@ class UserController implements ControllerProviderInterface
      * Edit user's login and role
      *
      * @param Application $app
-     * @param $id
-     * @param Request $request
+     * @param int         $id      Element id
+     * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function editAction(Application $app, $id, Request $request)
     {
-        $access = $this->checkAccess($app);
-        $token = $app['security.token_storage']->getToken();
-        if (null !== $token) {
-            $username = $token->getUsername();
-        }
-        $userRepository = new UserRepository($app['db']);
-        $currentuser = $userRepository->getUserByLogin($username);
+        if (!($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        } elseif (!($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))) {
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $token = $app['security.token_storage']->getToken();
+            if (null !== $token) {
+                $username = $token->getUsername();
+            }
+            $userRepository = new UserRepository($app['db']);
+            $currentuser = $userRepository->getUserByLogin($username);
 
-        if($access == 'admin'){
-                $user = $userRepository->findOneById($id);
-                if (!$user) {
+            $user = $userRepository->findOneById($id);
+            if (!$user) {
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'warning',
+                        'message' => 'message.record_not_found',
+                    ]
+                );
+
+                return $app->redirect($app['url_generator']->generate('user_index'));
+            }
+
+                $form = $app['form.factory']
+                    ->createBuilder(UserType::class, $user, ['user_repository' => new UserRepository($app['db']), 'userId' => $user['id']])
+                    ->add('id', HiddenType::class, ['data' => $id])
+                    ->getForm();
+
+                $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $userRepository->updateUser($form->getData());
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'success',
+                        'message' => 'message.element_successfully_edited',
+                    ]
+                );
+
+                return $app->redirect($app['url_generator']->generate('user_index'), 301);
+            }
+
+                return $app['twig']->render(
+                    'user/edit.html.twig',
+                    [
+                        'id' => $id,
+                        'form' => $form->createView(),
+                        'userId' => $currentuser['id'],
+                        'username' => $username,
+                        'user' => $user,
+                    ]
+                );
+        }
+    }
+
+    /**
+     * Edit user's data
+     *
+     * @param Application $app
+     * @param int         $id      id of user being modyfied
+     * @param Request     $request
+     * @var   array       $user    Logged user
+     * @return \Symfony\Component\HttpFoundation\RedirectResponse
+     */
+    public function editDataAction(Application $app, $id, Request $request)
+    {
+        if (!($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        } else {
+            $token = $app['security.token_storage']->getToken();
+            if (null !== $token) {
+                $username = $token->getUsername();
+            }
+            $userRepository = new UserRepository($app['db']);
+            $user = $userRepository->getUserByLogin($username);
+
+            if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN') ||
+                ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY') && $this->checkOwnership($id, $user['id']))) {
+                $userData = $userRepository->findUserDataByUserId($id);
+
+                if (!$userData) {
                     $app['session']->getFlashBag()->add(
                         'messages',
                         [
@@ -192,14 +245,17 @@ class UserController implements ControllerProviderInterface
                 }
 
                 $form = $app['form.factory']
-                    ->createBuilder(UserType::class, $user, ['user_repository' => new UserRepository($app['db']), 'userId' => $user['id']])
-                    ->add('id', HiddenType::class, ['data' => $id])
+                    ->createBuilder(
+                        UserDataType::class,
+                        $userData,
+                        ['user_repository' => new UserRepository($app['db']), 'userId' => $id ]
+                    )
                     ->getForm();
 
                 $form->handleRequest($request);
 
                 if ($form->isSubmitted() && $form->isValid()) {
-                    $userRepository->updateUser($form->getData());
+                    $userRepository->editUserData($form->getData());
                     $app['session']->getFlashBag()->add(
                         'messages',
                         [
@@ -207,213 +263,144 @@ class UserController implements ControllerProviderInterface
                             'message' => 'message.element_successfully_edited',
                         ]
                     );
-                    return $app->redirect($app['url_generator']->generate('user_index'), 301);
+                    if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN')) {
+                            return $app->redirect($app['url_generator']->generate('user_index'), 301);
+                    } else {
+                        return $app->redirect($app['url_generator']->generate('set_index'), 301);
+                    }
                 }
+
                 return $app['twig']->render(
-                    'user/edit.html.twig',
+                    'user/edit_data.html.twig',
                     [
                         'id' => $id,
                         'form' => $form->createView(),
-                        'userId' => $currentuser['id'],
+                        'userId' => $user['id'],
                         'username' => $username,
-                        'user' => $user,
                     ]
                 );
-            }else if ($access == 'user') {
-            return $app->redirect($app['url_generator']->generate('set_index'));
-        } else {
-            $app->redirect($app['url_generator']->generate('homepage'));
+            } elseif ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
+                return $app->redirect($app['url_generator']->generate('set_index'));
+            }
         }
     }
-
-    /**
-     * Edit user's data
-     *
-     * @param Application $app
-     * @param             $id
-     * @param Request     $request
-     * @return \Symfony\Component\HttpFoundation\RedirectResponse
-     */
-    public function editDataAction(Application $app, $id, Request $request)
-    {
-        $access = $this->checkAccess($app);
-        $token = $app['security.token_storage']->getToken();
-        if (null !== $token) {
-            $username = $token->getUsername();
-        }
-        $userRepository = new UserRepository($app['db']);
-        $user = $userRepository->getUserByLogin($username);
-
-        if($access == 'admin' || ($access == 'user' && $this->checkOwnership($id, $user['id']))) {
-
-            $userData = $userRepository->findUserDataByUserId($id);
-
-            if (!$userData) {
-                $app['session']->getFlashBag()->add(
-                    'messages',
-                    [
-                        'type' => 'warning',
-                        'message' => 'message.record_not_found',
-                    ]
-                );
-
-                return $app->redirect($app['url_generator']->generate('user_index'));
-            }
-
-            $form = $app['form.factory']
-                ->createBuilder(UserDataType::class, $userData,
-                    ['user_repository' => new UserRepository($app['db']), 'userId' => $user['id']])
-                ->getForm();
-
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-                $userRepository->editUserData($form->getData());
-                $app['session']->getFlashBag()->add(
-                    'messages',
-                    [
-                        'type' => 'success',
-                        'message' => 'message.element_successfully_edited',
-                    ]
-                );
-
-                return $app->redirect($app['url_generator']->generate('set_index'), 301);
-            }
-
-            return $app['twig']->render(
-                'user/edit_data.html.twig',
-                [
-                    'id' => $id,
-                    'form' => $form->createView(),
-                    'userId' => $user['id'],
-                    'username' => $username,
-                ]
-            );
-        }else if ($access == 'user') {
-            return $app->redirect($app['url_generator']->generate('set_index'));
-        } else {
-            $app->redirect($app['url_generator']->generate('homepage'));
-        }
-    }
-
 
     /**
      * Reset password action
      *
      * @param Application $app
-     * @param $id
-     * @param Request $request
+     * @param int         $id      Element id
+     * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
     public function resetPasswordAction(Application $app, $id, Request $request)
     {
-        $access = $this->checkAccess($app);
-        $token = $app['security.token_storage']->getToken();
-        if (null !== $token) {
-            $username = $token->getUsername();
-        }
-        $userRepository = new UserRepository($app['db']);
-        $currentUser = $userRepository->getUserByLogin($username);
-
-        if($access == 'admin' || ($access == 'user' && $this->checkOwnership($id, $currentUser['id']))) {
-            $user = $userRepository->findOneById($id);
-
-            if (!$user) {
-                $app['session']->getFlashBag()->add(
-                    'messages',
-                    [
-                        'type' => 'warning',
-                        'message' => 'message.record_not_found',
-                    ]
-                );
-
-                return $app->redirect($app['url_generator']->generate('set_index'));
+        if (!($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        } else {
+            $token = $app['security.token_storage']->getToken();
+            if (null !== $token) {
+                $username = $token->getUsername();
             }
+            $userRepository = new UserRepository($app['db']);
+            $currentUser = $userRepository->getUserByLogin($username);
 
-            if ($access == 'user'){
-                $form = $app['form.factory']
-                    ->createBuilder(ResetPasswordType::class)
-                    ->add('old_password', PasswordType::class, ['label' => 'label.old_password', 'constraints' =>
-                            [new Assert\NotBlank(['groups' => ['resetPassword-default']]),
-                                new Assert\Length(['groups' => ['resetPassword-default'], 'min'=>4,]),],])
-                    ->getForm();
-            } else if ($access == 'admin'){
-                $form = $app['form.factory']
-                    ->createBuilder(ResetPasswordType::class)
-                    ->getForm();
-            }
+            if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN') ||
+                ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')
+                    && $this->checkOwnership($id, $currentUser['id']))) {
+                $user = $userRepository->findOneById($id);
 
-            $form->handleRequest($request);
-
-            if ($form->isSubmitted() && $form->isValid()) {
-                $data = $form->getData();
-
-                if ($access == 'user'){
-                    if ($app['security.encoder.bcrypt']->isPasswordValid($user['password'], $data['old_password'], '')) {
-                        //if old password correct
-                        $data['password'] = $app['security.encoder.bcrypt']
-                            ->encodePassword($data['new_password'], '');
-                        unset($data['old_password']);
-                        unset($data['new_password']);
-
-                        $data['id'] = $user['id'];
-                        $userRepository->resetPassword($data);
-
-                        $app['session']->getFlashBag()->add(
-                            'messages',
-                            [
-                                'type' => 'success',
-                                'message' => 'message.password_successfully_changed',
-                            ]
-                        );
-
-                        return $app->redirect($app['url_generator']->generate('set_index'), 301);
-                    }else{
-                        $app['session']->getFlashBag()->add(
-                            'messages',
-                            [
-                                'type' => 'warning',
-                                'message' => 'Old password is not correct',
-                            ]
-                        );
-                    }
-
-                } else if ($access == 'admin') {
-
-                        $data['password'] = $app['security.encoder.bcrypt']
-                        ->encodePassword($data['new_password'], '');
-
-                        unset($data['new_password']);
-
-                        $data['id'] = $user['id'];
-                        $userRepository->resetPassword($data);
-
-                        $app['session']->getFlashBag()->add(
-                            'messages',
-                            [
-                                'type' => 'success',
-                                'message' => 'message.password_successfully_changed',
-                            ]
-                        );
-
-                        return $app->redirect($app['url_generator']->generate('set_index'), 301);
-                        }
-                    }
-                    return $app['twig']->render(
-                        'user/reset_password.html.twig',
+                if (!$user) {
+                    $app['session']->getFlashBag()->add(
+                        'messages',
                         [
-                            'username' => $username,
-                            'id' => $id,
-                            'userId' => $currentUser['id'],
-                            'form' => $form->createView(),
+                            'type' => 'warning',
+                            'message' => 'message.record_not_found',
                         ]
                     );
-            } else if ($access == 'user') {
+
+                    return $app->redirect($app['url_generator']->generate('set_index'));
+                }
+
+                if (!($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))) {
+                    $form = $app['form.factory']
+                        ->createBuilder(ResetPasswordType::class)
+                        ->getForm();
+                } elseif ($app['security.authorization_checker']->isGranted('ROLE_ADMIN')) {
+                    $form = $app['form.factory']
+                        ->createBuilder(AdminResetPasswordType::class)
+                        ->getForm();
+                }
+
+                $form->handleRequest($request);
+
+                if ($form->isSubmitted() && $form->isValid()) {
+                    $data = $form->getData();
+                    if (!($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))) {
+                        if ($app['security.encoder.bcrypt']->isPasswordValid($user['password'], $data['old_password'], '')) {
+                            //if old password correct
+                            $data['password'] = $app['security.encoder.bcrypt']
+                                ->encodePassword($data['new_password'], '');
+                            unset($data['old_password']);
+                            unset($data['new_password']);
+
+                            $data['id'] = $user['id'];
+                            $userRepository->resetPassword($data);
+
+                            $app['session']->getFlashBag()->add(
+                                'messages',
+                                [
+                                    'type' => 'success',
+                                    'message' => 'message.password_successfully_changed',
+                                ]
+                            );
+
+                            return $app->redirect($app['url_generator']->generate('set_index'), 301);
+                        } else {
+                            $app['session']->getFlashBag()->add(
+                                'messages',
+                                [
+                                    'type' => 'warning',
+                                    'message' => 'messsage.old_password_wrong',
+                                ]
+                            );
+                        }
+
+                    } elseif ($app['security.authorization_checker']->isGranted('ROLE_ADMIN')) {
+                        $data['password'] = $app['security.encoder.bcrypt']
+                            ->encodePassword($data['new_password'], '');
+
+                        unset($data['new_password']);
+
+                        $data['id'] = $user['id'];
+                        $userRepository->resetPassword($data);
+
+                        $app['session']->getFlashBag()->add(
+                            'messages',
+                            [
+                                'type' => 'success',
+                                'message' => 'message.password_successfully_changed',
+                            ]
+                        );
+
+                        return $app->redirect($app['url_generator']->generate('set_index'), 301);
+                    }
+                }
+
+                return $app['twig']->render(
+                    'user/reset_password.html.twig',
+                    [
+                        'username' => $username,
+                        'id' => $id,
+                        'userId' => $currentUser['id'],
+                        'form' => $form->createView(),
+                    ]
+                );
+            } elseif ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
                 return $app->redirect($app['url_generator']->generate('set_index'));
-            } else {
-                return $app->redirect($app['url_generator']->generate('homepage'));
             }
         }
+    }
 
 
     /**
@@ -426,69 +413,67 @@ class UserController implements ControllerProviderInterface
      */
     public function deleteAction(Application $app, $id, Request $request)
     {
-        $access = $this->checkAccess($app);
-        $token = $app['security.token_storage']->getToken();
-        if (null !== $token) {
-            $username = $token->getUsername();
-        }
-        $userRepository = new UserRepository($app['db']);
-        $currentUser = $userRepository->getUserByLogin($username);
+        if (!($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        } elseif (!($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))) {
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        } else {
+            $token = $app['security.token_storage']->getToken();
+            if (null !== $token) {
+                $username = $token->getUsername();
+            }
+            $userRepository = new UserRepository($app['db']);
+            $currentUser = $userRepository->getUserByLogin($username);
 
-        switch ($access) {
-            case "admin":
-                $userRepository = new UserRepository($app['db']);
-                $user = $userRepository->findOneById($id);
+            $userRepository = new UserRepository($app['db']);
+            $user = $userRepository->findOneById($id);
 
-                if (!$user) {
-                    $app['session']->getFlashBag->add(
-                        'messages',
-                        [
-                            'type' => 'warning',
-                            'message' => 'message.record_not_found',
-                        ]
-                    );
-
-                    return $app->redirect(
-                        $app['url_generator']->generate('user_index')
-                    );
-                }
-
-                $form = $app['form.factory']
-                    ->createBuilder(FormType::class, $user)
-                    ->add('id', HiddenType::class)
-                    ->getForm();
-                $form->handleRequest($request);
-
-                if ($form->isSubmitted() && $form->isValid()) {
-                    $userRepository->delete($form->getData());
-
-                    $app['session']->getFlashBag()->add(
-                        'messages',
-                        [
-                            'type' => 'success',
-                            'message' => 'message.element_successfully_deleted',
-                        ]
-                    );
-
-                    return $app->redirect(
-                        $app['url_generator']->generate('user_index'),
-                        301
-                    );
-                }
-
-                return $app['twig']->render(
-                    'user/delete.html.twig',
+            if (!$user) {
+                $app['session']->getFlashBag->add(
+                    'messages',
                     [
-                        'form' => $form->createView(),
-                        'user' => $user,
-                        'username' => $username,
-                        'userId' => $currentUser['id'],
+                        'type' => 'warning',
+                        'message' => 'message.record_not_found',
                     ]
                 );
-            case "user":
-                return $app->redirect($app['url_generator']->generate('set_index'));
-            case "anonymous":
-                return $app->redirect($app['url_generator']->generate('homepage'));
+
+                return $app->redirect(
+                    $app['url_generator']->generate('user_index')
+                );
+            }
+
+            $form = $app['form.factory']
+                ->createBuilder(FormType::class, $user)
+                ->add('id', HiddenType::class)
+                ->getForm();
+            $form->handleRequest($request);
+
+            if ($form->isSubmitted() && $form->isValid()) {
+                $userRepository->delete($form->getData());
+
+                $app['session']->getFlashBag()->add(
+                    'messages',
+                    [
+                        'type' => 'success',
+                        'message' => 'message.element_successfully_deleted',
+                    ]
+                );
+
+                return $app->redirect(
+                    $app['url_generator']->generate('user_index'),
+                    301
+                );
+            }
+
+            return $app['twig']->render(
+                'user/delete.html.twig',
+                [
+                    'form' => $form->createView(),
+                    'user' => $user,
+                    'username' => $username,
+                    'userId' => $currentUser['id'],
+                ]
+            );
         }
     }
 }

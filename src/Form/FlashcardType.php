@@ -57,7 +57,7 @@ class FlashcardType extends AbstractType
                                 'groups' => ['flashcard-default'],
                                 'repository' => isset($options['flashcard_repository']) ? $options['flashcard_repository'] : null,
                                 'elementId' => isset($options['data']['id']) ? $options['data']['id'] : null,
-                                'userId' => (isset($options['userId']) ? $options['userId'] : null )
+                                'setId' => (isset($options['setId']) ? $options['setId'] : null ),
                             ]
                         ),
                     ],
@@ -118,7 +118,7 @@ class FlashcardType extends AbstractType
             [
                 'validation_groups' => 'flashcard-default',
                 'flashcard_repository' => null,
-                'userId' => null,
+                'setId' => null,
             ]
         );
     }

@@ -25,8 +25,8 @@ class UniqueSetValidator extends ConstraintValidator
 
         $result = $constraint->repository->findForUniqueness(
             $value,
-            $constraint->elementId,
-            $constraint->userId
+            $constraint->userId,
+            $constraint->elementId
         );
 
         if ($result && count($result)) {

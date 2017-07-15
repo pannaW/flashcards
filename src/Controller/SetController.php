@@ -56,11 +56,14 @@ class SetController implements ControllerProviderInterface
 
     /**
      * @param Application $app
+     * @param int         $page Number of current page
      * @return mixed
      */
     public function indexAction(Application $app, $page = 1)
     {
-        $access = $this->checkAccess($app);
+        if (!($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        }
 
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
@@ -69,75 +72,56 @@ class SetController implements ControllerProviderInterface
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
-        switch ($access) {
-            case "user":
-                $setRepository = new SetRepository($app['db']);
-                $sets = $setRepository->loadUserSets($user['id']);
+        if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN')) {
+            $setRepository = new SetRepository($app['db']);
+            $paginator = $setRepository->findAllPaginated($page);
+            $sets = $paginator['data'];
+            if ($sets && is_array($sets)) {
+                foreach ($sets as $set) {
+                    $setIds[] = $set['id'];
+                }
 
-                if( $sets && is_array($sets)) {
-                    foreach ($sets as $set) {
-                        $setIds[] = $set['id'];
-                    }
-                    foreach ($setIds as $setId) {
-                        $result[] = $setRepository->findOneById($setId);
-                    }
-                } else {
-                    $result = [];
+                foreach ($setIds as $setId) {
+                    $result[] = $setRepository->findOneById($setId);
                 }
-                    return $app['twig']->render(
-                        'set/index.html.twig',
-                        [
-                            'sets' => $result,
-                            'username' => $username,
-                            'userId' => $user['id'],
-                        ]
-                    );
-            case "admin":
-                $setRepository = new SetRepository($app['db']);
-                $paginator = $setRepository->findAllPaginated($page);
-                $sets = $paginator['data'];
-                if( $sets && is_array($sets)) {
-                    foreach ($sets as $set) {
-                        $setIds[] = $set['id'];
-                    }
+            } else {
+                $result = [];
+            }
 
-                    foreach ($setIds as $setId) {
-                        $result[] = $setRepository->findOneById($setId);
-                    }
+            return $app['twig']->render(
+                'set/index.html.twig',
+                [
+                    'paginator' => $paginator,
+                    'sets' => $result,
+                    'username' => $username,
+                    'userId' => $user['id'],
+                ]
+            );
+        } elseif ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
+            $setRepository = new SetRepository($app['db']);
+            $sets = $setRepository->loadUserSets($user['id']);
+
+            if ($sets && is_array($sets)) {
+                foreach ($sets as $set) {
+                    $setIds[] = $set['id'];
                 }
-                else {
-                    $result = [];
+                foreach ($setIds as $setId) {
+                    $result[] = $setRepository->findOneById($setId);
                 }
-                return $app['twig']->render(
-                    'set/index.html.twig',
-                    [
-                        'paginator' => $paginator,
-                        'sets' => $result,
-                        'username' => $username,
-                        'userId' => $user['id'],
-                    ]
-                );
-            case "anonymous":
-                return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                $result = [];
+            }
+
+            return $app['twig']->render(
+                'set/index.html.twig',
+                [
+                    'sets' => $result,
+                    'username' => $username,
+                    'userId' => $user['id'],
+                ]
+            );
         }
     }
-
-    /**
-     * Checks an access
-     *
-     * @param Application $app
-     * @return string
-     */
-    public function checkAccess(Application $app)
-{
-    if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))
-        return "admin";
-
-    else if ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))
-        return "user";
-    else
-        return "anonymous";
-}
 
     /**
      * Add action
@@ -148,6 +132,10 @@ class SetController implements ControllerProviderInterface
      */
     public function addAction(Application $app, Request $request)
     {
+        if (!($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        }
+
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
             $username = $token->getUsername();
@@ -158,7 +146,7 @@ class SetController implements ControllerProviderInterface
         $set = [];
         $form = $app['form.factory']
            ->createBuilder(SetType::class, $set, ['set_repository' => new SetRepository($app['db']),
-               'tag_repository' => new TagRepository($app['db']), 'userId' => $user['id']])
+               'tag_repository' => new TagRepository($app['db']), 'userId' => $user['id'], ])
             ->add('users_id', HiddenType::class, ['data' => $user['id']])
             ->getForm();
 
@@ -189,7 +177,6 @@ class SetController implements ControllerProviderInterface
                 'userId' => $user['id'],
             ]
         );
-
     }
 
     /**
@@ -201,12 +188,10 @@ class SetController implements ControllerProviderInterface
      */
     public function viewAction(Application $app, $id)
     {
-        $access = $this->checkAccess($app);
-
         $setRepository = new SetRepository($app['db']);
         $set = $setRepository->findOneById($id);
         //check if public
-        if($set['public'] && $access == "anonymous"){
+        if ($set['public'] && !($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
             $flashcards = $setRepository->findLinkedFlashcards($id);
 
             return $app['twig']->render(
@@ -226,9 +211,9 @@ class SetController implements ControllerProviderInterface
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
-        if ($access == 'admin' ||
-            ($access == 'user' && $setRepository->checkOwnership($id, $user['id'])) ||
-            (($set['public'] && $access == 'user'))) {
+        if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN') ||
+            ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY') && $setRepository->checkOwnership($id, $user['id'])) ||
+            (($set['public'] && $app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')))) {
             //check access
 
             $app['session']->set('setId', $id);
@@ -245,7 +230,7 @@ class SetController implements ControllerProviderInterface
                     'userId' => $user['id'],
                 ]
             );
-        } else if ($access == 'user') {
+        } elseif ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
             return $app->redirect($app['url_generator']->generate('set_index'));
         } else {
             $app->redirect($app['url_generator']->generate('homepage'));
@@ -262,7 +247,9 @@ class SetController implements ControllerProviderInterface
      */
     public function editAction(Application $app, $id, Request $request)
     {
-        $access = $this->checkAccess($app);
+        if (!($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        }
 
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
@@ -273,7 +260,9 @@ class SetController implements ControllerProviderInterface
 
         $setRepository = new SetRepository($app['db']);
 
-        if ($access == 'admin' || ($access == 'user' && $setRepository->checkOwnership($id, $user['id']))) {
+        if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN') ||
+            ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY') &&
+                $setRepository->checkOwnership($id, $user['id']))) {
             $setRepository = new SetRepository($app['db']);
             $set = $setRepository->findOneById($id);
 
@@ -290,8 +279,14 @@ class SetController implements ControllerProviderInterface
             }
 
             $form = $app['form.factory']
-                ->createBuilder(SetType::class, $set, ['set_repository' => new SetRepository($app['db']), 'tag_repository' => new TagRepository($app['db'])])
-                ->add('users_id', HiddenType::class, ['data' => $user['id']])
+                ->createBuilder(
+                    SetType::class,
+                    $set,
+                    ['set_repository' => new SetRepository($app['db']),
+                        'tag_repository' => new TagRepository($app['db']),
+                            'userId' => $user['id'],
+                    ]
+                )
                 ->getForm();
 
             $form->handleRequest($request);
@@ -318,7 +313,7 @@ class SetController implements ControllerProviderInterface
                     'userId' => $user['id'],
                 ]
             );
-        } else if ($access == 'user') {
+        } elseif ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
             $app['session']->getFlashBag()->add(
                 'messages',
                 [
@@ -326,9 +321,8 @@ class SetController implements ControllerProviderInterface
                     'message' => 'message.editing_elses_sets_forbidden',
                 ]
             );
+
             return $app->redirect($app['url_generator']->generate('set_view', ['id' => $id ]));
-        } else {
-            $app->redirect($app['url_generator']->generate('homepage'));
         }
     }
 
@@ -342,7 +336,9 @@ class SetController implements ControllerProviderInterface
      */
     public function deleteAction(Application $app, $id, Request $request)
     {
-        $access = $this->checkAccess($app);
+        if (!($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        }
 
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
@@ -353,7 +349,9 @@ class SetController implements ControllerProviderInterface
 
         $setRepository = new SetRepository($app['db']);
 
-        if ($access == 'admin' || ($access == 'user' && $setRepository->checkOwnership($id, $user['id']))) {
+        if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN') ||
+            ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY') &&
+                $setRepository->checkOwnership($id, $user['id']))) {
             $setRepository = new SetRepository($app['db']);
             $set = $setRepository->findOneById($id);
 
@@ -403,7 +401,7 @@ class SetController implements ControllerProviderInterface
                     'set' => $set,
                 ]
             );
-        } else if ($access == 'user') {
+        } elseif ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
                 $app['session']->getFlashBag()->add(
                     'messages',
                     [
@@ -411,9 +409,8 @@ class SetController implements ControllerProviderInterface
                         'message' => 'message.deleting_elses_set_forbidden',
                     ]
                 );
+
                 return $app->redirect($app['url_generator']->generate('set_view', ['id' => $id ]));
-        } else {
-            $app->redirect($app['url_generator']->generate('homepage'));
         }
     }
 }

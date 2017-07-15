@@ -18,7 +18,7 @@ class UniqueUser extends Constraint
      *
      * @var string $message
      */
-    public $message = 'not-unique-user';
+    public $message = 'not-unique-username';
     /**
      * Element id.
      *

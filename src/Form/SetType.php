@@ -7,7 +7,6 @@ namespace Form;
 use Symfony\Component\Form\AbstractType;
 use Symfony\Component\Form\Extension\Core\Type\CheckboxType;
 use Symfony\Component\Form\Extension\Core\Type\TextType;
-use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolver;
 use Symfony\Component\Validator\Constraints as Assert;
@@ -62,8 +61,7 @@ class SetType extends AbstractType
                               'groups' => ['set-default'],
                               'repository' => isset($options['set_repository']) ? $options['set_repository'] : null,
                               'elementId' => isset($options['data']['id']) ? $options['data']['id'] : null,
-                              'userId' => isset($options['data']['users_id']) ? $options['data']['users_id'] :
-                                  (isset($options['userId']) ? $options['userId'] : null )
+                              'userId' => (isset($options['userId']) ? $options['userId'] : null ),
                           ]
                       ),
                   ],

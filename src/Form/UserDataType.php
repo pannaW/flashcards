@@ -25,7 +25,7 @@ class UserDataType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder->add(
-          'id',
+            'id',
             HiddenType::class
         );
 

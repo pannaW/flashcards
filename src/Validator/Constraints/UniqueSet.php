@@ -39,5 +39,4 @@ class UniqueSet extends Constraint
      * @var null|\Repository\SetRepository $repository
      */
     public $repository = null;
-
 }

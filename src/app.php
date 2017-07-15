@@ -102,8 +102,6 @@ $app->register(
             ['^/set.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
             ['^/flashcard.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
             ['^/.+$', 'ROLE_USER'],
-            ['^/admin.+$', 'ROLE_ADMIN'],
-
         ],
         'security.role_hierarchy' => [
             'ROLE_ADMIN' => ['ROLE_USER'],

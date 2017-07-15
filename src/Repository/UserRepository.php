@@ -49,8 +49,8 @@ class UserRepository
     /**
      * Check if user is an owner of a set
      *
-     * @param $id
-     * @param $userId
+     * @param int $id     Element id
+     * @param int $userId User id
      * @return bool
      */
     public function checkOwnership($id, $userId)
@@ -102,7 +102,7 @@ class UserRepository
     /**
      * Finds user data by users id.
      *
-     * @param $userId
+     * @param int $userId User id
      * @return mixed
      */
     public function findUserDataByUserId($userId)
@@ -111,7 +111,7 @@ class UserRepository
             ->select('*')
             ->from('users_data')
             ->where('users_id = :users_id')
-            ->setParameter(':users_id', $userId,\PDO::PARAM_INT);
+            ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
         $result = $queryBuilder->execute()->fetch();
 
         return $result;
@@ -135,21 +135,23 @@ class UserRepository
     }
 
     /**
-     * Update record user
+     * Update record user with login and role
      *
-     * @param $user
+     * @param array $user User
      * @return int
      */
-    public function updateUser($user) {
+    public function updateUser($user)
+    {
             $userId = $user['id'];
             unset($user['id']);
+
             return $this->db->update('users', $user, ['id' => $userId]);
     }
 
     /**
      * Saving user into DB with user data
      *
-     * @param $user
+     * @param array $user
      * @throws DBALException
      */
     public function save($user)
@@ -175,7 +177,7 @@ class UserRepository
                         'users_id' => $userId,
                     ]
                 );
-            $this->db->commit();
+                $this->db->commit();
         } catch (DBALException $e) {
             $this->db->rollBack();
             throw $e;
@@ -185,10 +187,11 @@ class UserRepository
     /**
      * Resets passwords
      *
-     * @param $data
+     * @param array $data Form output
      * @return int
      */
-    public function resetPassword($data) {
+    public function resetPassword($data)
+    {
         return $this->db->update('users', $data, ['id' => $data['id']]);
     }
 
@@ -206,11 +209,11 @@ class UserRepository
         try {
             $userId = $user['id'];
             unset($user['id']);
-            $this->RemoveUserData($userId);
+            $this->removeUserData($userId);
             $sets = $this->findLinkedSets($userId);
-           foreach ($sets as $set) {
-               $this->setRepository->delete($set);
-           }
+            foreach ($sets as $set) {
+                $this->setRepository->delete($set);
+            }
             $this->db->delete('users', ['id' => $userId]);
             $this->db->commit();
         } catch (DBALException $e) {
@@ -223,12 +226,12 @@ class UserRepository
     /**
      * Edits user's data
      *
-     * @param $user
+     * @param array $user User
      * @return int
      */
     public function editUserData($user)
     {
-        if (isset($user['id']) && ($user['id'] != '') && ctype_digit((string)$user['id'])) {
+        if (isset($user['id']) && ($user['id'] != '') && ctype_digit((string) $user['id'])) {
             $userId = $user['users_id'];
             unset($user['id']);
 
@@ -356,8 +359,8 @@ class UserRepository
     /**
      * Finds if email is unique
      *
-     * @param $email
-     * @param null $userId
+     * @param string   $email  Email
+     * @param null|int $userId User id
      * @return array
      */
     public function findForUniqueEmail($email, $userId = null)
@@ -376,10 +379,10 @@ class UserRepository
     }
 
     /**
-     * @param $userId
+     * @param int $userId User id
      * @return int
      */
-    public function RemoveUserData($userId)
+    public function removeUserData($userId)
     {
         return $this->db->delete('users_data', ['users_id' => $userId]);
     }
@@ -390,12 +393,11 @@ class UserRepository
      *
      * @return array Result
      */
-
     public function findLinkedSets($userId)
     {
         $queryBuilder = $this->queryAll()
             ->where('users_id = :users_id')
-            ->setParameter('users_id', $userId,\PDO::PARAM_INT);
+            ->setParameter('users_id', $userId, \PDO::PARAM_INT);
         $result = $queryBuilder->execute()->fetchAll();
 
         return $result;

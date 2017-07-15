@@ -4,7 +4,7 @@
 
 .flashcard {
     height: 300px;
-    width: 500px;
+    max-width: 500px;
     background-color: white;
     margin: 5% auto;
     box-shadow: 4px 4px 2px #E0E6ED;
@@ -22,7 +22,7 @@
 
 .front, .back {
     height: 300px;
-    width: 500px;
+    width: 100%;
     position: absolute;
     text-align: center;
     -webkit-backface-visibility: hidden;

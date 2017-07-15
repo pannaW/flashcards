@@ -112,6 +112,7 @@ class SetRepository
      * @param array $set Set
      *
      * @throws \Doctrine\DBAL\DBALException
+     * @return int|null $setId Set id
      */
     public function save($set)
     {
@@ -139,11 +140,12 @@ class SetRepository
                 $this->addLinkedTags($setId, $tagsIds);
             }
             $this->db->commit();
-            return $setId;
         } catch (DBALException $e) {
             $this->db->rollBack();
             throw $e;
         }
+
+        return $setId ? $setId : null ;
     }
 
     /**
@@ -174,18 +176,19 @@ class SetRepository
     /**
      * Find for uniqueness.
      *
-     * @param string          $name Element name
-     * @param int|string|null $id   Element id
+     * @param string          $name   Element name
+     * @param int|string|null $userId User id
+     * @param int|string|null $id     Element id
      *
      * @return array Result
      */
-    public function findForUniqueness($name, $id = null, $userId)
+    public function findForUniqueness($name, $userId, $id = null)
     {
         $queryBuilder = $this->queryAll();
         $queryBuilder->where('s.name = :name')
             ->andWhere('s.users_id = :users_id')
             ->setParameter(':name', $name, \PDO::PARAM_STR)
-            ->setParameter(':users_id', $userId,\PDO::PARAM_INT);
+            ->setParameter(':users_id', $userId, \PDO::PARAM_INT);
         if ($id) {
             $queryBuilder->andWhere('s.id <> :id')
                 ->setParameter(':id', $id, \PDO::PARAM_INT);
@@ -211,7 +214,7 @@ class SetRepository
     }
 
     /**
-     * @param $setId
+     * @param int $setId Set id
      * @return array
      */
     public function findLinkedFlashcards($setId)
@@ -227,7 +230,7 @@ class SetRepository
     }
 
     /**
-     * @param $userId
+     * @param int $userId User id
      * @return array
      */
     public function loadUserSets($userId)
@@ -243,8 +246,8 @@ class SetRepository
     }
 
     /**
-     * @param $id
-     * @param $userId
+     * @param int|string|null $id     Element id
+     * @param int             $userId User id
      * @return bool
      */
     public function checkOwnership($id, $userId)
@@ -264,7 +267,7 @@ class SetRepository
     /**
      * Remove linked tags.
      *
-     * @param int $setIds Set Ids
+     * @param int $setId Set Id
      *
      * @return boolean Result
      */
