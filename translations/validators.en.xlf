@@ -22,6 +22,10 @@
                                                             <source>not-unique-tag</source>
                                                             <target> Tag with such a name already exist </target>
                                                </trans-unit>
+                                                <trans-unit id="message.registration_succedded">
+                                                             <source>message.registration_succedded</source>
+                                                             <target> Congratulations! Your account has been created. </target>
+                                                </trans-unit>
         </body>
     </file>
 </xliff>

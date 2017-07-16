@@ -36,9 +36,9 @@ $app->register(
         'db.options' => array(
             'driver'    => 'pdo_mysql',
             'host'      => '127.0.0.1',
-            'dbname'    => '15_lucarz',
-            'user'      => '15_lucarz',
-            'password'  => 'L7m3e1g8c4',
+            'dbname'    => 'local',
+            'user'      => 'root',
+            'password'  => 'root',
             'charset'   => 'utf8',
             'driverOptions' => array(
                 1002 => 'SET NAMES utf8',
@@ -102,6 +102,8 @@ $app->register(
             ['^/set.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
             ['^/flashcard.+$', 'IS_AUTHENTICATED_ANONYMOUSLY'],
             ['^/.+$', 'ROLE_USER'],
+            ['^/admin.+$', 'ROLE_ADMIN'],
+
         ],
         'security.role_hierarchy' => [
             'ROLE_ADMIN' => ['ROLE_USER'],

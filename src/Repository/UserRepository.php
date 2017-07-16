@@ -395,7 +395,9 @@ class UserRepository
      */
     public function findLinkedSets($userId)
     {
-        $queryBuilder = $this->queryAll()
+        $queryBuilder = $this->db->createQueryBuilder();
+        $queryBuilder->select('*')
+            ->from('sets', 's')
             ->where('users_id = :users_id')
             ->setParameter('users_id', $userId, \PDO::PARAM_INT);
         $result = $queryBuilder->execute()->fetchAll();

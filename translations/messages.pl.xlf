@@ -429,6 +429,10 @@
                                                              <source>message.password_successfully_changed</source>
                                                              <target> Hasło zostało zmienione. </target>
                                                 </trans-unit>
+                                                <trans-unit id="message.registration_succedded">
+                                                             <source>message.registration_succedded</source>
+                                                             <target> Gratulacje. Twoje konto zostało utworzone. </target>
+                                                </trans-unit>
         </body>
     </file>
 </xliff>
