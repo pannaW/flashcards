@@ -356,7 +356,7 @@ class SetController implements ControllerProviderInterface
             $set = $setRepository->findOneById($id);
 
             if (!$set) {
-                $app['session']->getFlashBag->add(
+                $app['session']->getFlashBag()->add(
                     'messages',
                     [
                         'type' => 'warning',
