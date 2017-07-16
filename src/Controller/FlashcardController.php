@@ -256,7 +256,7 @@ class FlashcardController implements ControllerProviderInterface
 
                 $form = $app['form.factory']
                     ->createBuilder(FlashcardType::class, $flashcard, ['flashcard_repository' => new FlashcardRepository($app['db']),
-                        'userId' => $user['id'], ])
+                        'setId' => $flashcard['sets_id'], ])
                     ->getForm();
 
                 $form->handleRequest($request);
