@@ -35,12 +35,6 @@ class LoginType extends AbstractType
                 ],
                 'constraints' => [
                     new Assert\NotBlank(),
-                    new Assert\Length(
-                        [
-                            'min' => 8,
-                            'max' => 32,
-                        ]
-                    ),
                 ],
             ]
         );
@@ -52,16 +46,6 @@ class LoginType extends AbstractType
                 'required' => true,
                 'attr' => [
                     'max_length' => 32,
-
-                ],
-                'constraints' => [
-                    new Assert\NotBlank(),
-                    new Assert\Length(
-                        [
-                            'min' => 8,
-                            'max' => 32,
-                        ]
-                    ),
                 ],
             ]
         );

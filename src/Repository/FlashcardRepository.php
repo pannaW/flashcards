@@ -24,7 +24,7 @@ class FlashcardRepository
     /**
      * Number of items on one page when items paginated
      */
-    const NUM_ITEMS = 20;
+    const NUM_ITEMS = 15;
 
 
     /**

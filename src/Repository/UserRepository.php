@@ -27,7 +27,7 @@ class UserRepository
     /**
      * Number of items on one page when items paginated
      */
-    const NUM_ITEMS = 5;
+    const NUM_ITEMS = 15;
     /**
      * Set repository.
      *
