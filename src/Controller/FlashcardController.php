@@ -170,7 +170,20 @@ class FlashcardController implements ControllerProviderInterface
     {
         //check if public
         $flashcardRepository = new FlashcardRepository($app['db']);
-        $flashcard = $flashcardRepository->findOneById($id) ? $flashcardRepository->findOneById($id) : null ;
+        $flashcard = $flashcardRepository->findOneById($id) ? $flashcardRepository->findOneById($id) : null;
+
+        if (!$flashcard) {
+            $app['session']->getFlashBag()->add(
+                'messages',
+                [
+                    'type' => 'warning',
+                    'message' => 'message.record_not_found',
+                ]
+            );
+
+            return $app->redirect($app['url_generator']->generate('set_index'));
+        }
+
         $setRepository = new SetRepository($app['db']);
         $set = $setRepository->findOneById($flashcard['sets_id']);
 
@@ -316,7 +329,7 @@ class FlashcardController implements ControllerProviderInterface
                 $flashcard = $flashcardRepository->findOneById($id);
 
                 if (!$flashcard) {
-                    $app['session']->getFlashBag->add(
+                    $app['session']->getFlashBag()->add(
                         'messages',
                         [
                             'type' => 'warning',
@@ -325,7 +338,7 @@ class FlashcardController implements ControllerProviderInterface
                     );
 
                     return $app->redirect(
-                        $app['url_generator']->generate('flashcard_index')
+                        $app['url_generator']->generate('set_index')
                     );
                 }
 

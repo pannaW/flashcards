@@ -27,7 +27,6 @@ class SetRepository
      * @var null|\Repository\TagRepository $tagRepository
      */
     protected $tagRepository = null;
-
     /**
      * Flashcard repository.
      *
@@ -245,6 +244,24 @@ class SetRepository
         return isset($result) ? $result : [];
     }
 
+
+    /**
+     * Finds Owner by set id
+     *
+     * @param int $setId
+     * @return mixed
+     */
+    public function findOwnerBySetId($setId)
+    {
+        $queryBuilder = $this->db->createQueryBuilder()
+            ->select('u.login')
+            ->from('sets', 's')
+            ->innerJoin('s', 'users', 'u', 'u.id = s.users_id')
+            ->where('s.id = :setId')
+            ->setParameter(':setId', $setId, \PDO::PARAM_INT);
+
+        return $queryBuilder->execute()->fetch();
+    }
     /**
      * @param int|string|null $id     Element id
      * @param int             $userId User id

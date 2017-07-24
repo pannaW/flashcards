@@ -429,7 +429,7 @@ class UserController implements ControllerProviderInterface
             $user = $userRepository->findOneById($id);
 
             if (!$user) {
-                $app['session']->getFlashBag->add(
+                $app['session']->getFlashBag()->add(
                     'messages',
                     [
                         'type' => 'warning',

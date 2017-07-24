@@ -76,23 +76,27 @@ class SetController implements ControllerProviderInterface
             $setRepository = new SetRepository($app['db']);
             $paginator = $setRepository->findAllPaginated($page);
             $sets = $paginator['data'];
+
+            $result = [];
+
             if ($sets && is_array($sets)) {
                 foreach ($sets as $set) {
                     $setIds[] = $set['id'];
                 }
 
                 foreach ($setIds as $setId) {
-                    $result[] = $setRepository->findOneById($setId);
+                    $result[] = array(
+                      'set' => $setRepository->findOneById($setId),
+                        'owner' => $setRepository->findOwnerBySetId($setId),
+                    );
                 }
-            } else {
-                $result = [];
             }
 
             return $app['twig']->render(
                 'set/index.html.twig',
                 [
                     'paginator' => $paginator,
-                    'sets' => $result,
+                    'results' => $result,
                     'username' => $username,
                     'userId' => $user['id'],
                 ]
@@ -106,7 +110,10 @@ class SetController implements ControllerProviderInterface
                     $setIds[] = $set['id'];
                 }
                 foreach ($setIds as $setId) {
-                    $result[] = $setRepository->findOneById($setId);
+                    $result[] = array(
+                      'set' => $setRepository->findOneById($setId),
+                        'owner' => $user['id'],
+                    );
                 }
             } else {
                 $result = [];
@@ -115,7 +122,7 @@ class SetController implements ControllerProviderInterface
             return $app['twig']->render(
                 'set/index.html.twig',
                 [
-                    'sets' => $result,
+                    'results' => $result,
                     'username' => $username,
                     'userId' => $user['id'],
                 ]
@@ -183,13 +190,14 @@ class SetController implements ControllerProviderInterface
      * View action
      *
      * @param Application $app
-     * @param id          $id
+     * @param int         $id
      * @return mixed
      */
     public function viewAction(Application $app, $id)
     {
         $setRepository = new SetRepository($app['db']);
         $set = $setRepository->findOneById($id);
+        $set['owner'] = $setRepository->findOwnerBySetId($id);
         //check if public
         if ($set['public'] && !($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY'))) {
             $flashcards = $setRepository->findLinkedFlashcards($id);

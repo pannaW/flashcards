@@ -29,30 +29,39 @@
 
         {% block article %}
             <article>
-            {% if sets|length %}
+            {% if results|length %}
                 <div class="sets">
-                {% for set in sets %}
-                    <a href="{{ url('set_view', {'id': set.id }) }}">
+                {% for result in results %}
+                    <a href="{{ url('set_view', {'id': result.set.id }) }}">
                     <div class="set">
                         <div class="row">
                             <div class="col-lg-6 col-md-6 col-sm-6">
-                                <h2> {{ set.name }}  </h2>
-                                <small> {{ 'set.created-at'|trans }} {{ set.created_at|date("m-d-Y") }}
-                                    | {{ 'set.modified-at'|trans }} {{ set.modified_at|date("m-d-Y") }}
+                                <h2> {{ result.set.name }}  </h2>
+                                <small> {{ 'set.created-at'|trans }} {{ result.set.created_at|date("m-d-Y") }}
+                                    | {{ 'set.modified-at'|trans }} {{ result.set.modified_at|date("m-d-Y") }}
                                 </small>
                             </div>
                             <div class="set-menager col-lg-6 col-md-6 col-sm-6">
-                                <a href="{{ url('set_edit', {'id': set.id }) }}"><i class="fa fa-edit"></i>
+                                <a href="{{ url('set_edit', {'id': result.set.id }) }}"><i class="fa fa-edit"></i>
                                 <span>{{ 'action.set_edit'|trans }}</span></a>
-                                <a href="{{ url('set_delete', {'id': set.id }) }}"><i class="fa fa-remove"></i>
+                                <a href="{{ url('set_delete', {'id': result.set.id }) }}"><i class="fa fa-remove"></i>
                                <span> {{ 'action.set_delete'|trans }}</span></a>
                             </div>
                         </div>
+
+                        {% if is_granted('ROLE_ADMIN') %}
+                            <div class="row">
+                                <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6">
+                                    {{ result.owner.login }}
+                                </div>
+                            </div>
+                        {% endif %}
+
                         <div class="row">
-                        {% if set.tags|length and set.tags is iterable %}
+                        {% if result.set.tags|length and result.set.tags is iterable %}
                                 <div class="tag-list col-lg-12 col-md-12 col-sm-12 col-xs-12">
                                 <ul>
-                                    {% for tag in set.tags %}
+                                    {% for tag in result.set.tags %}
                                         <li>
                                             #{{ tag.name }}
                                         </li>

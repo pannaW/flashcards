@@ -24,6 +24,15 @@
                     <span> {{ 'action.set_edit'|trans }}</span></a>
                     <a href="{{ url('flashcard_delete', {'id': id }) }}"><i class="fa fa-remove"></i>
                     <span>{{ 'action.set_delete'|trans }}</span></a>
+                        {#{% if is_granted('ROLE_ADMIN') %}#}
+                            {#<a href="{{url('flashcard_index')}}" title="{{ 'label.back'|trans }}"#}
+                               {#class="back btn btn-default">#}
+                                {#<i  class="fa fa-mail-reply"></i> <span> {{ 'label.back'|trans }}  </span></a>#}
+                        {#{% else %}#}
+                            {#<a href="{{ url('set_view', { 'id' : flashcard.sets_id }) }}" title="{{ 'label.back'|trans }}"#}
+                               {#class="back btn btn-default">#}
+                                {#<i class="fa fa-mail-reply"> </i><span>{{ 'label.back'|trans }}  </span></a>#}
+                        {#{% endif %}#}
                     {% endif %}
                     <br>
                 </div>
@@ -50,15 +59,6 @@
                 {{ 'message.no_flashcards_found' }}
             </div>
         {% endif %}
-        {#{% if is_granted('ROLE_ADMIN') %}#}
-            {#<a href="{{url('flashcard_index')}}" title="{{ 'label.back'|trans }}"#}
-               {#class="back btn btn-default">#}
-                {#<span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>#}
-        {#{% else %}#}
-            {#<a href="{{ url('set_view', { 'id' : flashcard.sets_id }) }}" title="{{ 'label.back'|trans }}"#}
-               {#class="back btn btn-default">#}
-                {#<span class="fa fa-mail-reply" aria-hidden="true"></span>  {{ 'label.back'|trans }} </a>#}
-        {#{% endif %}#}
     {% endblock %}
 {% endblock %}
 
