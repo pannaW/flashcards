@@ -9,7 +9,6 @@ use Silex\Application;
 use Silex\Api\ControllerProviderInterface;
 use Symfony\Component\Form\Extension\Core\Type\HiddenType;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Session\Session;
 use Symfony\Component\Form\Extension\Core\Type\FormType;
 use Repository\TagRepository;
 use Repository\SetRepository;
@@ -50,7 +49,6 @@ class SetController implements ControllerProviderInterface
             ->bind('set_delete');
 
         return $controller;
-
     }
 
 
@@ -67,8 +65,8 @@ class SetController implements ControllerProviderInterface
 
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
-            $username = $token->getUsername();
-        }
+            $username = $app['security.token_storage']->getToken()->getUsername();
+        }else return $app->redirect($app['url_generator']->generate('homepage'));
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
@@ -80,6 +78,7 @@ class SetController implements ControllerProviderInterface
             $result = [];
 
             if ($sets && is_array($sets)) {
+                $setIds = [];
                 foreach ($sets as $set) {
                     $setIds[] = $set['id'];
                 }
@@ -105,7 +104,10 @@ class SetController implements ControllerProviderInterface
             $setRepository = new SetRepository($app['db']);
             $sets = $setRepository->loadUserSets($user['id']);
 
+            $result = [];
+
             if ($sets && is_array($sets)) {
+                $setIds = [];
                 foreach ($sets as $set) {
                     $setIds[] = $set['id'];
                 }
@@ -115,8 +117,6 @@ class SetController implements ControllerProviderInterface
                         'owner' => $user['id'],
                     );
                 }
-            } else {
-                $result = [];
             }
 
             return $app['twig']->render(
@@ -128,6 +128,7 @@ class SetController implements ControllerProviderInterface
                 ]
             );
         }
+        return $app->redirect($app['url_generator']->generate('homepage'));
     }
 
     /**
@@ -145,8 +146,8 @@ class SetController implements ControllerProviderInterface
 
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
-            $username = $token->getUsername();
-        }
+            $username = $app['security.token_storage']->getToken()->getUsername();
+        } else return $app->redirect($app['url_generator']->generate('homepage'));
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
@@ -154,14 +155,13 @@ class SetController implements ControllerProviderInterface
         $form = $app['form.factory']
            ->createBuilder(SetType::class, $set, ['set_repository' => new SetRepository($app['db']),
                'tag_repository' => new TagRepository($app['db']), 'userId' => $user['id'], ])
-            ->add('users_id', HiddenType::class, ['data' => $user['id']])
+        ->add('users_id', HiddenType::class, ['data' => $user['id']])
             ->getForm();
 
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
             $setRepository = new SetRepository($app['db']);
-
             $setId = $setRepository->save($form->getData());
 
             $app['session']->getFlashBag()->add(
@@ -214,8 +214,8 @@ class SetController implements ControllerProviderInterface
 
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
-            $username = $token->getUsername();
-        }
+            $username = $app['security.token_storage']->getToken()->getUsername();
+        } else return $app->redirect($app['url_generator']->generate('homepage'));
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
@@ -241,7 +241,7 @@ class SetController implements ControllerProviderInterface
         } elseif ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
             return $app->redirect($app['url_generator']->generate('set_index'));
         } else {
-            $app->redirect($app['url_generator']->generate('homepage'));
+            return $app->redirect($app['url_generator']->generate('homepage'));
         }
     }
 
@@ -249,7 +249,7 @@ class SetController implements ControllerProviderInterface
      * Edit action
      *
      * @param Application $app
-     * @param Set id      $id
+     * @param Set int      $id
      * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -261,8 +261,8 @@ class SetController implements ControllerProviderInterface
 
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
-            $username = $token->getUsername();
-        }
+            $username = $app['security.token_storage']->getToken()->getUsername();
+        } else return $app->redirect($app['url_generator']->generate('homepage'));
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
@@ -292,7 +292,7 @@ class SetController implements ControllerProviderInterface
                     $set,
                     ['set_repository' => new SetRepository($app['db']),
                         'tag_repository' => new TagRepository($app['db']),
-                            'userId' => $user['id'],
+                            'userId' => $set['users_id'],
                     ]
                 )
                 ->getForm();
@@ -332,13 +332,14 @@ class SetController implements ControllerProviderInterface
 
             return $app->redirect($app['url_generator']->generate('set_view', ['id' => $id ]));
         }
+        return $app->redirect($app['url_generator']->generate('set_index'));
     }
 
     /**
      * Delete action
      *
      * @param Application $app
-     * @param Set id      $id
+     * @param Set int     $id
      * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -350,8 +351,8 @@ class SetController implements ControllerProviderInterface
 
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
-            $username = $token->getUsername();
-        }
+            $username = $app['security.token_storage']->getToken()->getUsername();
+        } else return $app->redirect($app['url_generator']->generate('homepage'));
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
@@ -420,5 +421,6 @@ class SetController implements ControllerProviderInterface
 
                 return $app->redirect($app['url_generator']->generate('set_view', ['id' => $id ]));
         }
+        return $app->redirect($app['url_generator']->generate('set_index'));
     }
 }

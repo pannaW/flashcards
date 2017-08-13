@@ -56,8 +56,9 @@ class TagController implements ControllerProviderInterface
         } else {
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
-                $username = $token->getUsername();
-            }
+                $username = $app['security.token_storage']->getToken()->getUsername();
+            } else return $app->redirect($app['url_generator']->generate('homepage'));
+
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -78,7 +79,7 @@ class TagController implements ControllerProviderInterface
      * Delete Action
      *
      * @param Application $app
-     * @param id          $id
+     * @param int          $id
      * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -91,8 +92,8 @@ class TagController implements ControllerProviderInterface
         } else {
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
-                $username = $token->getUsername();
-            }
+                $username = $app['security.token_storage']->getToken()->getUsername();
+            } else return $app->redirect($app['url_generator']->generate('homepage'));
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 

@@ -237,6 +237,7 @@ class UserRepository
 
             return $this->db->update('users_data', $user, array('users_id' => $userId));
         }
+        return null;
     }
 
     /**

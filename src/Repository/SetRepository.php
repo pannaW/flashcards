@@ -169,6 +169,7 @@ class SetRepository
             $this->db->rollBack();
             throw $e;
         }
+        return null;
     }
 
 

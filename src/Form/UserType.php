@@ -20,8 +20,12 @@ use Symfony\Component\OptionsResolver\OptionsResolver;
  */
 class UserType extends AbstractType
 {
+
     /**
      * {@inheritdoc}
+     *
+     * @param FormBuilderInterface $builder Form builder interface
+     * @param array                $options An array of options
      */
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
@@ -75,16 +79,22 @@ class UserType extends AbstractType
         );
     }
 
+
     /**
      * {@inheritdoc}
+     *
+     * @return string
      */
     public function getBlockPrefix()
     {
         return 'user_type';
     }
 
+
     /**
      * {@inheritdoc}
+     *
+     * @param OptionsResolver $resolver
      */
     public function configureOptions(OptionsResolver $resolver)
     {

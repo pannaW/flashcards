@@ -55,7 +55,6 @@ class UserController implements ControllerProviderInterface
             ->bind('user_delete');
 
         return $controller;
-
     }
     /**
      * @param int $id     Element id
@@ -83,8 +82,8 @@ class UserController implements ControllerProviderInterface
         } else {
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
-                $username = $token->getUsername();
-            }
+                $username = $app['security.token_storage']->getToken()->getUsername();
+            } else return $app->redirect($app['url_generator']->generate('homepage'));
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -116,8 +115,8 @@ class UserController implements ControllerProviderInterface
         } else {
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
-                $username = $token->getUsername();
-            }
+                $username = $app['security.token_storage']->getToken()->getUsername();
+            } else return $app->redirect($app['url_generator']->generate('homepage'));
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -137,6 +136,7 @@ class UserController implements ControllerProviderInterface
                 return $app->redirect($app['url_generator']->generate('set_index'));
             }
         }
+        return $app->redirect($app['url_generator']->generate('set_index'));
     }
 
     /**
@@ -156,8 +156,8 @@ class UserController implements ControllerProviderInterface
         } else {
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
-                $username = $token->getUsername();
-            }
+                $username = $app['security.token_storage']->getToken()->getUsername();
+            } else return $app->redirect($app['url_generator']->generate('homepage'));
             $userRepository = new UserRepository($app['db']);
             $currentuser = $userRepository->getUserByLogin($username);
 
@@ -223,8 +223,8 @@ class UserController implements ControllerProviderInterface
         } else {
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
-                $username = $token->getUsername();
-            }
+                $username = $app['security.token_storage']->getToken()->getUsername();
+            } else return $app->redirect($app['url_generator']->generate('homepage'));
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -283,6 +283,7 @@ class UserController implements ControllerProviderInterface
                 return $app->redirect($app['url_generator']->generate('set_index'));
             }
         }
+        return $app->redirect($app['url_generator']->generate('set_index'));
     }
 
     /**
@@ -300,8 +301,8 @@ class UserController implements ControllerProviderInterface
         } else {
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
-                $username = $token->getUsername();
-            }
+                $username = $app['security.token_storage']->getToken()->getUsername();
+            } else return $app->redirect($app['url_generator']->generate('homepage'));
             $userRepository = new UserRepository($app['db']);
             $currentUser = $userRepository->getUserByLogin($username);
 
@@ -322,18 +323,18 @@ class UserController implements ControllerProviderInterface
                     return $app->redirect($app['url_generator']->generate('set_index'));
                 }
 
+                $form = $app['form.factory'];
                 if (!($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))) {
                     $form = $app['form.factory']
                         ->createBuilder(ResetPasswordType::class)
                         ->getForm();
+                    $form->handleRequest($request);
                 } elseif ($app['security.authorization_checker']->isGranted('ROLE_ADMIN')) {
                     $form = $app['form.factory']
                         ->createBuilder(AdminResetPasswordType::class)
                         ->getForm();
+                    $form->handleRequest($request);
                 }
-
-                $form->handleRequest($request);
-
                 if ($form->isSubmitted() && $form->isValid()) {
                     $data = $form->getData();
                     if (!($app['security.authorization_checker']->isGranted('ROLE_ADMIN'))) {
@@ -365,7 +366,6 @@ class UserController implements ControllerProviderInterface
                                 ]
                             );
                         }
-
                     } elseif ($app['security.authorization_checker']->isGranted('ROLE_ADMIN')) {
                         $data['password'] = $app['security.encoder.bcrypt']
                             ->encodePassword($data['new_password'], '');
@@ -400,6 +400,7 @@ class UserController implements ControllerProviderInterface
                 return $app->redirect($app['url_generator']->generate('set_index'));
             }
         }
+        return $app->redirect($app['url_generator']->generate('set_index'));
     }
 
 
@@ -407,7 +408,7 @@ class UserController implements ControllerProviderInterface
      * Delete Action
      *
      * @param Application $app
-     * @param id          $id
+     * @param int          $id
      * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -420,8 +421,8 @@ class UserController implements ControllerProviderInterface
         } else {
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
-                $username = $token->getUsername();
-            }
+                $username = $app['security.token_storage']->getToken()->getUsername();
+            } else return $app->redirect($app['url_generator']->generate('homepage'));
             $userRepository = new UserRepository($app['db']);
             $currentUser = $userRepository->getUserByLogin($username);
 
