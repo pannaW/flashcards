@@ -60,13 +60,7 @@ $app->register(
     ]
 );
 
-$app->extend(/**
- * @param $translator
- * @param $app
- * @method addResource
- * @return mixed
- */
-    'translator', function ($translator, $app) {
+$app->extend('translator', function ($translator, $app) {
     $translator->addResource('xliff', __DIR__.'/../translations/messages.en.xlf', 'en', 'messages');
     $translator->addResource('xliff', __DIR__.'/../translations/validators.en.xlf', 'en', 'validators');
     $translator->addResource('xliff', __DIR__.'/../translations/messages.pl.xlf', 'pl', 'messages');

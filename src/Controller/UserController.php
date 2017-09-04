@@ -83,7 +83,9 @@ class UserController implements ControllerProviderInterface
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
                 $username = $app['security.token_storage']->getToken()->getUsername();
-            } else return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                return $app->redirect($app['url_generator']->generate('homepage'));
+            }
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -116,7 +118,9 @@ class UserController implements ControllerProviderInterface
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
                 $username = $app['security.token_storage']->getToken()->getUsername();
-            } else return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                return $app->redirect($app['url_generator']->generate('homepage'));
+            }
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -133,9 +137,11 @@ class UserController implements ControllerProviderInterface
                     ]
                 );
             } elseif ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
+
                 return $app->redirect($app['url_generator']->generate('set_index'));
             }
         }
+
         return $app->redirect($app['url_generator']->generate('set_index'));
     }
 
@@ -157,7 +163,9 @@ class UserController implements ControllerProviderInterface
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
                 $username = $app['security.token_storage']->getToken()->getUsername();
-            } else return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                return $app->redirect($app['url_generator']->generate('homepage'));
+            }
             $userRepository = new UserRepository($app['db']);
             $currentuser = $userRepository->getUserByLogin($username);
 
@@ -224,7 +232,9 @@ class UserController implements ControllerProviderInterface
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
                 $username = $app['security.token_storage']->getToken()->getUsername();
-            } else return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                return $app->redirect($app['url_generator']->generate('homepage'));
+            }
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -283,6 +293,7 @@ class UserController implements ControllerProviderInterface
                 return $app->redirect($app['url_generator']->generate('set_index'));
             }
         }
+
         return $app->redirect($app['url_generator']->generate('set_index'));
     }
 
@@ -302,7 +313,9 @@ class UserController implements ControllerProviderInterface
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
                 $username = $app['security.token_storage']->getToken()->getUsername();
-            } else return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                return $app->redirect($app['url_generator']->generate('homepage'));
+            }
             $userRepository = new UserRepository($app['db']);
             $currentUser = $userRepository->getUserByLogin($username);
 
@@ -400,6 +413,7 @@ class UserController implements ControllerProviderInterface
                 return $app->redirect($app['url_generator']->generate('set_index'));
             }
         }
+
         return $app->redirect($app['url_generator']->generate('set_index'));
     }
 
@@ -408,7 +422,7 @@ class UserController implements ControllerProviderInterface
      * Delete Action
      *
      * @param Application $app
-     * @param int          $id
+     * @param int         $id
      * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -422,7 +436,9 @@ class UserController implements ControllerProviderInterface
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
                 $username = $app['security.token_storage']->getToken()->getUsername();
-            } else return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                return $app->redirect($app['url_generator']->generate('homepage'));
+            }
             $userRepository = new UserRepository($app['db']);
             $currentUser = $userRepository->getUserByLogin($username);
 

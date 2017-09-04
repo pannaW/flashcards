@@ -66,7 +66,9 @@ class SetController implements ControllerProviderInterface
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
             $username = $app['security.token_storage']->getToken()->getUsername();
-        }else return $app->redirect($app['url_generator']->generate('homepage'));
+        } else {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        }
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
@@ -128,6 +130,7 @@ class SetController implements ControllerProviderInterface
                 ]
             );
         }
+
         return $app->redirect($app['url_generator']->generate('homepage'));
     }
 
@@ -147,13 +150,15 @@ class SetController implements ControllerProviderInterface
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
             $username = $app['security.token_storage']->getToken()->getUsername();
-        } else return $app->redirect($app['url_generator']->generate('homepage'));
+        } else {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        }
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
         $set = [];
         $form = $app['form.factory']
-           ->createBuilder(SetType::class, $set, ['set_repository' => new SetRepository($app['db']),
+            ->createBuilder(SetType::class, $set, ['set_repository' => new SetRepository($app['db']),
                'tag_repository' => new TagRepository($app['db']), 'userId' => $user['id'], ])
         ->add('users_id', HiddenType::class, ['data' => $user['id']])
             ->getForm();
@@ -215,7 +220,9 @@ class SetController implements ControllerProviderInterface
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
             $username = $app['security.token_storage']->getToken()->getUsername();
-        } else return $app->redirect($app['url_generator']->generate('homepage'));
+        } else {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        }
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
@@ -249,7 +256,7 @@ class SetController implements ControllerProviderInterface
      * Edit action
      *
      * @param Application $app
-     * @param Set int      $id
+     * @param Set int     $id
      * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -262,7 +269,9 @@ class SetController implements ControllerProviderInterface
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
             $username = $app['security.token_storage']->getToken()->getUsername();
-        } else return $app->redirect($app['url_generator']->generate('homepage'));
+        } else {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        }
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
@@ -332,6 +341,7 @@ class SetController implements ControllerProviderInterface
 
             return $app->redirect($app['url_generator']->generate('set_view', ['id' => $id ]));
         }
+
         return $app->redirect($app['url_generator']->generate('set_index'));
     }
 
@@ -352,7 +362,9 @@ class SetController implements ControllerProviderInterface
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
             $username = $app['security.token_storage']->getToken()->getUsername();
-        } else return $app->redirect($app['url_generator']->generate('homepage'));
+        } else {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        }
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
@@ -421,6 +433,7 @@ class SetController implements ControllerProviderInterface
 
                 return $app->redirect($app['url_generator']->generate('set_view', ['id' => $id ]));
         }
+
         return $app->redirect($app['url_generator']->generate('set_index'));
     }
 }

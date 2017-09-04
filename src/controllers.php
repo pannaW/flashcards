@@ -5,6 +5,7 @@ use Controller\FlashcardController;
 use Controller\UserController;
 use Controller\AuthController;
 use Controller\RegisterController;
+
 /**
  * Routing and controllers.
  *

@@ -67,7 +67,9 @@ class FlashcardController implements ControllerProviderInterface
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
                 $username = $app['security.token_storage']->getToken()->getUsername();
-            } else return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                return $app->redirect($app['url_generator']->generate('homepage'));
+            }
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -100,7 +102,9 @@ class FlashcardController implements ControllerProviderInterface
                 $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
                     $username = $app['security.token_storage']->getToken()->getUsername();
-            } else return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                return $app->redirect($app['url_generator']->generate('homepage'));
+            }
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -109,7 +113,7 @@ class FlashcardController implements ControllerProviderInterface
 
             if ($app['security.authorization_checker']->isGranted('ROLE_ADMIN') ||
                 ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY') &&
-                    $setRepository->checkOwnership($flashcard['sets_id'], $user['id']))
+                $setRepository->checkOwnership($flashcard['sets_id'], $user['id']))
             ) {
                 $form = $app['form.factory']
                    ->createBuilder(FlashcardType::class, $flashcard, ['flashcard_repository' => new FlashcardRepository($app['db']),
@@ -161,7 +165,7 @@ class FlashcardController implements ControllerProviderInterface
      * View action
      *
      * @param Application $app
-     * @param int          $id
+     * @param int         $id
      * @return mixed
      */
     public function viewAction(Application $app, $id)
@@ -202,7 +206,9 @@ class FlashcardController implements ControllerProviderInterface
         $token = $app['security.token_storage']->getToken();
         if (null !== $token) {
             $username = $app['security.token_storage']->getToken()->getUsername();
-        } else return $app->redirect($app['url_generator']->generate('homepage'));
+        } else {
+            return $app->redirect($app['url_generator']->generate('homepage'));
+        }
         $userRepository = new UserRepository($app['db']);
         $user = $userRepository->getUserByLogin($username);
 
@@ -224,6 +230,7 @@ class FlashcardController implements ControllerProviderInterface
         } elseif ($app['security.authorization_checker']->isGranted('IS_AUTHENTICATED_FULLY')) {
             return $app->redirect($app['url_generator']->generate('set_index'));
         }
+
         return $app->redirect($app['url_generator']->generate('set_index'));
     }
 
@@ -232,7 +239,7 @@ class FlashcardController implements ControllerProviderInterface
      * Edit action
      *
      * @param Application $app
-     * @param int          $id
+     * @param int         $id
      * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -244,7 +251,9 @@ class FlashcardController implements ControllerProviderInterface
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
                 $username = $app['security.token_storage']->getToken()->getUsername();
-            } else return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                return $app->redirect($app['url_generator']->generate('homepage'));
+            }
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -299,6 +308,7 @@ class FlashcardController implements ControllerProviderInterface
                 return $app->redirect($app['url_generator']->generate('set_index'));
             }
         }
+
         return $app->redirect($app['url_generator']->generate('set_index'));
     }
 
@@ -306,7 +316,7 @@ class FlashcardController implements ControllerProviderInterface
      * Delete action
      *
      * @param Application $app
-     * @param int          $id
+     * @param int         $id
      * @param Request     $request
      * @return \Symfony\Component\HttpFoundation\RedirectResponse
      */
@@ -318,7 +328,9 @@ class FlashcardController implements ControllerProviderInterface
             $token = $app['security.token_storage']->getToken();
             if (null !== $token) {
                 $username = $app['security.token_storage']->getToken()->getUsername();
-            } else return $app->redirect($app['url_generator']->generate('homepage'));
+            } else {
+                return $app->redirect($app['url_generator']->generate('homepage'));
+            }
             $userRepository = new UserRepository($app['db']);
             $user = $userRepository->getUserByLogin($username);
 
@@ -378,6 +390,7 @@ class FlashcardController implements ControllerProviderInterface
                 return $app->redirect($app['url_generator']->generate('set_index'));
             }
         }
+
         return $app->redirect($app['url_generator']->generate('set_index'));
     }
 }
