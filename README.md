@@ -75,8 +75,8 @@ Fill lines with your DB data.
 
 _Login and password to admin account. You should change them after first login._
 
-        login: Admin
-        password: jTE7cm666Xk6
+        login: TestAdmin
+        password: admin121
 
 6# Running app
 
