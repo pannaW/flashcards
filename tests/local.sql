@@ -31,7 +31,7 @@ CREATE TABLE `flashcards` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_flashcards_1_idx` (`sets_id`),
   CONSTRAINT `fk_flashcards_1` FOREIGN KEY (`sets_id`) REFERENCES `sets` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -40,7 +40,7 @@ CREATE TABLE `flashcards` (
 
 LOCK TABLES `flashcards` WRITE;
 /*!40000 ALTER TABLE `flashcards` DISABLE KEYS */;
-INSERT INTO `flashcards` VALUES (1,'Mutter','mother',5),(2,'Vater','fatherek',5),(3,'tienda','shop',1),(4,'ropa','ubrania',1),(5,'barrio','neighbourhood',6),(6,'hija','dother',6),(7,'hijo','son',6);
+INSERT INTO `flashcards` VALUES (1,'Mutter','mother',5),(9,'Pizza','pizza',8),(10,'Tiramisu','deser kawowy',8),(15,'tienda','shop',5),(17,'siostra','idk',5);
 /*!40000 ALTER TABLE `flashcards` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -92,7 +92,7 @@ CREATE TABLE `set_has_tag` (
 
 LOCK TABLES `set_has_tag` WRITE;
 /*!40000 ALTER TABLE `set_has_tag` DISABLE KEYS */;
-INSERT INTO `set_has_tag` VALUES (1,12),(6,2);
+INSERT INTO `set_has_tag` VALUES (16,2),(16,3),(17,4),(3,5),(8,9),(8,8),(5,11);
 /*!40000 ALTER TABLE `set_has_tag` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -114,7 +114,7 @@ CREATE TABLE `sets` (
   UNIQUE KEY `id_UNIQUE` (`id`),
   KEY `fk_sets_1_idx` (`users_id`),
   CONSTRAINT `fk_sets_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=18 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -123,92 +123,8 @@ CREATE TABLE `sets` (
 
 LOCK TABLES `sets` WRITE;
 /*!40000 ALTER TABLE `sets` DISABLE KEYS */;
-INSERT INTO `sets` VALUES (1,2,1,'2017-06-28 17:37:57','2017-06-26 23:19:44','Spanish'),(3,3,0,'2017-06-27 15:17:53','2017-06-27 15:01:46','German'),(4,3,1,'2017-06-27 16:39:02','2017-06-27 15:13:07','Japanease'),(5,2,0,'2017-06-28 17:38:08','2017-06-28 17:38:08','German'),(6,4,1,'2017-06-28 21:44:13','2017-06-28 21:44:13','Spanish');
+INSERT INTO `sets` VALUES (3,1,0,'2017-09-06 11:11:59','2017-06-27 15:01:46','German'),(5,2,1,'2017-09-06 11:16:14','2017-06-28 17:38:08','German'),(8,1,1,'2017-09-06 11:12:24','2017-07-02 23:50:51','Włoski'),(16,1,1,'2017-09-06 11:11:15','2017-08-13 13:28:27','Spanish'),(17,1,0,'2017-09-06 11:11:52','2017-08-13 21:38:37','Hindu');
 /*!40000 ALTER TABLE `sets` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `si_bookmarks`
---
-
-DROP TABLE IF EXISTS `si_bookmarks`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `si_bookmarks` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `created_at` datetime NOT NULL,
-  `modified_at` datetime NOT NULL,
-  `title` varchar(128) NOT NULL,
-  `url` varchar(128) NOT NULL,
-  `is_public` tinyint(3) unsigned NOT NULL DEFAULT '0',
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UQ_bookmarks_1` (`url`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `si_bookmarks`
---
-
-LOCK TABLES `si_bookmarks` WRITE;
-/*!40000 ALTER TABLE `si_bookmarks` DISABLE KEYS */;
-INSERT INTO `si_bookmarks` VALUES (1,'0000-00-00 00:00:00','0000-00-00 00:00:00','PHP manual','http://php.net',0),(2,'0000-00-00 00:00:00','0000-00-00 00:00:00','Twig','http://twig.sensiolags.org',0);
-/*!40000 ALTER TABLE `si_bookmarks` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `si_bookmarks_tags`
---
-
-DROP TABLE IF EXISTS `si_bookmarks_tags`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `si_bookmarks_tags` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `bookmark_id` int(10) unsigned NOT NULL,
-  `tag_id` int(10) unsigned NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UQ_bookmarks_tags_1` (`bookmark_id`,`tag_id`),
-  KEY `FK_bookmarks_tags_1` (`bookmark_id`),
-  KEY `FK_bookmarks_tags_2` (`tag_id`),
-  CONSTRAINT `FK_bookmarks_tags_1` FOREIGN KEY (`bookmark_id`) REFERENCES `si_bookmarks` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION,
-  CONSTRAINT `FK_bookmarks_tags_2` FOREIGN KEY (`tag_id`) REFERENCES `si_tags` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `si_bookmarks_tags`
---
-
-LOCK TABLES `si_bookmarks_tags` WRITE;
-/*!40000 ALTER TABLE `si_bookmarks_tags` DISABLE KEYS */;
-INSERT INTO `si_bookmarks_tags` VALUES (1,1,1),(2,1,2),(7,2,1),(3,2,3),(4,2,4),(5,2,5),(6,2,6);
-/*!40000 ALTER TABLE `si_bookmarks_tags` ENABLE KEYS */;
-UNLOCK TABLES;
-
---
--- Table structure for table `si_tags`
---
-
-DROP TABLE IF EXISTS `si_tags`;
-/*!40101 SET @saved_cs_client     = @@character_set_client */;
-/*!40101 SET character_set_client = utf8 */;
-CREATE TABLE `si_tags` (
-  `id` int(10) unsigned NOT NULL AUTO_INCREMENT,
-  `name` varchar(128) NOT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `UQ_tags_1` (`name`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=latin1;
-/*!40101 SET character_set_client = @saved_cs_client */;
-
---
--- Dumping data for table `si_tags`
---
-
-LOCK TABLES `si_tags` WRITE;
-/*!40000 ALTER TABLE `si_tags` DISABLE KEYS */;
-INSERT INTO `si_tags` VALUES (10,'inny'),(2,'manual'),(12,'new'),(1,'PHP_edited'),(6,'Silex'),(4,'templates'),(7,'test'),(3,'tools'),(5,'Twig_edited');
-/*!40000 ALTER TABLE `si_tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
 --
@@ -223,7 +139,7 @@ CREATE TABLE `tags` (
   `name` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `id_UNIQUE` (`id`)
-) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=12 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -232,7 +148,7 @@ CREATE TABLE `tags` (
 
 LOCK TABLES `tags` WRITE;
 /*!40000 ALTER TABLE `tags` DISABLE KEYS */;
-INSERT INTO `tags` VALUES (1,'anything'),(2,'clothes'),(4,'food'),(5,'verbs'),(6,'random'),(7,'nouns'),(8,'rando'),(9,'body'),(10,'hours'),(11,'days'),(12,'shopping');
+INSERT INTO `tags` VALUES (1,'anything'),(2,'body'),(3,'shopping'),(4,'numbers'),(5,'food'),(6,'unit'),(7,'7'),(8,'revision'),(9,'unit_7'),(10,'clothes'),(11,'family');
 /*!40000 ALTER TABLE `tags` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -252,7 +168,7 @@ CREATE TABLE `users` (
   UNIQUE KEY `login_UNIQUE` (`login`),
   KEY `fk_users_1_idx` (`roles_id`),
   CONSTRAINT `fk_users_1` FOREIGN KEY (`roles_id`) REFERENCES `roles` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -261,7 +177,7 @@ CREATE TABLE `users` (
 
 LOCK TABLES `users` WRITE;
 /*!40000 ALTER TABLE `users` DISABLE KEYS */;
-INSERT INTO `users` VALUES (1,'TestAdmin','$2y$13$HKEDPaxx5CJKCqkcGyqISO.chAi3CavHHMe66YmPLCjFZ5GsLfuNe',1),(2,'TestUser','$2y$13$B0ivUhGZ6fth4FLYMcICt.mgq4MKi8JqdaTYVncrDqgUIzUw6C1Ou',2),(3,'TestAdmin2','$2y$13$8lWcDELLYzDG34Hu2jnDoOsWI5ktKC1CfFJYmS1gGJKudxwnRutD.',1),(4,'TestUser2','$2y$13$rNFtoK9oXy2LM1eHVaCMnePWfutoy.J3m2XiACNKmYrnimSobzyGC',2);
+INSERT INTO `users` VALUES (1,'TestAdmin','$2y$13$HKEDPaxx5CJKCqkcGyqISO.chAi3CavHHMe66YmPLCjFZ5GsLfuNe',1),(2,'TestUser','$2y$13$z8a0jx54A3oj7tlbSQHOdeBHu3Rt/CAgzhPlA7/OdoSlh1ftSopKW',2);
 /*!40000 ALTER TABLE `users` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,7 +198,7 @@ CREATE TABLE `users_data` (
   UNIQUE KEY `email_UNIQUE` (`email`),
   KEY `fk_users_data_1_idx` (`users_id`),
   CONSTRAINT `fk_users_data_1` FOREIGN KEY (`users_id`) REFERENCES `users` (`id`) ON DELETE NO ACTION ON UPDATE NO ACTION
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -291,7 +207,7 @@ CREATE TABLE `users_data` (
 
 LOCK TABLES `users_data` WRITE;
 /*!40000 ALTER TABLE `users_data` DISABLE KEYS */;
-INSERT INTO `users_data` VALUES (1,'User','Userowski','user@example.com',2),(2,'Tester','Testowicz','test@example.com',3),(3,'User','Userowski','user2@example.com',4);
+INSERT INTO `users_data` VALUES (1,'User','Userowski','user@example.com',2),(7,'Admin','Adminowicz','admin@example.com',1);
 /*!40000 ALTER TABLE `users_data` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -304,4 +220,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2017-06-28 23:25:10
+-- Dump completed on 2017-09-06 11:31:17
