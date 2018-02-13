@@ -1,6 +1,14 @@
-# flashcards
+# Flashcards
 
-It helps to collect, organize and revise unfamiliar terms and vocabulary for educational purposes. 
+Fiszki (eng. flashcards) is a web-based application for vocabulary learning, 
+where users can create and manage their own sets of flashcards (private or public) as well as revise them. 
+Admin module is also provided.
+
+## Demo
+
+http://cis.wzks.uj.edu.pl/~15_lucarz/fiszki/
+
+_Currently only Polish translation in UI is developed._
 
 ![alt text](http://cis.wzks.uj.edu.pl/~15_lucarz/img/fiszki1.png)
 _Start the adventure._
@@ -14,19 +22,15 @@ _Add flashcards to sets._
 ![alt text](http://cis.wzks.uj.edu.pl/~15_lucarz/img/fiszki4.png)
 _Revise flashcards._ 
 
-# demo
-
-http://cis.wzks.uj.edu.pl/~15_lucarz/fiszki/
-
-_Currently only Polish translation in UI is developed._
 
 ## Getting Started
 
-These instructions will get you a copy of the project up and running on your local machine for development and testing purposes. 
+These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
+
 
 ### Prerequisites
 
-What things you need to install the software and how to install them
+Install 
 
 ```
 Give examples
