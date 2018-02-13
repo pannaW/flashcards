@@ -73,7 +73,7 @@ Fill lines with your DB data.
 ```
 
 
-_ Login and password to admin account. You should change them after first login._
+_Login and password to admin account. You should change them after first login._
 
         login: Admin
         password: jTE7cm666Xk6
